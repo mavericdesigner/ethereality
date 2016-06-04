@@ -1,0 +1,1 @@
+C:\UJ Solar\Ethereality\Ethereality\Ethereality.csproj;x64

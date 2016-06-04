@@ -1,0 +1,17 @@
+C:\UJ Solar\Ethereality\Ethereality.Status\bin\x64\Debug\Ethereality.Status.dll
+C:\UJ Solar\Ethereality\Ethereality.Status\bin\x64\Debug\Ethereality.Status.pdb
+C:\UJ Solar\Ethereality\Ethereality.Status\bin\x64\Debug\Ethereality.Status.pri
+C:\UJ Solar\Ethereality\Ethereality.Status\obj\x64\Debug\Ethereality.Status.csprojResolveAssemblyReference.cache
+C:\UJ Solar\Ethereality\Ethereality.Status\obj\x64\Debug\Ethereality.Status.dll
+C:\UJ Solar\Ethereality\Ethereality.Status\obj\x64\Debug\Ethereality.Status.pdb
+C:\UJ Solar\Ethereality\Ethereality.Status\obj\x64\Debug\priconfig.xml
+C:\UJ Solar\Ethereality\Ethereality.Status\obj\x64\Debug\priconfig.xml.intermediate
+C:\UJ Solar\Ethereality\Ethereality.Status\obj\x64\Debug\layout.resfiles
+C:\UJ Solar\Ethereality\Ethereality.Status\obj\x64\Debug\layout.resfiles.intermediate
+C:\UJ Solar\Ethereality\Ethereality.Status\obj\x64\Debug\resources.resfiles
+C:\UJ Solar\Ethereality\Ethereality.Status\obj\x64\Debug\resources.resfiles.intermediate
+C:\UJ Solar\Ethereality\Ethereality.Status\obj\x64\Debug\pri.resfiles
+C:\UJ Solar\Ethereality\Ethereality.Status\obj\x64\Debug\pri.resfiles.intermediate
+C:\UJ Solar\Ethereality\Ethereality.Status\obj\x64\Debug\qualifiers.txt
+C:\UJ Solar\Ethereality\Ethereality.Status\obj\x64\Debug\qualifiers.txt.intermediate
+C:\UJ Solar\Ethereality\Ethereality.Status\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
