@@ -1,7 +1,6 @@
 C:\UJ Solar\Ethereality\Ethereality.Charting\bin\x64\Debug\Ethereality.Charting.dll
 C:\UJ Solar\Ethereality\Ethereality.Charting\bin\x64\Debug\Ethereality.Charting.pdb
 C:\UJ Solar\Ethereality\Ethereality.Charting\bin\x64\Debug\Ethereality.Charting.pri
-C:\UJ Solar\Ethereality\Ethereality.Charting\obj\x64\Debug\Ethereality.Charting.csprojResolveAssemblyReference.cache
 C:\UJ Solar\Ethereality\Ethereality.Charting\obj\x64\Debug\Ethereality.Charting.dll
 C:\UJ Solar\Ethereality\Ethereality.Charting\obj\x64\Debug\Ethereality.Charting.pdb
 C:\UJ Solar\Ethereality\Ethereality.Charting\obj\x64\Debug\priconfig.xml

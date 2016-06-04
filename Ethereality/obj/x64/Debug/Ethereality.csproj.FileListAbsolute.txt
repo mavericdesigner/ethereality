@@ -34,6 +34,7 @@ C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\GalaSoft.MvvmLight.Platform.dl
 C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\GalaSoft.MvvmLight.Platform.pdb
 C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\GalaSoft.MvvmLight.dll
 C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\GalaSoft.MvvmLight.pdb
+C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\System.Private.DataContractSerialization.dll
 C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\System.AppContext.dll
 C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\System.Collections.dll
 C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\System.Collections.Concurrent.dll
@@ -75,7 +76,6 @@ C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\System.Net.WebHeaderCollection
 C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\System.Numerics.Vectors.dll
 C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\System.Numerics.Vectors.WindowsRuntime.dll
 C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\System.ObjectModel.dll
-C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\System.Private.DataContractSerialization.dll
 C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\System.Private.Networking.dll
 C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\System.Private.ServiceModel.dll
 C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\System.Private.Uri.dll
@@ -142,6 +142,7 @@ C:\UJ Solar\Ethereality\Ethereality\obj\x64\Debug\Ethereality.pdb
 C:\UJ Solar\Ethereality\Ethereality\obj\x64\Debug\ResourceHandlingTask.state
 C:\UJ Solar\Ethereality\Ethereality\obj\x64\Debug\FxResources.Microsoft.CSharp.SR.resw
 C:\UJ Solar\Ethereality\Ethereality\obj\x64\Debug\FxResources.Microsoft.VisualBasic.SR.resw
+C:\UJ Solar\Ethereality\Ethereality\obj\x64\Debug\FxResources.System.Private.DataContractSerialization.SR.resw
 C:\UJ Solar\Ethereality\Ethereality\obj\x64\Debug\FxResources.System.AppContext.SR.resw
 C:\UJ Solar\Ethereality\Ethereality\obj\x64\Debug\FxResources.System.Collections.SR.resw
 C:\UJ Solar\Ethereality\Ethereality\obj\x64\Debug\FxResources.System.Collections.Concurrent.SR.resw
@@ -169,7 +170,6 @@ C:\UJ Solar\Ethereality\Ethereality\obj\x64\Debug\FxResources.System.Net.Request
 C:\UJ Solar\Ethereality\Ethereality\obj\x64\Debug\FxResources.System.Net.WebHeaderCollection.SR.resw
 C:\UJ Solar\Ethereality\Ethereality\obj\x64\Debug\FxResources.System.Numerics.Vectors.SR.resw
 C:\UJ Solar\Ethereality\Ethereality\obj\x64\Debug\FxResources.System.ObjectModel.SR.resw
-C:\UJ Solar\Ethereality\Ethereality\obj\x64\Debug\FxResources.System.Private.DataContractSerialization.SR.resw
 C:\UJ Solar\Ethereality\Ethereality\obj\x64\Debug\FxResources.System.Private.Networking.SR.resw
 C:\UJ Solar\Ethereality\Ethereality\obj\x64\Debug\FxResources.System.Private.ServiceModel.SR.resw
 C:\UJ Solar\Ethereality\Ethereality\obj\x64\Debug\FxResources.System.Private.Uri.SR.resw

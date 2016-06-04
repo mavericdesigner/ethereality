@@ -1,7 +1,6 @@
 C:\UJ Solar\Ethereality\Ethereality.DataManagement\bin\x64\Debug\Ethereality.DataManagement.dll
 C:\UJ Solar\Ethereality\Ethereality.DataManagement\bin\x64\Debug\Ethereality.DataManagement.pdb
 C:\UJ Solar\Ethereality\Ethereality.DataManagement\bin\x64\Debug\Ethereality.DataManagement.pri
-C:\UJ Solar\Ethereality\Ethereality.DataManagement\obj\x64\Debug\Ethereality.DataManagement.csprojResolveAssemblyReference.cache
 C:\UJ Solar\Ethereality\Ethereality.DataManagement\obj\x64\Debug\Ethereality.DataManagement.dll
 C:\UJ Solar\Ethereality\Ethereality.DataManagement\obj\x64\Debug\Ethereality.DataManagement.pdb
 C:\UJ Solar\Ethereality\Ethereality.DataManagement\obj\x64\Debug\priconfig.xml

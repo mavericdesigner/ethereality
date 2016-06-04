@@ -115,7 +115,7 @@ namespace Ethereality.ViewModel
         {
             _dataService = dataService;
             _navigationService = navigationService;
-            Initialize();
+             Initialize().Wait();
         }
 
         public void RunClock()

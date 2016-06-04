@@ -1,7 +1,6 @@
 C:\UJ Solar\Ethereality\Ethereality.Navigation\bin\x64\Debug\Ethereality.Navigation.dll
 C:\UJ Solar\Ethereality\Ethereality.Navigation\bin\x64\Debug\Ethereality.Navigation.pdb
 C:\UJ Solar\Ethereality\Ethereality.Navigation\bin\x64\Debug\Ethereality.Navigation.pri
-C:\UJ Solar\Ethereality\Ethereality.Navigation\obj\x64\Debug\Ethereality.Navigation.csprojResolveAssemblyReference.cache
 C:\UJ Solar\Ethereality\Ethereality.Navigation\obj\x64\Debug\Ethereality.Navigation.dll
 C:\UJ Solar\Ethereality\Ethereality.Navigation\obj\x64\Debug\Ethereality.Navigation.pdb
 C:\UJ Solar\Ethereality\Ethereality.Navigation\obj\x64\Debug\priconfig.xml

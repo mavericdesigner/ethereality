@@ -1,7 +1,6 @@
 C:\UJ Solar\Ethereality\Ethereality.UDP\bin\x64\Debug\Ethereality.UDP.dll
 C:\UJ Solar\Ethereality\Ethereality.UDP\bin\x64\Debug\Ethereality.UDP.pdb
 C:\UJ Solar\Ethereality\Ethereality.UDP\bin\x64\Debug\Ethereality.UDP.pri
-C:\UJ Solar\Ethereality\Ethereality.UDP\obj\x64\Debug\Ethereality.UDP.csprojResolveAssemblyReference.cache
 C:\UJ Solar\Ethereality\Ethereality.UDP\obj\x64\Debug\Ethereality.UDP.dll
 C:\UJ Solar\Ethereality\Ethereality.UDP\obj\x64\Debug\Ethereality.UDP.pdb
 C:\UJ Solar\Ethereality\Ethereality.UDP\obj\x64\Debug\priconfig.xml
