@@ -147,6 +147,36 @@
       <Name>BehaviorsXamlSDKManaged</Name>
     </SDKReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ethereality.Charting\Ethereality.Charting.csproj">
+      <Project>{6f91183c-8922-4489-b7fb-f7a53783d7ff}</Project>
+      <Name>Ethereality.Charting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ethereality.DataManagement\Ethereality.DataManagement.csproj">
+      <Project>{0e73e64c-a0f9-451f-9898-f7dad288b707}</Project>
+      <Name>Ethereality.DataManagement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ethereality.Meteorology\Ethereality.Meteorology.csproj">
+      <Project>{7cc7f97d-1620-480c-89e6-0d7126bb66ce}</Project>
+      <Name>Ethereality.Meteorology</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ethereality.Navigation\Ethereality.Navigation.csproj">
+      <Project>{55ffb72e-6504-442a-a136-027c70e05980}</Project>
+      <Name>Ethereality.Navigation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ethereality.Status\Ethereality.Status.csproj">
+      <Project>{1fa71d68-47a8-4c70-924a-cb8e425adef4}</Project>
+      <Name>Ethereality.Status</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ethereality.UDP\Ethereality.UDP.csproj">
+      <Project>{3fe78c1e-4ad9-4ed8-b6cf-847bd8d377d0}</Project>
+      <Name>Ethereality.UDP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ethreality.Luminescence\Ethereality.Strategy.csproj">
+      <Project>{1fb44f87-1df0-48c1-858d-a0f6d572cc17}</Project>
+      <Name>Ethereality.Strategy</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
