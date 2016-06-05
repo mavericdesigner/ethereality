@@ -1,0 +1,11 @@
+C:\UJ Solar\Ethereality\Ethereality.Charting\Ethereality.Charting.csproj;x64
+C:\UJ Solar\Ethereality\Ethereality.DataManagement\Ethereality.DataManagement.csproj;x64
+C:\UJ Solar\Ethereality\Ethereality.DataTypes\Ethereality.CustomTypes.csproj;x64
+C:\UJ Solar\Ethereality\Ethereality.FileService\Ethereality.FileService.csproj;x64
+C:\UJ Solar\Ethereality\Ethereality.Meteorology\Ethereality.Meteorology.csproj;x64
+C:\UJ Solar\Ethereality\Ethereality.Navigation\Ethereality.Navigation.csproj;x64
+C:\UJ Solar\Ethereality\Ethereality.Status\Ethereality.Status.csproj;x64
+C:\UJ Solar\Ethereality\Ethereality.UDP\Ethereality.UDP.csproj;x64
+C:\UJ Solar\Ethereality\Ethereality\Ethereality.csproj;x64
+C:\UJ Solar\Ethereality\Etheriality.Constants\Etheriality.Constants.csproj;x64
+C:\UJ Solar\Ethereality\Ethreality.Luminescence\Ethereality.Strategy.csproj;x64

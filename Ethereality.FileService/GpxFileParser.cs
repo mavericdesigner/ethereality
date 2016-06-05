@@ -6,21 +6,23 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 using Ethereality.CustomTypes;
+using Windows.UI.Popups;
+using System.Threading.Tasks;
 
 namespace Ethereality.FileService
 {
     public class GpxFileParser
     {
-        #region GpxFileName
+     
         public string GpxFilename { get; set; }
         public string[] GpxFileNames { get; set; }
         public List<Waypoint> RouteCoordinatePoints { get; set; }
-     
+
 
         private void SelectFile()
         {
             FileHandling filehandling = new FileHandling();
-            GpxFilename = filehandling.OpenFile();
+            GpxFilename = filehandling.SingleFileName;
         }
 
         /// <summary>
@@ -95,12 +97,13 @@ namespace Ethereality.FileService
         /// <param name="sFile">Fully qualified file name (local)</param>
         /// <returns>string containing line delimited waypoints from the
         /// file (for test)</returns>
-        private void LoadGPXTracks(string sFile)
+        private async Task LoadGPXTracks(string sFile)
         {
             XDocument gpxDoc = GetGpxDoc(sFile);
             XNamespace gpx = GetGpxNameSpace();
             try
             {
+
                 var tracks = from track in gpxDoc.Descendants(gpx + "trk")
                              select new
                              {
@@ -138,7 +141,8 @@ namespace Ethereality.FileService
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageDialog msg = new MessageDialog(e.Message);
+                await msg.ShowAsync();
             }
         }
 
@@ -146,10 +150,10 @@ namespace Ethereality.FileService
         /// Gets Route Coordinate Data From Gpx file
         /// </summary>
         /// <returns></returns>
-        public List<Waypoint> GetGpxCoordinateData()
+        public async Task<List<Waypoint>> GetGpxCoordinateData()
         {
             SelectFile();
-            LoadGPXTracks(GpxFilename);
+            await LoadGPXTracks(GpxFilename);
             string json = JsonConvert.SerializeObject(RouteCoordinatePoints, Formatting.Indented);
             return RouteCoordinatePoints;
         }

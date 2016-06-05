@@ -1,7 +1,6 @@
 C:\UJ Solar\Ethereality\Ethereality.DataTypes\bin\x64\Debug\Ethereality.DataTypes.dll
 C:\UJ Solar\Ethereality\Ethereality.DataTypes\bin\x64\Debug\Ethereality.DataTypes.pdb
 C:\UJ Solar\Ethereality\Ethereality.DataTypes\bin\x64\Debug\Ethereality.DataTypes.pri
-C:\UJ Solar\Ethereality\Ethereality.DataTypes\obj\x64\Debug\Ethereality.CustomTypes.csprojResolveAssemblyReference.cache
 C:\UJ Solar\Ethereality\Ethereality.DataTypes\obj\x64\Debug\Ethereality.DataTypes.dll
 C:\UJ Solar\Ethereality\Ethereality.DataTypes\obj\x64\Debug\Ethereality.DataTypes.pdb
 C:\UJ Solar\Ethereality\Ethereality.DataTypes\obj\x64\Debug\priconfig.xml

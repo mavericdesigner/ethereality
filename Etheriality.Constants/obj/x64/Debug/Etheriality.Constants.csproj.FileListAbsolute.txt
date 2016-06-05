@@ -1,0 +1,16 @@
+C:\UJ Solar\Ethereality\Etheriality.Constants\bin\x64\Debug\Etheriality.Constants.dll
+C:\UJ Solar\Ethereality\Etheriality.Constants\bin\x64\Debug\Etheriality.Constants.pdb
+C:\UJ Solar\Ethereality\Etheriality.Constants\bin\x64\Debug\Etheriality.Constants.pri
+C:\UJ Solar\Ethereality\Etheriality.Constants\obj\x64\Debug\Etheriality.Constants.dll
+C:\UJ Solar\Ethereality\Etheriality.Constants\obj\x64\Debug\Etheriality.Constants.pdb
+C:\UJ Solar\Ethereality\Etheriality.Constants\obj\x64\Debug\priconfig.xml
+C:\UJ Solar\Ethereality\Etheriality.Constants\obj\x64\Debug\priconfig.xml.intermediate
+C:\UJ Solar\Ethereality\Etheriality.Constants\obj\x64\Debug\layout.resfiles
+C:\UJ Solar\Ethereality\Etheriality.Constants\obj\x64\Debug\layout.resfiles.intermediate
+C:\UJ Solar\Ethereality\Etheriality.Constants\obj\x64\Debug\resources.resfiles
+C:\UJ Solar\Ethereality\Etheriality.Constants\obj\x64\Debug\resources.resfiles.intermediate
+C:\UJ Solar\Ethereality\Etheriality.Constants\obj\x64\Debug\pri.resfiles
+C:\UJ Solar\Ethereality\Etheriality.Constants\obj\x64\Debug\pri.resfiles.intermediate
+C:\UJ Solar\Ethereality\Etheriality.Constants\obj\x64\Debug\qualifiers.txt
+C:\UJ Solar\Ethereality\Etheriality.Constants\obj\x64\Debug\qualifiers.txt.intermediate
+C:\UJ Solar\Ethereality\Etheriality.Constants\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt

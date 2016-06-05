@@ -1,4 +1,4 @@
-﻿namespace Isis.Model.Route
+﻿namespace Ethereality.Navigation
 {
     public class RouteItem
     {

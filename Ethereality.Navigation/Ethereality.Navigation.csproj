@@ -124,6 +124,10 @@
       <Project>{fb0c3f63-e329-4c42-9d50-4247d140ee53}</Project>
       <Name>Ethereality.FileService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Etheriality.Constants\Etheriality.Constants.csproj">
+      <Project>{9d41e1c3-63b2-47f0-86d7-4b7a054df3a2}</Project>
+      <Name>Etheriality.Constants</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

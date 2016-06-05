@@ -1,7 +1,6 @@
 C:\UJ Solar\Ethereality\Ethereality.Meteorology\bin\x64\Debug\Ethereality.Meteorology.dll
 C:\UJ Solar\Ethereality\Ethereality.Meteorology\bin\x64\Debug\Ethereality.Meteorology.pdb
 C:\UJ Solar\Ethereality\Ethereality.Meteorology\bin\x64\Debug\Ethereality.Meteorology.pri
-C:\UJ Solar\Ethereality\Ethereality.Meteorology\obj\x64\Debug\Ethereality.Meteorology.csprojResolveAssemblyReference.cache
 C:\UJ Solar\Ethereality\Ethereality.Meteorology\obj\x64\Debug\Ethereality.Meteorology.dll
 C:\UJ Solar\Ethereality\Ethereality.Meteorology\obj\x64\Debug\Ethereality.Meteorology.pdb
 C:\UJ Solar\Ethereality\Ethereality.Meteorology\obj\x64\Debug\priconfig.xml

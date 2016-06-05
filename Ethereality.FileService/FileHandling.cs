@@ -2,30 +2,31 @@
 
 
 using System.Threading.Tasks;
-using Windows.Foundation;
+using System.Linq;
 using Windows.Storage;
 using Windows.Storage.Pickers;
+using System.Collections.Generic;
 
 namespace Ethereality.FileService
 {
     public class FileHandling
     {
-        public  StorageFile OpenFile()
+        public  async Task<StorageFile> OpenSingleFile()
         {
             FileOpenPicker openFile = new FileOpenPicker();
-            var result = new Task<StorageFile>( ()=>openFile.PickSingleFileAsync().GetResults() );
-            result.Wait();
+            Task<StorageFile> pickfileTask = new Task<StorageFile>( ()=>openFile.PickSingleFileAsync().GetResults() );
+            StorageFile result = await pickfileTask;
 
-            return result.Result;
+            return result;
         }
 
-        public string[] OpenFiles()
+        public async Task<List<StorageFile>> OpenMultiFiles()
         {
-            OpenFileDialog openFile = new OpenFileDialog();
-            openFile.ShowDialog();
-            MultipleFileNames = openFile.FileNames;
+            FileOpenPicker openFile = new FileOpenPicker();
+            Task<IReadOnlyList<StorageFile>> pickMultiFileTask = new Task<IReadOnlyList<StorageFile>>(() =>openFile.PickMultipleFilesAsync().GetResults());
+            IReadOnlyList<StorageFile> result= await pickMultiFileTask;
 
-            return MultipleFileNames;
+            return result.ToList();
         }
 
         public void CloseFile(string filename)

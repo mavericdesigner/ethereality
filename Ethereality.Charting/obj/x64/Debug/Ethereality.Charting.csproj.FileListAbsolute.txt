@@ -4,7 +4,6 @@ C:\UJ Solar\Ethereality\Ethereality.Charting\bin\x64\Debug\Ethereality.Charting.
 C:\UJ Solar\Ethereality\Ethereality.Charting\bin\x64\Debug\Syncfusion.SfChart.UWP.dll
 C:\UJ Solar\Ethereality\Ethereality.Charting\bin\x64\Debug\Syncfusion.SfChart.UWP.xml
 C:\UJ Solar\Ethereality\Ethereality.Charting\bin\x64\Debug\Syncfusion.SfChart.UWP.pri
-C:\UJ Solar\Ethereality\Ethereality.Charting\obj\x64\Debug\Ethereality.Charting.csprojResolveAssemblyReference.cache
 C:\UJ Solar\Ethereality\Ethereality.Charting\obj\x64\Debug\Ethereality.Charting.dll
 C:\UJ Solar\Ethereality\Ethereality.Charting\obj\x64\Debug\Ethereality.Charting.pdb
 C:\UJ Solar\Ethereality\Ethereality.Charting\obj\x64\Debug\priconfig.xml

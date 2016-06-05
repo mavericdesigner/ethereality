@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Isis.Model.Route
+namespace Ethereality.Navigation
 {
     public interface IRouteService
     {

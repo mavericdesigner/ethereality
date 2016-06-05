@@ -1,7 +1,6 @@
 C:\UJ Solar\Ethereality\SPA\bin\x64\Debug\SPA.dll
 C:\UJ Solar\Ethereality\SPA\bin\x64\Debug\SPA.pdb
 C:\UJ Solar\Ethereality\SPA\bin\x64\Debug\SPA.pri
-C:\UJ Solar\Ethereality\SPA\obj\x64\Debug\SPA.csprojResolveAssemblyReference.cache
 C:\UJ Solar\Ethereality\SPA\obj\x64\Debug\SPA.dll
 C:\UJ Solar\Ethereality\SPA\obj\x64\Debug\SPA.pdb
 C:\UJ Solar\Ethereality\SPA\obj\x64\Debug\priconfig.xml

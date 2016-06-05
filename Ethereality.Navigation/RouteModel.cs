@@ -1,36 +1,27 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using Ethereality.FileService;
 using Ethereality.CustomTypes;
+
 namespace Ethereality.Navigation
 {
-   
+    using Constants;
+    using System.Threading.Tasks;
     public class RouteModel 
     {
       
-
+       
      
         public Waypoint CoordinatePoint { get; set; }
       
-      
-
-       
         public List<Waypoint> CoordinatePointsList { get; set; }
-    
-
      
         public RouteSegmentVector PostionSegment { get; set; }
-    
-
-   
-
-      
+       
         public List<RouteSegmentVector> RouteSegmentVectors { get; set; }
    
-
         public RouteModel()
         {
             CoordinatePoint = new Waypoint();
@@ -176,34 +167,37 @@ namespace Ethereality.Navigation
 
         #endregion Segment Vector Method
 
-        public void EntireRouteSegmentCalculation()
+        public async Task EntireRouteSegmentCalculation()
         {
             GpxFileParser GpxFileParse = new GpxFileParser();
-            CoordinatePointsList= GpxFileParse.GetGpxCoordinateData();
+            CoordinatePointsList= await GpxFileParse.GetGpxCoordinateData();
 
             int i = 0;
             int j = 1;
             double TotalDistance = 0;
+            Task routeSegmentTask = new Task(() =>
+             {
+                 while (j < CoordinatePointsList.Count())
+                 {
+                     Waypoint p1 = new Waypoint();
+                     Waypoint p2 = new Waypoint();
 
-            while (j < CoordinatePointsList.Count())
-            {
-                Waypoint p1 = new Waypoint();
-                Waypoint p2 = new Waypoint();
+                     RouteSegmentVector routevector = new RouteSegmentVector();
 
-                RouteSegmentVector routevector = new RouteSegmentVector();
+                     p1 = CoordinatePointsList[i];
+                     p2 = CoordinatePointsList[j];
+                     routevector = SegmentCalculations(p1, p2);
+                     TotalDistance += routevector.GCD;
+                     routevector.AccumulativeGCD = TotalDistance;
+                     routevector.Elevation = routevector.point1.Elevation;
+                     routevector.Index = i;
 
-                p1 = CoordinatePointsList[i];
-                p2 = CoordinatePointsList[j];
-                routevector = SegmentCalculations(p1, p2);
-                TotalDistance += routevector.GCD;
-                routevector.AccumulativeGCD = TotalDistance;
-                routevector.Elevation = routevector.point1.Elevation;
-                routevector.Index = i;
-
-                RouteSegmentVectors.Add(routevector);
-                ++i;
-                ++j;
-            }
+                     RouteSegmentVectors.Add(routevector);
+                     ++i;
+                     ++j;
+                 }
+             });
+            routeSegmentTask.GetAwaiter();
 
         }
     }
