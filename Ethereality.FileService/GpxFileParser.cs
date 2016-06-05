@@ -4,8 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Windows;
 using System.Xml.Linq;
+using Ethereality.CustomTypes;
 
 namespace Ethereality.FileService
 {
@@ -14,7 +14,7 @@ namespace Ethereality.FileService
         #region GpxFileName
         public string GpxFilename { get; set; }
         public string[] GpxFileNames { get; set; }
-        public ICollection<Waypoint> RouteCoordinatePoints { get; set; }
+        public List<Waypoint> RouteCoordinatePoints { get; set; }
      
 
         private void SelectFile()
@@ -146,12 +146,10 @@ namespace Ethereality.FileService
         /// Gets Route Coordinate Data From Gpx file
         /// </summary>
         /// <returns></returns>
-        public ICollection<Waypoint> GetGpxCoordinateData()
+        public List<Waypoint> GetGpxCoordinateData()
         {
-            ICollection<Waypoint> RouteCoordinatePoints;
             SelectFile();
             LoadGPXTracks(GpxFilename);
-            RouteCoordinatePoints = RouteCoordinatePoints;
             string json = JsonConvert.SerializeObject(RouteCoordinatePoints, Formatting.Indented);
             return RouteCoordinatePoints;
         }

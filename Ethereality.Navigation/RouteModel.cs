@@ -1,214 +1,43 @@
-﻿using GalaSoft.MvvmLight;
+﻿
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-
-namespace Isis.Model.Route
+using Ethereality.FileService;
+using Ethereality.CustomTypes;
+namespace Ethereality.Navigation
 {
-    internal enum Rating { Poor, Average, Okay, Good, Excellent }
-
-    public enum PointControl
+   
+    public class RouteModel 
     {
-        Start,
-        ControlStop,
-        End,
-        LoopStart,
-        LoopEnd
-    }
+      
 
-    /// <summary>
-    /// Route Coordinate Information
-    /// </summary>
-    ///
+     
+        public Waypoint CoordinatePoint { get; set; }
+      
+      
 
-    public struct Waypoint
-    {
-        public int index { get; set; }
+       
+        public List<Waypoint> CoordinatePointsList { get; set; }
+    
 
-        public double Latitude { get; set; }
+     
+        public RouteSegmentVector PostionSegment { get; set; }
+    
 
-        public double Longitude { get; set; }
+   
 
-        public double Elevation { get; set; }
-
-        public PointControl PointType { get; set; }
-    }
-
-    /// <summary>
-    /// Route Information between two points.
-    /// </summary>
-    public struct RouteSegmentVector
-    {
-        public int Index { get; set; }
-
-        public Waypoint point1 { get; set; }
-
-        public Waypoint point2 { get; set; }
-
-        public double Azimuth { get; set; }
-
-        public double Slope { get; set; }
-
-        public double GCD { get; set; }
-
-        public double Elevation { get; set; }
-
-        public double AccumulativeGCD { get; set; }
-    }
-
-    /// <summary>
-    /// Summary of Route Quality
-    /// </summary>
-    //struct RouteSurface
-    //{
-    //    bool Potholes;
-    //    Rating RouteQuality;
-
-    //}
-    public class RouteModel : ObservableObject
-    {
-        #region Waypoint
-
-        /// <summary>
-        /// The <see cref="CoordinatePoint" /> property's name.
-        /// </summary>
-        public const string CoordinatePointPropertyName = "CoordinatePoint";
-
-        private Waypoint _coordinatePoint;
-
-        /// <summary>
-        /// Sets and gets the CoordinatePoint property.
-        /// Changes to that property's value raise the PropertyChanged event.
-        /// </summary>
-        public Waypoint CoordinatePoint
-        {
-            get
-            {
-                return _coordinatePoint;
-            }
-
-            set
-            {
-                if (_coordinatePoint.Equals(value))
-                {
-                    return;
-                }
-
-                RaisePropertyChanging(CoordinatePointPropertyName);
-                _coordinatePoint = value;
-                RaisePropertyChanged(CoordinatePointPropertyName);
-            }
-        }
-
-        #endregion Waypoint
-
-        #region CoordinatePoints
-
-        /// <summary>
-        /// The <see cref="CoordinatePointsList" /> property's name.
-        /// </summary>
-        public const string CoordinatePointsListPropertyName = "CoordinatePointsList";
-
-        private FastObservableCollection<Waypoint> _coordinatePointList;
-
-        /// <summary>
-        /// Sets and gets the CoordinatePointsList property.
-        /// Changes to that property's value raise the PropertyChanged event.
-        /// </summary>
-        public FastObservableCollection<Waypoint> CoordinatePointsList
-        {
-            get
-            {
-                return _coordinatePointList;
-            }
-
-            set
-            {
-                if (_coordinatePointList.Equals(value))
-                {
-                    return;
-                }
-
-                RaisePropertyChanging(CoordinatePointsListPropertyName);
-                _coordinatePointList = value;
-                RaisePropertyChanged(CoordinatePointsListPropertyName);
-            }
-        }
-
-        #endregion CoordinatePoints
-
-        #region RouteSegment
-
-        /// <summary>
-        /// The <see cref="PostionSegment" /> property's name.
-        /// </summary>
-        public const string PostionSegmentPropertyName = "PostionSegment";
-
-        private RouteSegmentVector _positionSegment;
-
-        /// <summary>
-        /// Sets and gets the PostionSegment property.
-        /// Changes to that property's value raise the PropertyChanged event.
-        /// </summary>
-        public RouteSegmentVector PostionSegment
-        {
-            get
-            {
-                return _positionSegment;
-            }
-
-            set
-            {
-                RaisePropertyChanging(PostionSegmentPropertyName);
-                _positionSegment = value;
-                RaisePropertyChanged(PostionSegmentPropertyName);
-            }
-        }
-
-        /// <summary>
-        /// Calculates Segemet characterisitics, Slope GCD Bearing
-        /// </summary>
-
-        #endregion RouteSegment
-
-        #region RouteSegmentVectors
-
-        /// <summary>
-        /// The <see cref="RouteSegmentVectors" /> property's name.
-        /// </summary>
-        public const string RouteSegmentVectorsPropertyName = "RouteSegmentVectors";
-
-        private FastObservableCollection<RouteSegmentVector> _routeSegmentVectors;
-
-        /// <summary>
-        /// Sets and gets the RouteSegmentVectors property.
-        /// Changes to that property's value raise the PropertyChanged event.
-        /// </summary>
-        public FastObservableCollection<RouteSegmentVector> RouteSegmentVectors
-        {
-            get
-            {
-                return _routeSegmentVectors;
-            }
-
-            set
-            {
-                if (_routeSegmentVectors == value)
-                {
-                    return;
-                }
-
-                _routeSegmentVectors = value;
-            }
-        }
-
-        #endregion RouteSegmentVectors
+      
+        public List<RouteSegmentVector> RouteSegmentVectors { get; set; }
+   
 
         public RouteModel()
         {
-            _coordinatePoint = new Waypoint();
-            _coordinatePointList = new FastObservableCollection<Waypoint>();
-            _positionSegment = new RouteSegmentVector();
-            _routeSegmentVectors = new FastObservableCollection<RouteSegmentVector>();
+            CoordinatePoint = new Waypoint();
+            CoordinatePointsList = new List<Waypoint>();
+            PostionSegment= new RouteSegmentVector();
+            RouteSegmentVectors= new List<RouteSegmentVector>();
+         
         }
 
         #region PointDifference Method
@@ -349,35 +178,33 @@ namespace Isis.Model.Route
 
         public void EntireRouteSegmentCalculation()
         {
-            GpxFileParser gpxFileParse = new GpxFileParser();
-            _coordinatePointList = gpxFileParse.GetGpxCoordinateData();
+            GpxFileParser GpxFileParse = new GpxFileParser();
+            CoordinatePointsList= GpxFileParse.GetGpxCoordinateData();
 
-            CoordinatePointsList = _coordinatePointList;
             int i = 0;
             int j = 1;
             double TotalDistance = 0;
 
-            while (j < _coordinatePointList.Count())
+            while (j < CoordinatePointsList.Count())
             {
                 Waypoint p1 = new Waypoint();
                 Waypoint p2 = new Waypoint();
 
                 RouteSegmentVector routevector = new RouteSegmentVector();
 
-                p1 = _coordinatePointList[i];
-                p2 = _coordinatePointList[j];
+                p1 = CoordinatePointsList[i];
+                p2 = CoordinatePointsList[j];
                 routevector = SegmentCalculations(p1, p2);
                 TotalDistance += routevector.GCD;
                 routevector.AccumulativeGCD = TotalDistance;
                 routevector.Elevation = routevector.point1.Elevation;
                 routevector.Index = i;
 
-                _routeSegmentVectors.Add(routevector);
+                RouteSegmentVectors.Add(routevector);
                 ++i;
                 ++j;
             }
 
-            RouteSegmentVectors = _routeSegmentVectors;
         }
     }
 }

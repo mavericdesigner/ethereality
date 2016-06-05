@@ -115,6 +115,16 @@
     <Compile Include="RouteService.cs" />
     <EmbeddedResource Include="Properties\Ethereality.Navigation.rd.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ethereality.DataTypes\Ethereality.CustomTypes.csproj">
+      <Project>{11998f3d-09d3-44ca-8552-b757c1e9365c}</Project>
+      <Name>Ethereality.CustomTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ethereality.FileService\Ethereality.FileService.csproj">
+      <Project>{fb0c3f63-e329-4c42-9d50-4247d140ee53}</Project>
+      <Name>Ethereality.FileService</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
