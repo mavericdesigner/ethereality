@@ -1,11 +1,10 @@
 ﻿using Ethereality.CustomTypes;
-
+using Etheriality.Constants;
 using SPA;
 using System;
 using System.Collections.ObjectModel;
-using System.Linq;
-using Etheriality.Constants;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using Windows.UI.Core;
 
@@ -77,6 +76,7 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
     public class OptimalDrivingStrategy : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
         #region Fields
 
         /// <summary>
@@ -186,7 +186,6 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
                     return;
                 }
 
-               
                 _brightnessFactor = value;
                 NotifyPropertyChanged(BrightnessFactorPropertyName);
             }
@@ -210,7 +209,6 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
                     return;
                 }
 
-              
                 _combinedTrack = value;
                 NotifyPropertyChanged(CombinedTrackPropertyName);
             }
@@ -238,7 +236,6 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
                     return;
                 }
 
-              
                 _finishTime = value;
                 NotifyPropertyChanged(FinishTimePropertyName);
             }
@@ -262,7 +259,6 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
                     return;
                 }
 
-               
                 _initialArraySet = value;
                 NotifyPropertyChanged(InitialArraySetPropertyName);
             }
@@ -286,7 +282,6 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
                     return;
                 }
 
-              
                 _numberOfLoops = value;
                 NotifyPropertyChanged(NumberOfLoopsPropertyName);
             }
@@ -333,7 +328,6 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
                     return;
                 }
 
-             
                 _solarModel = value;
                 NotifyPropertyChanged(SolarModelPropertyName);
             }
@@ -357,7 +351,6 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
                     return;
                 }
 
-                
                 _solarModelCollection = value;
                 NotifyPropertyChanged(SolarModelCollectionPropertyName);
             }
@@ -381,7 +374,6 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
                     return;
                 }
 
-               
                 _solarModelService = value;
                 NotifyPropertyChanged(SolarModelServicePropertyName);
             }
@@ -405,7 +397,6 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
                     return;
                 }
 
-          
                 _track = value;
                 NotifyPropertyChanged(TrackPropertyName);
             }
@@ -429,7 +420,6 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
                     return;
                 }
 
-           
                 _trackLoop = value;
                 NotifyPropertyChanged(TrackLoopPropertyName);
             }
@@ -453,7 +443,6 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
                     return;
                 }
 
-        
                 _vehicleState = value;
                 NotifyPropertyChanged(VehicleStatePropertyName);
             }
@@ -477,7 +466,6 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
                     return;
                 }
 
-             
                 _vehicleStates = value;
                 NotifyPropertyChanged(VehicleStatesPropertyName);
             }
@@ -501,7 +489,6 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
                     return;
                 }
 
-            
                 _velocityReference = value;
                 NotifyPropertyChanged(VelocityReferencePropertyName);
             }
@@ -527,7 +514,6 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
         }
 
         #endregion Constructors
-
 
         #region Methods
 
@@ -595,7 +581,6 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
                             {
                                 _combinedTrack.Add(item);
                             }
-                            
                         }
                     }
                     _combinedTrack.Add(point);
@@ -603,7 +588,7 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
             }
             catch (Exception e)
             {
-               // MessageBox.Show(e.Message);
+                // MessageBox.Show(e.Message);
             }
         }
 
@@ -794,6 +779,7 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
         }
 
         #endregion Methods
+
         private async void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             if (PropertyChanged != null)
@@ -803,6 +789,5 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
                  () => PropertyChanged(this, new PropertyChangedEventArgs(propertyName)));
             }
         }
-        
     }
 }

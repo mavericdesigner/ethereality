@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ethereality.CustomTypes
+﻿namespace Ethereality.CustomTypes
 {
     internal enum Rating { Poor, Average, Okay, Good, Excellent }
 
@@ -66,5 +60,4 @@ namespace Ethereality.CustomTypes
     //    Rating RouteQuality;
 
     //}
-    
 }

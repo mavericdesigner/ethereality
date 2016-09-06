@@ -1,23 +1,20 @@
-﻿
+﻿using Ethereality.CustomTypes;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Xml.Linq;
-using Ethereality.CustomTypes;
-using Windows.UI.Popups;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using Windows.UI.Popups;
 
 namespace Ethereality.FileService
 {
     public class GpxFileParser
     {
-     
         public string GpxFilename { get; set; }
         public string[] GpxFileNames { get; set; }
         public List<Waypoint> RouteCoordinatePoints { get; set; }
-
 
         private void SelectFile()
         {
@@ -103,7 +100,6 @@ namespace Ethereality.FileService
             XNamespace gpx = GetGpxNameSpace();
             try
             {
-
                 var tracks = from track in gpxDoc.Descendants(gpx + "trk")
                              select new
                              {

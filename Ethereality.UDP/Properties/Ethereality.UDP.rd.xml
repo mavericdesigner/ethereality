@@ -28,6 +28,5 @@
   <Library Name="Ethereality.UDP">
 
   	<!-- add directives for your library here -->
-
   </Library>
 </Directives>

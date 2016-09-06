@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -11,11 +7,11 @@ using Windows.UI.Core;
 namespace Ethereality.Model.EnergyManagement.LocalModels
 {
     public struct IsisMechanicParameters
-	{
-		public double GConstant { get; set; }
+    {
+        public double GConstant { get; set; }
         public double Acceleration { get; set; }
         public double VehicleMass { get; set; }
-        public double CoefficientOfRr{get;set;}
+        public double CoefficientOfRr { get; set; }
         public double CoefficientOfDrag { get; set; }
         public double FrontalArea { get; set; }
         public double VehicleVelocity { get; set; }
@@ -28,11 +24,10 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
         public double SlopeConstant { get; set; }
         public double Clock { get; set; }
         public double Distance { get; set; }
-        
-	}
-    public class IsisMechanicsModel:INotifyPropertyChanged
-    {
+    }
 
+    public class IsisMechanicsModel : INotifyPropertyChanged
+    {
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
@@ -44,7 +39,7 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
 
         /// <summary>
         /// Sets and gets the MechanicalModelProperties property.
-        /// Changes to that property's value raise the PropertyChanged event. 
+        /// Changes to that property's value raise the PropertyChanged event.
         /// </summary>
         public IsisMechanicParameters MechanicalModelProperties
         {
@@ -60,11 +55,11 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
                     return;
                 }
 
-               
                 _mechanicalproperties = value;
                 NotifyPropertyChanged(MechanicalModelPropertiesPropertyName);
             }
         }
+
         public void ModelMechCoefficientSetup()
         {
             _mechanicalproperties.VehicleMass = 222;
@@ -79,8 +74,8 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
             _mechanicalproperties.GConstant = 9.81;
             _mechanicalproperties.SlopeConstant = 0;
             _mechanicalproperties.Acceleration = 0;
-
         }
+
         private async void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             if (PropertyChanged != null)
@@ -90,6 +85,5 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
                  () => PropertyChanged(this, new PropertyChangedEventArgs(propertyName)));
             }
         }
-
     }
 }

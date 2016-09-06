@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -233,6 +232,7 @@ namespace Ethereality.DataModels.Battery
     public class BmuModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
         #region BmuHeartBeatSerialNumber
 
         /// <summary>
@@ -260,7 +260,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-            
                 _bmuHeartSerialProp = value;
                 NotifyPropertyChanged(BmuHeartSerialPropPropertyName);
             }
@@ -295,7 +294,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-            
                 _packSocProp = value;
                 NotifyPropertyChanged(PackSocPropPropertyName);
             }
@@ -330,7 +328,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-           
                 _packBalanceSoc = value;
                 NotifyPropertyChanged(PackBalanceSocPropertyName);
             }
@@ -365,7 +362,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-         
                 _chargerControlInfo = value;
                 NotifyPropertyChanged(ChargerControlInfoPropertyName);
             }
@@ -400,7 +396,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-          
                 _prechargeStatusProp = value;
                 NotifyPropertyChanged(PrechargeStatusPropPropertyName);
             }
@@ -469,7 +464,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-              
                 _minMaxCellTemp = value;
                 NotifyPropertyChanged(MinMaxCellTempPropertyName);
             }
@@ -504,7 +498,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-              
                 _batteryPackVA = value;
                 NotifyPropertyChanged(BatteryPackVAPropertyName);
             }
@@ -539,7 +532,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-            
                 _batteryPackStatusProp = value;
                 NotifyPropertyChanged(BatteryPackStatusPropPropertyName);
             }
@@ -608,7 +600,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-            
                 _batteryPackStatusExt = value;
                 NotifyPropertyChanged(BatteryPackStatusExtPropertyName);
             }
@@ -643,7 +634,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-             
                 _contactorFlagBits = value;
                 NotifyPropertyChanged(ContactorFlagBitsPropertyName);
             }
@@ -666,6 +656,7 @@ namespace Ethereality.DataModels.Battery
             _batteryPackStatusExt = new ExtendedBatteryPackStatus();
             _contactorFlagBits = new BitArray(8);
         }
+
         private async void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             if (PropertyChanged != null)

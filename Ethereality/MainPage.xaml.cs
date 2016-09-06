@@ -1,6 +1,6 @@
-﻿using Windows.UI.Core;
+﻿using Ethereality.ViewModel;
+using Windows.UI.Core;
 using Windows.UI.Xaml.Navigation;
-using Ethereality.ViewModel;
 
 namespace Ethereality
 {

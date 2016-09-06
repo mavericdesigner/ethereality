@@ -8,6 +8,6 @@
       DataContext="{Binding Main, Source={StaticResource Locator}}">
 
     <Grid>
-        <ether:MiniDigitDisplayUwp MiniDisplayUnit="Wh/m^2" MiniDisplayValue="1000" MiniDisplayName="Irradiance" Margin="114,140,1526,900" Foreground="{ThemeResource TextBoxButtonForegroundThemeBrush}"  />
+        <ether:MiniDigitDisplayUwp MiniDisplayUnit="Wh/m^2" MiniDisplayValue="1000" MiniDisplayName="Irradiance" Margin="114,140,1526,900" Foreground="{ThemeResource TextBoxButtonForegroundThemeBrush}" />
     </Grid>
 </Page>

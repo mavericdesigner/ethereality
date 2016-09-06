@@ -26,6 +26,7 @@ namespace Ethereality.DataModels.MPPT
     public class MpptModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
         #region MpptMsg0
 
         /// <summary>
@@ -79,7 +80,6 @@ namespace Ethereality.DataModels.MPPT
 
             set
             {
-              
                 _mpptMsg1 = value;
                 NotifyPropertyChanged(MpptMsg1PropertyName);
             }
@@ -109,7 +109,6 @@ namespace Ethereality.DataModels.MPPT
 
             set
             {
-              
                 _mpptMsg2 = value;
                 NotifyPropertyChanged(MpptMsg2PropertyName);
             }
@@ -139,7 +138,6 @@ namespace Ethereality.DataModels.MPPT
 
             set
             {
-              
                 _mpptMsg3 = value;
                 NotifyPropertyChanged(MpptMsg3PropertyName);
             }
@@ -169,7 +167,6 @@ namespace Ethereality.DataModels.MPPT
 
             set
             {
-             
                 _mpptMsg4 = value;
                 NotifyPropertyChanged(MpptMsg4PropertyName);
             }
@@ -199,7 +196,6 @@ namespace Ethereality.DataModels.MPPT
 
             set
             {
-               
                 _mpptMsg5 = value;
                 NotifyPropertyChanged(MpptMsg5PropertyName);
             }
@@ -218,14 +214,15 @@ namespace Ethereality.DataModels.MPPT
         }
 
         public long MpptModelId { get; set; }
-    private async void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
-    {
-        if (PropertyChanged != null)
+
+        private async void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            await
-               Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-             () => PropertyChanged(this, new PropertyChangedEventArgs(propertyName)));
+            if (PropertyChanged != null)
+            {
+                await
+                   Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                 () => PropertyChanged(this, new PropertyChangedEventArgs(propertyName)));
+            }
         }
     }
-}
 }

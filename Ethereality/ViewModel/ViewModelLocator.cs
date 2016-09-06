@@ -1,8 +1,8 @@
-﻿using GalaSoft.MvvmLight;
+﻿using Ethereality.Model;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
-using Ethereality.Model;
 
 namespace Ethereality.ViewModel
 {
@@ -15,7 +15,7 @@ namespace Ethereality.ViewModel
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
             var nav = new NavigationService();
-           
+
             SimpleIoc.Default.Register<INavigationService>(() => nav);
 
             SimpleIoc.Default.Register<IDialogService, DialogService>();

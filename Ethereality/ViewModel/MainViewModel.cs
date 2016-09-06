@@ -1,12 +1,12 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using Ethereality.Model;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Threading;
 using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
-using Ethereality.Model;
+using System;
+using System.Threading.Tasks;
 
 namespace Ethereality.ViewModel
 {
@@ -115,7 +115,7 @@ namespace Ethereality.ViewModel
         {
             _dataService = dataService;
             _navigationService = navigationService;
-             Initialize().Wait();
+            Initialize().Wait();
         }
 
         public void RunClock()

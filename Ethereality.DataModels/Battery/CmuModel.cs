@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Windows.UI.Core;
@@ -89,6 +88,7 @@ namespace Ethereality.DataModels.Battery
     public class CmuModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
         #region Cmu1Status
 
         /// <summary>
@@ -116,7 +116,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-               
                 _cmu1Status = value;
                 NotifyPropertyChanged(Cmu1StatusPropertyName);
             }
@@ -151,7 +150,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
- 
                 _cmu2Status = value;
                 NotifyPropertyChanged(Cmu2PropertyName);
             }
@@ -186,7 +184,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-          
                 _cmu3Status = value;
                 NotifyPropertyChanged(Cmu3PropertyName);
             }
@@ -221,7 +218,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-           
                 _cmu4Status = value;
                 NotifyPropertyChanged(Cmu4StatusPropertyName);
             }
@@ -256,7 +252,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-          
                 _cmu5Status = value;
                 NotifyPropertyChanged(Cmu5PropertyName);
             }
@@ -291,7 +286,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-    
                 _cmu1_0C3 = value;
                 NotifyPropertyChanged(Cmu1_0C3PropertyName);
             }
@@ -326,7 +320,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-         
                 _cmu2_0C3 = value;
                 NotifyPropertyChanged(Cmu2_0C3PropertyName);
             }
@@ -361,7 +354,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-         
                 _cmu3_0C3 = value;
                 NotifyPropertyChanged(Cmu3_0C3PropertyName);
             }
@@ -396,7 +388,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-           
                 _cmu4_0C3 = value;
                 NotifyPropertyChanged(Cmu4_0C3PropertyName);
             }
@@ -431,7 +422,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-      
                 _cmu5_0C3 = value;
                 NotifyPropertyChanged(Cmu5_0C3PropertyName);
             }
@@ -466,7 +456,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-           
                 _cmu1_4C7 = value;
                 NotifyPropertyChanged(Cmu1_4C7PropertyName);
             }
@@ -501,7 +490,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-            
                 _cmu2_4C7 = value;
                 NotifyPropertyChanged(Cmu2_4C7PropertyName);
             }
@@ -536,7 +524,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-              
                 _cmu3_4C7 = value;
                 NotifyPropertyChanged(Cmu3_4C7PropertyName);
             }
@@ -571,7 +558,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-              
                 _cmu4_4C7 = value;
                 NotifyPropertyChanged(Cmu4_4C7PropertyName);
             }
@@ -606,7 +592,6 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-        
                 _cmu5_4C7 = value;
                 NotifyPropertyChanged(Cmu5_4C7PropertyName);
             }

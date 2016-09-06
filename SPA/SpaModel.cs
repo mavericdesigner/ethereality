@@ -434,6 +434,4 @@ namespace SPA
             set { _sunset = value; }
         }
     }
-
-
 }

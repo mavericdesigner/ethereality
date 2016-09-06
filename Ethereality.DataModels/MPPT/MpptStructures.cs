@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-
-namespace Ethereality.DataModels.MPPT
+﻿namespace Ethereality.DataModels.MPPT
 {
-   public struct MpptMsgStruct
-   {
-       public int Voltage { get; set; }
-       public int Current { get; set; }
-       public int Battery { get; set; }
-       public int Temperature { get; set; }
-   }
+    public struct MpptMsgStruct
+    {
+        public int Voltage { get; set; }
+        public int Current { get; set; }
+        public int Battery { get; set; }
+        public int Temperature { get; set; }
+    }
 
     public struct MpptMessages
     {

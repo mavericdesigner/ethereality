@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -19,13 +15,14 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
         public double BatteryConstant { get; set; }
         public double Constant1 { get; set; }
         public double Constant2 { get; set; }
-        
     }
-    public class IsisElectricModel:INotifyPropertyChanged
-    {
 
+    public class IsisElectricModel : INotifyPropertyChanged
+    {
         public event PropertyChangedEventHandler PropertyChanged;
+
         #region ElectricalModelProperties
+
         /// <summary>
         /// The <see cref="ElecModelProperties" /> property's name.
         /// </summary>
@@ -35,7 +32,7 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
 
         /// <summary>
         /// Sets and gets the ElecModelProperties property.
-        /// Changes to that property's value raise the PropertyChanged event. 
+        /// Changes to that property's value raise the PropertyChanged event.
         /// </summary>
         public IsisElecParameters ElecModelProperties
         {
@@ -51,13 +48,13 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
                     return;
                 }
 
-              
                 _elecModelProperties = value;
                 NotifyPropertyChanged(ElecModelPropertiesPropertyName);
             }
-        } 
-        #endregion
-        
+        }
+
+        #endregion ElectricalModelProperties
+
         public void ModelElecCoefficientSetup()
         {
             _elecModelProperties.CoulombCount = 34.0;
@@ -75,7 +72,5 @@ namespace Ethereality.Model.EnergyManagement.LocalModels
                  () => PropertyChanged(this, new PropertyChangedEventArgs(propertyName)));
             }
         }
-
-
     }
 }

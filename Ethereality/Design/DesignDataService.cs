@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using Ethereality.Model;
+﻿using Ethereality.Model;
+using System.Threading.Tasks;
 
 namespace Ethereality.Design
 {

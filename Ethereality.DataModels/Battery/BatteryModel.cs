@@ -1,15 +1,14 @@
-﻿
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Windows.UI.Core;
 
 namespace Ethereality.DataModels.Battery
 {
- 
-    public class BatteryModel:INotifyPropertyChanged
+    public class BatteryModel : INotifyPropertyChanged
     {
         #region BmuHeartBeatSerialNumber
+
         /// <summary>
         /// The <see cref="BmuHeartSerialProp" /> property's name.
         /// </summary>
@@ -19,7 +18,7 @@ namespace Ethereality.DataModels.Battery
 
         /// <summary>
         /// Sets and gets the BmuHeartSerialProp property.
-        /// Changes to that property's value raise the PropertyChanged event. 
+        /// Changes to that property's value raise the PropertyChanged event.
         /// </summary>
         public BmuHeartBeatSerialNumber BmuHeartSerialProp
         {
@@ -35,14 +34,15 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-             
                 _bmuHeartSerialProp = value;
                 NotifyPropertyChanged(BmuHeartSerialPropPropertyName);
             }
-        } 
-        #endregion
+        }
+
+        #endregion BmuHeartBeatSerialNumber
 
         #region PackStateOfCharge
+
         /// <summary>
         /// The <see cref="PackSocProp" /> property's name.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Ethereality.DataModels.Battery
 
         /// <summary>
         /// Sets and gets the PackSocProp property.
-        /// Changes to that property's value raise the PropertyChanged event. 
+        /// Changes to that property's value raise the PropertyChanged event.
         /// </summary>
         public PackStateOfCharge PackSocProp
         {
@@ -68,14 +68,15 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-        
                 _packSocProp = value;
                 NotifyPropertyChanged(PackSocPropPropertyName);
             }
-        } 
-        #endregion
+        }
+
+        #endregion PackStateOfCharge
 
         #region PackBalanceStateOfCharge
+
         /// <summary>
         /// The <see cref="PackBalanceSoc" /> property's name.
         /// </summary>
@@ -85,7 +86,7 @@ namespace Ethereality.DataModels.Battery
 
         /// <summary>
         /// Sets and gets the PackBalanceSoc property.
-        /// Changes to that property's value raise the PropertyChanged event. 
+        /// Changes to that property's value raise the PropertyChanged event.
         /// </summary>
         public PackBalanceStateOfCharge PackBalanceSoc
         {
@@ -101,15 +102,15 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-       
                 _packBalanceSoc = value;
                 NotifyPropertyChanged(PackBalanceSocPropertyName);
             }
         }
-        
-        #endregion
+
+        #endregion PackBalanceStateOfCharge
 
         #region ChargerControlInformation
+
         /// <summary>
         /// The <see cref="ChargerControlInfo" /> property's name.
         /// </summary>
@@ -119,7 +120,7 @@ namespace Ethereality.DataModels.Battery
 
         /// <summary>
         /// Sets and gets the ChargerControlInfo property.
-        /// Changes to that property's value raise the PropertyChanged event. 
+        /// Changes to that property's value raise the PropertyChanged event.
         /// </summary>
         public ChargerControlInformation ChargerControlInfo
         {
@@ -135,15 +136,15 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-           
                 _chargerControlInfo = value;
                 NotifyPropertyChanged(ChargerControlInfoPropertyName);
             }
         }
-        
-        #endregion
+
+        #endregion ChargerControlInformation
 
         #region PreChargeStatus
+
         /// <summary>
         /// The <see cref="PrechargeStatusProp" /> property's name.
         /// </summary>
@@ -153,7 +154,7 @@ namespace Ethereality.DataModels.Battery
 
         /// <summary>
         /// Sets and gets the PrechargeStatusProp property.
-        /// Changes to that property's value raise the PropertyChanged event. 
+        /// Changes to that property's value raise the PropertyChanged event.
         /// </summary>
         public PrechargeStatus PrechargeStatusProp
         {
@@ -169,14 +170,15 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-         
                 _prechargeStatusProp = value;
                 NotifyPropertyChanged(PrechargeStatusPropPropertyName);
             }
-        } 
-        #endregion
+        }
+
+        #endregion PreChargeStatus
 
         #region MinimumMaximumCellVoltage
+
         /// <summary>
         /// The <see cref="MinMaxCellVolt" /> property's name.
         /// </summary>
@@ -186,7 +188,7 @@ namespace Ethereality.DataModels.Battery
 
         /// <summary>
         /// Sets and gets the MinMaxCellVolt property.
-        /// Changes to that property's value raise the PropertyChanged event. 
+        /// Changes to that property's value raise the PropertyChanged event.
         /// </summary>
         public MinimumMaximumCellVoltage MinMaxCellVolt
         {
@@ -202,15 +204,15 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-       
                 _minMaxCellVolt = value;
                 NotifyPropertyChanged(MinMaxCellVoltPropertyName);
             }
         }
-        
-        #endregion
+
+        #endregion MinimumMaximumCellVoltage
 
         #region MinimumMaximumCellTemperature
+
         /// <summary>
         /// The <see cref="MinMaxCellTemp" /> property's name.
         /// </summary>
@@ -220,7 +222,7 @@ namespace Ethereality.DataModels.Battery
 
         /// <summary>
         /// Sets and gets the MinMaxCellTemp property.
-        /// Changes to that property's value raise the PropertyChanged event. 
+        /// Changes to that property's value raise the PropertyChanged event.
         /// </summary>
         public MinimumMaximumCellTemperature MinMaxCellTemp
         {
@@ -236,14 +238,15 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-       
                 _minMaxCellTemp = value;
                 NotifyPropertyChanged(MinMaxCellTempPropertyName);
             }
         }
-        #endregion
+
+        #endregion MinimumMaximumCellTemperature
 
         #region BatteryPackVoltageCurrent
+
         /// <summary>
         /// The <see cref="BatteryPackVA" /> property's name.
         /// </summary>
@@ -253,7 +256,7 @@ namespace Ethereality.DataModels.Battery
 
         /// <summary>
         /// Sets and gets the BatteryPackVA property.
-        /// Changes to that property's value raise the PropertyChanged event. 
+        /// Changes to that property's value raise the PropertyChanged event.
         /// </summary>
         public BatteryPackVoltageCurrent BatteryPackVA
         {
@@ -269,15 +272,15 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-       
                 _batteryPackVA = value;
                 NotifyPropertyChanged(BatteryPackVAPropertyName);
             }
         }
-        
-        #endregion
+
+        #endregion BatteryPackVoltageCurrent
 
         #region BatteryPackStatus
+
         /// <summary>
         /// The <see cref="BatteryPackStatusProp" /> property's name.
         /// </summary>
@@ -287,7 +290,7 @@ namespace Ethereality.DataModels.Battery
 
         /// <summary>
         /// Sets and gets the BatteryPackStatusProp property.
-        /// Changes to that property's value raise the PropertyChanged event. 
+        /// Changes to that property's value raise the PropertyChanged event.
         /// </summary>
         public ExtendedBatteryPackStatus BatteryPackStatusProp
         {
@@ -303,14 +306,15 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-           
                 _batteryPackStatusProp = value;
                 NotifyPropertyChanged(BatteryPackStatusPropPropertyName);
             }
         }
-        #endregion
+
+        #endregion BatteryPackStatus
 
         #region BatteryPackFanStatus
+
         /// <summary>
         /// The <see cref="BatteryPackFanStatusProp" /> property's name.
         /// </summary>
@@ -320,7 +324,7 @@ namespace Ethereality.DataModels.Battery
 
         /// <summary>
         /// Sets and gets the BatteryPackFanStatusProp property.
-        /// Changes to that property's value raise the PropertyChanged event. 
+        /// Changes to that property's value raise the PropertyChanged event.
         /// </summary>
         public BatteryPackFanStatus BatteryPackFanStatusProp
         {
@@ -336,14 +340,15 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-          
                 _batteryPackFanStatusProp = value;
                 NotifyPropertyChanged(BatteryPackFanStatusPropPropertyName);
             }
         }
-        #endregion
+
+        #endregion BatteryPackFanStatus
 
         #region BatteryPackStatusExtended
+
         /// <summary>
         /// The <see cref="BatteryPackStatusExt" /> property's name.
         /// </summary>
@@ -351,12 +356,9 @@ namespace Ethereality.DataModels.Battery
 
         private ExtendedBatteryPackStatus _batteryPackStatusExt = new ExtendedBatteryPackStatus();
 
-        
-
-
         /// <summary>
         /// Sets and gets the BatteryPackStatusExt property.
-        /// Changes to that property's value raise the PropertyChanged event. 
+        /// Changes to that property's value raise the PropertyChanged event.
         /// </summary>
         public ExtendedBatteryPackStatus BatteryPackStatusExt
         {
@@ -372,17 +374,14 @@ namespace Ethereality.DataModels.Battery
                     return;
                 }
 
-         
                 _batteryPackStatusExt = value;
                 NotifyPropertyChanged(BatteryPackStatusExtPropertyName);
             }
         }
-        #endregion
 
-
+        #endregion BatteryPackStatusExtended
 
         public event PropertyChangedEventHandler PropertyChanged;
-
 
         public void BatteryDataConnect()
         {
@@ -390,9 +389,8 @@ namespace Ethereality.DataModels.Battery
             _packSocProp.SocAmpHours = 17;
             _packSocProp.SocPercentage = 50;
             PackSocProp = _packSocProp;
-
-
         }
+
         private async void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             if (PropertyChanged != null)
@@ -402,8 +400,5 @@ namespace Ethereality.DataModels.Battery
                  () => PropertyChanged(this, new PropertyChangedEventArgs(propertyName)));
             }
         }
-
-
     }
-
 }

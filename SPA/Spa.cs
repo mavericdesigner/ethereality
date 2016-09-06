@@ -1050,7 +1050,7 @@ namespace SPA
                                 Math.Cos(latitudeRad) * Math.Cos(deltaPrimeRad) * Math.Cos(Deg2Rad(hPrime))));
         }
 
-        private double sun_rise_and_set(ref double[] mRts, ref  double[] hRts, ref  double[] deltaPrime, double latitude,
+        private double sun_rise_and_set(ref double[] mRts, ref double[] hRts, ref double[] deltaPrime, double latitude,
                                 ref double[] hPrime, double h0Prime, int sun)
         {
             return mRts[sun] + (hRts[sun] - h0Prime) /

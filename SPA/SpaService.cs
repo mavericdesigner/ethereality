@@ -1,20 +1,16 @@
 ﻿namespace SPA
 {
-  
-
     public class SpaService
     {
-
         public SpaData SpaValues;
-    
+
         public int SpaErrorCode { get; set; }
-  
 
         #region Constructors
 
         public SpaService()
         {
-            SpaValues= new SpaData();
+            SpaValues = new SpaData();
         }
 
         #endregion Constructors
@@ -26,29 +22,29 @@
             //declare the SPA structure
             int result;
             double min, sec;
-          /*  //_spaValues = new Spa_Data();
+            /*  //_spaValues = new Spa_Data();
 
-            ////enter required input values into SPA structure
-            //_spaValues.Function = (int)SpaSelect.SPA_ALL;
-            //_spaValues.Year = _spaDataLink.SpaDataProp.Year;
-            //_spaValues.Month = _spaDataLink.SpaDataProp.Month;
-            //_spaValues.Day = _spaDataLink.SpaDataProp.Day;
-            //_spaValues.Hour = _spaDataLink.SpaDataProp.Hour;
-            //_spaValues.Minute = _spaDataLink.SpaDataProp.Minute;
-            //_spaValues.Second = _spaDataLink.SpaDataProp.Second;
-            //_spaValues.Timezone = _spaDataLink.SpaDataProp.Timezone;
-            //_spaValues.Delta_ut1 = _spaDataLink.SpaDataProp.Delta_ut1;
-            //_spaValues.Delta_t = _spaDataLink.SpaDataProp.Delta_t;
-            //_spaValues.Longitude = _spaDataLink.SpaDataProp.Longitude;
-            //_spaValues.Latitude = _spaDataLink.SpaDataProp.Latitude;
-            //_spaValues.Elevation = _spaDataLink.SpaDataProp.Elevation;
-            //_spaValues.Pressure = _spaDataLink.SpaDataProp.Pressure;
-            //_spaValues.Temperature = _spaDataLink.SpaDataProp.Temperature;
-            //_spaValues.Slope = _spaDataLink.SpaDataProp.Slope;
-            //_spaValues.Azm_rotation = _spaDataLink.SpaDataProp.Azm_rotation;
-            //_spaValues.Atmos_refract = _spaDataLink.SpaDataProp.Atmos_refract;
-            //_spaValues.Function = _spaDataLink.SpaDataProp.Function;
-            //call the _spaValues calculate function and pass the _spaValues structure*/
+              ////enter required input values into SPA structure
+              //_spaValues.Function = (int)SpaSelect.SPA_ALL;
+              //_spaValues.Year = _spaDataLink.SpaDataProp.Year;
+              //_spaValues.Month = _spaDataLink.SpaDataProp.Month;
+              //_spaValues.Day = _spaDataLink.SpaDataProp.Day;
+              //_spaValues.Hour = _spaDataLink.SpaDataProp.Hour;
+              //_spaValues.Minute = _spaDataLink.SpaDataProp.Minute;
+              //_spaValues.Second = _spaDataLink.SpaDataProp.Second;
+              //_spaValues.Timezone = _spaDataLink.SpaDataProp.Timezone;
+              //_spaValues.Delta_ut1 = _spaDataLink.SpaDataProp.Delta_ut1;
+              //_spaValues.Delta_t = _spaDataLink.SpaDataProp.Delta_t;
+              //_spaValues.Longitude = _spaDataLink.SpaDataProp.Longitude;
+              //_spaValues.Latitude = _spaDataLink.SpaDataProp.Latitude;
+              //_spaValues.Elevation = _spaDataLink.SpaDataProp.Elevation;
+              //_spaValues.Pressure = _spaDataLink.SpaDataProp.Pressure;
+              //_spaValues.Temperature = _spaDataLink.SpaDataProp.Temperature;
+              //_spaValues.Slope = _spaDataLink.SpaDataProp.Slope;
+              //_spaValues.Azm_rotation = _spaDataLink.SpaDataProp.Azm_rotation;
+              //_spaValues.Atmos_refract = _spaDataLink.SpaDataProp.Atmos_refract;
+              //_spaValues.Function = _spaDataLink.SpaDataProp.Function;
+              //call the _spaValues calculate function and pass the _spaValues structure*/
             Spa spawork = new Spa();
             result = spawork.spa_calculate(ref spaValues);
 
@@ -77,7 +73,7 @@
                 //_spaDataLink.SpaDataProp = _spaValues;
             }
             else
-             return result; 
+                return result;
 
             return 0;
         }

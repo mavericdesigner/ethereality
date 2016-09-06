@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -7,11 +6,10 @@ using Windows.UI.Core;
 
 namespace Isis.Model.Vehicle.DriveSystem
 {
-
     public class MotorModel : INotifyPropertyChanged
     {
-
         public event PropertyChangedEventHandler PropertyChanged;
+
         private async void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             if (PropertyChanged != null)
@@ -21,6 +19,7 @@ namespace Isis.Model.Vehicle.DriveSystem
                  () => PropertyChanged(this, new PropertyChangedEventArgs(propertyName)));
             }
         }
+
         public MotorModel()
         {
             _mcTimeStamp = 0.00;
@@ -85,7 +84,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-                
                 _mcTimeStamp = value;
                 NotifyPropertyChanged(TimeStampPropertyName);
             }
@@ -121,7 +119,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-              
                 _busCurrent = value;
                 NotifyPropertyChanged(BusCurrentPropertyName);
             }
@@ -156,7 +153,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-              
                 _busVoltage = value;
                 NotifyPropertyChanged(BusVoltagePropertyName);
             }
@@ -191,7 +187,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-             
                 _vehicleVelocity = value;
                 NotifyPropertyChanged(VehicleVelocityPropertyName);
             }
@@ -226,7 +221,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-            
                 _motorRpm = value;
                 NotifyPropertyChanged(MotorRpmPropertyName);
             }
@@ -261,7 +255,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-            
                 _serialNumber = value;
                 NotifyPropertyChanged(SerialNumberPropertyName);
             }
@@ -296,7 +289,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-          
                 _tritiumID = value;
                 NotifyPropertyChanged(TritiumIDPropertyName);
             }
@@ -331,7 +323,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-           
                 _receiveErrorCount = value;
                 NotifyPropertyChanged(ReceiveErrorCountPropertyName);
             }
@@ -366,7 +357,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-             
                 _trasnmitErrorCount = value;
                 NotifyPropertyChanged(TransmitErrorCountPropertyName);
             }
@@ -401,7 +391,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-          
                 _activeMotor = value;
                 NotifyPropertyChanged(ActiveMotorPropertyName);
             }
@@ -436,7 +425,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-         
                 _errorFlags = value;
                 NotifyPropertyChanged(ErrorFlagsPropertyName);
             }
@@ -471,7 +459,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-             
                 _limitFlags = value;
                 NotifyPropertyChanged(LimitFlagsPropertyName);
             }
@@ -506,7 +493,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-              
                 _errorFlagBits = value;
                 NotifyPropertyChanged(ErrorFlagBitsPropertyName);
             }
@@ -541,7 +527,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-        
                 _limitFlagBits = value;
                 NotifyPropertyChanged(LimitFlagBitsPropertyName);
             }
@@ -576,7 +561,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-           
                 _phaseCurrentA = value;
                 NotifyPropertyChanged(PhaseCurrentAPropertyName);
             }
@@ -611,7 +595,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-              
                 _phaseCurrentB = value;
                 NotifyPropertyChanged(PhaseCurrentBPropertyName);
             }
@@ -646,7 +629,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-            
                 _voltageVectorD = value;
                 NotifyPropertyChanged(VoltageVectorDPropertyName);
             }
@@ -681,7 +663,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-             
                 _voltageVectorQ = value;
                 NotifyPropertyChanged(VoltageVectorQPropertyName);
             }
@@ -716,7 +697,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-           
                 _currentVectorD = value;
                 NotifyPropertyChanged(CurrentVectorDPropertyName);
             }
@@ -785,7 +765,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-   
                 _bemfD = value;
                 NotifyPropertyChanged(BEmfDPropertyName);
             }
@@ -820,7 +799,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-    
                 _bemfQ = value;
                 NotifyPropertyChanged(BEmfQPropertyName);
             }
@@ -855,7 +833,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-    
                 _rail15V = value;
                 NotifyPropertyChanged(Rail15VPropertyName);
             }
@@ -890,7 +867,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-     
                 _rail3V3 = value;
                 NotifyPropertyChanged(Rail3V3PropertyName);
             }
@@ -925,7 +901,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-    
                 _rail1V9 = value;
                 NotifyPropertyChanged(Rail1V9PropertyName);
             }
@@ -959,7 +934,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                 {
                     return;
                 }
-
 
                 _ipmHeatSinkTemp = value;
                 NotifyPropertyChanged(IpmHeatSinkTempPropertyName);
@@ -1029,7 +1003,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-   
                 _ipmPhaseBTemp = value;
                 NotifyPropertyChanged(IPMPhaseBTempPropertyName);
             }
@@ -1064,7 +1037,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-     
                 _ipmPhaseATemp = value;
                 NotifyPropertyChanged(IPMPhaseATempPropertyName);
             }
@@ -1099,7 +1071,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-       
                 _motorTemp = value;
                 NotifyPropertyChanged(MotorTempPropertyName);
             }
@@ -1134,7 +1105,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-      
                 _dspBoardTemp = value;
                 NotifyPropertyChanged(DspBoardTempPropertyName);
             }
@@ -1171,7 +1141,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-       
                 _dcBusAmpHours = value;
                 NotifyPropertyChanged(DcBusAmpHoursPropertyName);
             }
@@ -1208,7 +1177,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-    
                 _odometer = value;
                 NotifyPropertyChanged(OdometerPropertyName);
             }
@@ -1243,7 +1211,6 @@ namespace Isis.Model.Vehicle.DriveSystem
                     return;
                 }
 
-  
                 _slipSpeed = value;
                 NotifyPropertyChanged(SlipSpeedPropertyName);
             }

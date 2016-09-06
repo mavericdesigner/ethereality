@@ -1,34 +1,30 @@
-﻿
+﻿using Ethereality.CustomTypes;
+using Ethereality.FileService;
+using Etheriality.Constants;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Ethereality.FileService;
-using Ethereality.CustomTypes;
-using Etheriality.Constants;
 
 namespace Ethereality.Navigation
 {
     using System.Threading.Tasks;
-    public class RouteModel 
+
+    public class RouteModel
     {
-      
-       
-     
         public Waypoint CoordinatePoint { get; set; }
-      
+
         public List<Waypoint> CoordinatePointsList { get; set; }
-     
+
         public RouteSegmentVector PostionSegment { get; set; }
-       
+
         public List<RouteSegmentVector> RouteSegmentVectors { get; set; }
-   
+
         public RouteModel()
         {
             CoordinatePoint = new Waypoint();
             CoordinatePointsList = new List<Waypoint>();
-            PostionSegment= new RouteSegmentVector();
-            RouteSegmentVectors= new List<RouteSegmentVector>();
-         
+            PostionSegment = new RouteSegmentVector();
+            RouteSegmentVectors = new List<RouteSegmentVector>();
         }
 
         #region PointDifference Method
@@ -170,7 +166,7 @@ namespace Ethereality.Navigation
         public async Task EntireRouteSegmentCalculation()
         {
             GpxFileParser gpxFileParse = new GpxFileParser();
-            CoordinatePointsList= await gpxFileParse.GetGpxCoordinateData();
+            CoordinatePointsList = await gpxFileParse.GetGpxCoordinateData();
 
             int i = 0;
             int j = 1;
@@ -198,7 +194,6 @@ namespace Ethereality.Navigation
                  }
              });
             routeSegmentTask.GetAwaiter();
-
         }
     }
 }
