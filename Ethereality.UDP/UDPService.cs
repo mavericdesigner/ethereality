@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ethereality.UDP
 {
-    public class UDPService
+    public class UdpService
     {
     }
 }

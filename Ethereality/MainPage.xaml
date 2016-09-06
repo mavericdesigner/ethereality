@@ -2,13 +2,12 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
-      xmlns:core="using:Microsoft.Xaml.Interactions.Core"
-      xmlns:Input="using:Syncfusion.UI.Xaml.Controls.Input"
-      xmlns:Charts="using:Syncfusion.UI.Xaml.Charts"
+      xmlns:ether="using:Ethereality.CustomControls"
       x:Class="Ethereality.MainPage"
       mc:Ignorable="d"
       DataContext="{Binding Main, Source={StaticResource Locator}}">
 
-    <Grid/>
+    <Grid>
+        <ether:MiniDigitDisplayUwp MiniDisplayUnit="Wh/m^2" MiniDisplayValue="1000" MiniDisplayName="Irradiance" Margin="114,140,1526,900" Foreground="{ThemeResource TextBoxButtonForegroundThemeBrush}"  />
+    </Grid>
 </Page>

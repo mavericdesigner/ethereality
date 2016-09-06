@@ -21,41 +21,41 @@ namespace Ethereality.Meteorology
             public DateTimeOffset Time { get; set; }
         }
 
-        private ForecastApi client { get; set; }
+        private ForecastApi Client { get; set; }
 
         public WeatherForecast()
         {
-            client = new ForecastApi("800ff5cacaa097384f4cadb734d9cb6e");
+            Client = new ForecastApi("800ff5cacaa097384f4cadb734d9cb6e");
         }
 
         public async Task<Forecast> GetWeatherService(double latitude, double longitude)
         {
-            Forecast result = await client.GetWeatherDataAsync(latitude, longitude);
+            Forecast result = await Client.GetWeatherDataAsync(latitude, longitude);
             return result;
         }
 
-        public async Task<List<Forecast>> GetWeatherServiceCollection(ICollection<LatLong> LatLongCollection)
+        public async Task<List<Forecast>> GetWeatherServiceCollection(ICollection<LatLong> latLongCollection)
         {
             List<Forecast> results = new List<Forecast>();
             Forecast result;
-            foreach (var latlong in LatLongCollection)
+            foreach (var latlong in latLongCollection)
             {
                 result = new Forecast();
-                result = await client.GetWeatherDataAsync(latlong.Latitude, latlong.Longitude);
+                result = await Client.GetWeatherDataAsync(latlong.Latitude, latlong.Longitude);
                 results.Add(result);
             }
 
             return results;
         }
 
-        public async Task<List<Forecast>> GetWeatherServiceCollection(ICollection<LatLongTime> LatLongTimeCollection)
+        public async Task<List<Forecast>> GetWeatherServiceCollection(ICollection<LatLongTime> latLongTimeCollection)
         {
             List<Forecast> results = new List<Forecast>();
             Forecast result;
-            foreach (var latlongtime in LatLongTimeCollection)
+            foreach (var latlongtime in latLongTimeCollection)
             {
                 result = new Forecast();
-                result = await client.GetTimeMachineWeatherAsync(latlongtime.Latitude, latlongtime.Longitude, latlongtime.Time);
+                result = await Client.GetTimeMachineWeatherAsync(latlongtime.Latitude, latlongtime.Longitude, latlongtime.Time);
                 results.Add(result);
             }
 
@@ -64,7 +64,7 @@ namespace Ethereality.Meteorology
 
         public async Task<Forecast> GetWeatherHistoryService(double latitude, double longitude, DateTimeOffset date)
         {
-            Forecast result = await client.GetTimeMachineWeatherAsync(latitude, longitude, date);
+            Forecast result = await Client.GetTimeMachineWeatherAsync(latitude, longitude, date);
             return result;
         }
     }

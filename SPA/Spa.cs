@@ -115,43 +115,43 @@ namespace SPA
     {
         #region Fields
 
-        public Spa_Data spa { get; set; }
+        public SpaData spa { get; set; }
 
-        public const double SUN_RADIUS = 0.26667;
+        public const double SunRadius = 0.26667;
 
-        public const int L_COUNT = 6;
-        public const int B_COUNT = 2;
-        public const int R_COUNT = 5;
-        public const int Y_COUNT = 63;
+        public const int LCount = 6;
+        public const int BCount = 2;
+        public const int RCount = 5;
+        public const int YCount = 63;
 
-        public const int L_MAX_SUBCOUNT = 64;
-        public const int B_MAX_SUBCOUNT = 5;
-        public const int R_MAX_SUBCOUNT = 40;
-        public const double PI = 3.14159265359;
+        public const int LMaxSubcount = 64;
+        public const int BMaxSubcount = 5;
+        public const int RMaxSubcount = 40;
+        public const double Pi = 3.14159265359;
 
-        public enum TERM : int { TERM_A, TERM_B, TERM_C, TERM_COUNT };
+        public enum Term : int { TermA, TermB, TermC, TermCount };
 
-        public enum TERM_X : int { TERM_X0, TERM_X1, TERM_X2, TERM_X3, TERM_X4, TERM_X_COUNT };
+        public enum TermX : int { TermX0, TermX1, TermX2, TermX3, TermX4, TermXCount };
 
-        public enum Met : int { TERM_PSI_A, TERM_PSI_B, TERM_EPS_C, TERM_EPS_D, TERM_PE_COUNT };
+        public enum Met : int { TermPsiA, TermPsiB, TermEpsC, TermEpsD, TermPeCount };
 
-        public enum Julian : int { JD_MINUS, JD_ZERO, JD_PLUS, JD_COUNT };
+        public enum Julian : int { JdMinus, JdZero, JdPlus, JdCount };
 
-        public enum SunTerm : int { SUN_TRANSIT, SUN_RISE, SUN_SET, SUN_COUNT };
+        public enum SunTerm : int { SunTransit, SunRise, SunSet, SunCount };
 
         public enum SpaSelect : int
         {
-            SPA_ZA,           //calculate zenith and azimuth
-            SPA_ZA_INC,       //calculate zenith, azimuth, and incidence
-            SPA_ZA_RTS,       //calculate zenith, azimuth, and sun rise/transit/set values
-            SPA_ALL,          //calculate all SPA output values
+            SpaZa,           //calculate zenith and azimuth
+            SpaZaInc,       //calculate zenith, azimuth, and incidence
+            SpaZaRts,       //calculate zenith, azimuth, and sun rise/transit/set values
+            SpaAll,          //calculate all SPA output values
         };
 
-        public const int TERM_Y_COUNT = (int)TERM_X.TERM_X_COUNT;
+        public const int TermYCount = (int)TermX.TermXCount;
 
-        private int[] l_subcount = new int[L_COUNT] { 64, 34, 20, 7, 3, 1 };
-        private int[] b_subcount = new int[B_COUNT] { 5, 2 };
-        private int[] r_subcount = new int[R_COUNT] { 40, 10, 6, 2, 1 };
+        private int[] _lSubcount = new int[LCount] { 64, 34, 20, 7, 3, 1 };
+        private int[] _bSubcount = new int[BCount] { 5, 2 };
+        private int[] _rSubcount = new int[RCount] { 40, 10, 6, 2, 1 };
 
         #endregion Fields
 
@@ -159,7 +159,7 @@ namespace SPA
 
         public Spa()
         {
-            spa = new Spa_Data();
+            spa = new SpaData();
         }
 
         #endregion Constructor
@@ -170,7 +170,7 @@ namespace SPA
 
         #region Earth Periodic Terms
 
-        public double[][,] L_TERMS = new double[L_COUNT][,]
+        public double[][,] LTerms = new double[LCount][,]
 {
    new double[,]{
         {175347046.0,0,0},
@@ -320,7 +320,7 @@ namespace SPA
     }
 };
 
-        public double[][,] B_TERMS = new double[B_COUNT][,]
+        public double[][,] BTerms = new double[BCount][,]
 {
     new double[,]{
         {280.0,3.199,84334.662},
@@ -336,7 +336,7 @@ namespace SPA
     }
 };
 
-        public double[][,] R_TERMS = new double[R_COUNT][,]
+        public double[][,] RTerms = new double[RCount][,]
 {
     new double[,]
     {
@@ -422,7 +422,7 @@ namespace SPA
 
         #region Periodic Terms for the nutation in longitude and obliquity
 
-        public int[,] Y_TERMS = new int[Y_COUNT, TERM_Y_COUNT]
+        public int[,] YTerms = new int[YCount, TermYCount]
 {
     {0,0,0,0,1},
     {-2,0,0,2,2},
@@ -489,7 +489,7 @@ namespace SPA
     {2,-1,0,2,2},
 };
 
-        private double[,] PE_TERMS = new double[Y_COUNT, (int)Met.TERM_PE_COUNT]
+        private double[,] _peTerms = new double[YCount, (int)Met.TermPeCount]
 {
     {-171996,-174.2,92025,8.9},
     {-13187,-1.6,5736,-3.1},
@@ -562,14 +562,14 @@ namespace SPA
 
         #region Methods
 
-        private double rad2deg(double radians)
+        private double Rad2Deg(double radians)
         {
-            return (180.0 / PI) * radians;
+            return (180.0 / Pi) * radians;
         }
 
-        private double deg2rad(double degrees)
+        private double Deg2Rad(double degrees)
         {
-            return (PI / 180.0) * degrees;
+            return (Pi / 180.0) * degrees;
         }
 
         private double limit_degrees(double degrees)
@@ -637,7 +637,7 @@ namespace SPA
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
-        public int validate_inputs(ref Spa_Data spa)
+        public int validate_inputs(ref SpaData spa)
         {
             if ((spa.Year < -2000) || (spa.Year > 6000)) return 1;
             if ((spa.Month < 1) || (spa.Month > 12)) return 2;
@@ -650,17 +650,17 @@ namespace SPA
             if ((spa.Hour == 24) && (spa.Minute > 0)) return 5;
             if ((spa.Hour == 24) && (spa.Second > 0)) return 6;
 
-            if (Math.Abs(spa.Delta_t) > 8000) return 7;
+            if (Math.Abs(spa.DeltaT) > 8000) return 7;
             if (Math.Abs(spa.Timezone) > 18) return 8;
             if (Math.Abs(spa.Longitude) > 180) return 9;
             if (Math.Abs(spa.Latitude) > 90) return 10;
-            if (Math.Abs(spa.Atmos_refract) > 5) return 16;
+            if (Math.Abs(spa.AtmosRefract) > 5) return 16;
             if (spa.Elevation < -6500000) return 11;
 
-            if ((spa.Function == (int)SpaSelect.SPA_ZA_INC) || (spa.Function == (int)SpaSelect.SPA_ALL))
+            if ((spa.Function == (int)SpaSelect.SpaZaInc) || (spa.Function == (int)SpaSelect.SpaAll))
             {
                 if (Math.Abs(spa.Slope) > 360) return 14;
-                if (Math.Abs(spa.Azm_rotation) > 360) return 15;
+                if (Math.Abs(spa.AzmRotation) > 360) return 15;
             }
 
             return 0;
@@ -669,9 +669,9 @@ namespace SPA
         ///////////////////////////////////////////////////////////////////////////////////////////////
         private double julian_day(double year, int month, int day, int hour, int minute, int second, double tz)
         {
-            double day_decimal, julian_day, a;
+            double dayDecimal, julianDay, a;
 
-            day_decimal = day + (hour - tz + (minute + second / 60.0) / 60.0) / 24.0;
+            dayDecimal = day + (hour - tz + (minute + second / 60.0) / 60.0) / 24.0;
 
             if (month < 3)
             {
@@ -679,15 +679,15 @@ namespace SPA
                 year--;
             }
 
-            julian_day = Math.Floor(365.25 * (year + 4716.0)) + Math.Floor(30.6001 * (month + 1)) + day_decimal - 1524.5;
+            julianDay = Math.Floor(365.25 * (year + 4716.0)) + Math.Floor(30.6001 * (month + 1)) + dayDecimal - 1524.5;
 
-            if (julian_day > 2299160.0)
+            if (julianDay > 2299160.0)
             {
                 a = Math.Floor(year / 100);
-                julian_day += (2 - a + Math.Floor(a / 4));
+                julianDay += (2 - a + Math.Floor(a / 4));
             }
 
-            return julian_day;
+            return julianDay;
         }
 
         private double julian_century(double jd)
@@ -695,9 +695,9 @@ namespace SPA
             return (jd - 2451545.0) / 36525.0;
         }
 
-        private double julian_ephemeris_day(double jd, double delta_t)
+        private double julian_ephemeris_day(double jd, double deltaT)
         {
-            return jd + delta_t / 86400.0;
+            return jd + deltaT / 86400.0;
         }
 
         private double julian_ephemeris_century(double jde)
@@ -716,20 +716,20 @@ namespace SPA
 
             for (int k = 0; k < count; k++)
             {
-                sum += terms[k, (int)TERM.TERM_A] * Math.Cos(terms[k, (int)TERM.TERM_B] + terms[k, (int)TERM.TERM_C] * jme);
+                sum += terms[k, (int)Term.TermA] * Math.Cos(terms[k, (int)Term.TermB] + terms[k, (int)Term.TermC] * jme);
             }
 
             return sum;
         }
 
-        public double earth_values(double[] term_sum, int count, double jme)
+        public double earth_values(double[] termSum, int count, double jme)
         {
             int i;
             double sum = 0;
 
             for (i = 0; i < count; i++)
             {
-                sum += term_sum[i] * Math.Pow(jme, i);
+                sum += termSum[i] * Math.Pow(jme, i);
             }
 
             sum /= 1.0e8;
@@ -739,41 +739,41 @@ namespace SPA
 
         public double earth_heliocentric_longitude(double jme)
         {
-            double[] sum = new double[L_COUNT];
+            double[] sum = new double[LCount];
             int i;
 
-            for (i = 0; i < L_COUNT; i++)
+            for (i = 0; i < LCount; i++)
             {
-                sum[i] = earth_periodic_term_summation(L_TERMS[i], l_subcount[i], jme);
+                sum[i] = earth_periodic_term_summation(LTerms[i], _lSubcount[i], jme);
             }
 
-            return limit_degrees(rad2deg(earth_values(sum, L_COUNT, jme)));
+            return limit_degrees(Rad2Deg(earth_values(sum, LCount, jme)));
         }
 
         private double earth_heliocentric_latitude(double jme)
         {
-            double[] sum = new double[B_COUNT];
+            double[] sum = new double[BCount];
             int i;
 
-            for (i = 0; i < B_COUNT; i++)
+            for (i = 0; i < BCount; i++)
             {
-                sum[i] = earth_periodic_term_summation(B_TERMS[i], b_subcount[i], jme);
+                sum[i] = earth_periodic_term_summation(BTerms[i], _bSubcount[i], jme);
             }
 
-            return rad2deg(earth_values(sum, B_COUNT, jme));
+            return Rad2Deg(earth_values(sum, BCount, jme));
         }
 
         private double earth_radius_vector(double jme)
         {
-            double[] sum = new double[R_COUNT];
+            double[] sum = new double[RCount];
             int i;
 
-            for (i = 0; i < R_COUNT; i++)
+            for (i = 0; i < RCount; i++)
             {
-                sum[i] = earth_periodic_term_summation(R_TERMS[i], r_subcount[i], jme);
+                sum[i] = earth_periodic_term_summation(RTerms[i], _rSubcount[i], jme);
             }
 
-            return earth_values(sum, R_COUNT, jme);
+            return earth_values(sum, RCount, jme);
         }
 
         private double geocentric_longitude(double l)
@@ -820,28 +820,28 @@ namespace SPA
             int j;
             double sum = 0;
 
-            for (j = 0; j < TERM_Y_COUNT; j++)
+            for (j = 0; j < TermYCount; j++)
             {
-                sum += x[j] * Y_TERMS[i, j];
+                sum += x[j] * YTerms[i, j];
             }
 
             return sum;
         }
 
-        private void nutation_longitude_and_obliquity(double jce, double[] x, ref double del_psi, ref double del_epsilon)
+        private void nutation_longitude_and_obliquity(double jce, double[] x, ref double delPsi, ref double delEpsilon)
         {
             int i;
-            double xy_term_sum, sum_psi = 0, sum_epsilon = 0;
+            double xyTermSum, sumPsi = 0, sumEpsilon = 0;
 
-            for (i = 0; i < Y_COUNT; i++)
+            for (i = 0; i < YCount; i++)
             {
-                xy_term_sum = deg2rad(xy_term_summation(i, x));
-                sum_psi += (PE_TERMS[i, (int)Met.TERM_PSI_A] + jce * PE_TERMS[i, (int)Met.TERM_PSI_B]) * Math.Sin(xy_term_sum);
-                sum_epsilon += (PE_TERMS[i, (int)Met.TERM_EPS_C] + jce * PE_TERMS[i, (int)Met.TERM_EPS_D]) * Math.Cos(xy_term_sum);
+                xyTermSum = Deg2Rad(xy_term_summation(i, x));
+                sumPsi += (_peTerms[i, (int)Met.TermPsiA] + jce * _peTerms[i, (int)Met.TermPsiB]) * Math.Sin(xyTermSum);
+                sumEpsilon += (_peTerms[i, (int)Met.TermEpsC] + jce * _peTerms[i, (int)Met.TermEpsD]) * Math.Cos(xyTermSum);
             }
 
-            del_psi = sum_psi / 36000000.0;
-            del_epsilon = sum_epsilon / 36000000.0;
+            delPsi = sumPsi / 36000000.0;
+            delEpsilon = sumEpsilon / 36000000.0;
         }
 
         private double ecliptic_mean_obliquity(double jme)
@@ -852,9 +852,9 @@ namespace SPA
                                u * (-39.05 + u * (7.12 + u * (27.87 + u * (5.79 + u * 2.45)))))))));
         }
 
-        private double ecliptic_true_obliquity(double delta_epsilon, double epsilon0)
+        private double ecliptic_true_obliquity(double deltaEpsilon, double epsilon0)
         {
-            return delta_epsilon + epsilon0 / 3600.0;
+            return deltaEpsilon + epsilon0 / 3600.0;
         }
 
         private double aberration_correction(double r)
@@ -862,9 +862,9 @@ namespace SPA
             return -20.4898 / (3600.0 * r);
         }
 
-        private double apparent_sun_longitude(double theta, double delta_psi, double delta_tau)
+        private double apparent_sun_longitude(double theta, double deltaPsi, double deltaTau)
         {
-            return theta + delta_psi + delta_tau;
+            return theta + deltaPsi + deltaTau;
         }
 
         private double greenwich_mean_sidereal_time(double jd, double jc)
@@ -873,32 +873,32 @@ namespace SPA
                                                jc * jc * (0.000387933 - jc / 38710000.0));
         }
 
-        private double greenwich_sidereal_time(double nu0, double delta_psi, double epsilon)
+        private double greenwich_sidereal_time(double nu0, double deltaPsi, double epsilon)
         {
-            return nu0 + delta_psi * Math.Cos(deg2rad(epsilon));
+            return nu0 + deltaPsi * Math.Cos(Deg2Rad(epsilon));
         }
 
         private double geocentric_sun_right_ascension(double lamda, double epsilon, double beta)
         {
-            double lamda_rad = deg2rad(lamda);
-            double epsilon_rad = deg2rad(epsilon);
+            double lamdaRad = Deg2Rad(lamda);
+            double epsilonRad = Deg2Rad(epsilon);
 
-            return limit_degrees(rad2deg(Math.Atan2(Math.Sin(lamda_rad) * Math.Cos(epsilon_rad) -
-                                               Math.Tan(deg2rad(beta)) * Math.Sin(epsilon_rad), Math.Cos(lamda_rad))));
+            return limit_degrees(Rad2Deg(Math.Atan2(Math.Sin(lamdaRad) * Math.Cos(epsilonRad) -
+                                               Math.Tan(Deg2Rad(beta)) * Math.Sin(epsilonRad), Math.Cos(lamdaRad))));
         }
 
         private double geocentric_sun_declination(double beta, double epsilon, double lamda)
         {
-            double beta_rad = deg2rad(beta);
-            double epsilon_rad = deg2rad(epsilon);
+            double betaRad = Deg2Rad(beta);
+            double epsilonRad = Deg2Rad(epsilon);
 
-            return rad2deg(Math.Asin(Math.Sin(beta_rad) * Math.Cos(epsilon_rad) +
-                                Math.Cos(beta_rad) * Math.Sin(epsilon_rad) * Math.Sin(deg2rad(lamda))));
+            return Rad2Deg(Math.Asin(Math.Sin(betaRad) * Math.Cos(epsilonRad) +
+                                Math.Cos(betaRad) * Math.Sin(epsilonRad) * Math.Sin(Deg2Rad(lamda))));
         }
 
-        private double observer_hour_angle(double nu, double longitude, double alpha_deg)
+        private double observer_hour_angle(double nu, double longitude, double alphaDeg)
         {
-            return limit_degrees(nu + longitude - alpha_deg);
+            return limit_degrees(nu + longitude - alphaDeg);
         }
 
         private double sun_equatorial_horizontal_parallax(double r)
@@ -907,60 +907,60 @@ namespace SPA
         }
 
         public void sun_right_ascension_parallax_and_topocentric_dec(double latitude, double elevation,
-               double xi, double h, double delta, ref double delta_alpha, ref double delta_prime)
+               double xi, double h, double delta, ref double deltaAlpha, ref double deltaPrime)
         {
-            double delta_alpha_rad;
-            double lat_rad = deg2rad(latitude);
-            double xi_rad = deg2rad(xi);
-            double h_rad = deg2rad(h);
-            double delta_rad = deg2rad(delta);
-            double u = Math.Atan(0.99664719 * Math.Tan(lat_rad));
-            double y = 0.99664719 * Math.Sin(u) + elevation * Math.Sin(lat_rad) / 6378140.0;
-            double x = Math.Cos(u) + elevation * Math.Cos(lat_rad) / 6378140.0;
+            double deltaAlphaRad;
+            double latRad = Deg2Rad(latitude);
+            double xiRad = Deg2Rad(xi);
+            double hRad = Deg2Rad(h);
+            double deltaRad = Deg2Rad(delta);
+            double u = Math.Atan(0.99664719 * Math.Tan(latRad));
+            double y = 0.99664719 * Math.Sin(u) + elevation * Math.Sin(latRad) / 6378140.0;
+            double x = Math.Cos(u) + elevation * Math.Cos(latRad) / 6378140.0;
 
-            delta_alpha_rad = Math.Atan2(-x * Math.Sin(xi_rad) * Math.Sin(h_rad),
-                                          Math.Cos(delta_rad) - x * Math.Sin(xi_rad) * Math.Cos(h_rad));
+            deltaAlphaRad = Math.Atan2(-x * Math.Sin(xiRad) * Math.Sin(hRad),
+                                          Math.Cos(deltaRad) - x * Math.Sin(xiRad) * Math.Cos(hRad));
 
-            delta_prime = rad2deg(Math.Atan2((Math.Sin(delta_rad) - y * Math.Sin(xi_rad)) * Math.Cos(delta_alpha_rad),
-                                          Math.Cos(delta_rad) - x * Math.Sin(xi_rad) * Math.Cos(h_rad)));
+            deltaPrime = Rad2Deg(Math.Atan2((Math.Sin(deltaRad) - y * Math.Sin(xiRad)) * Math.Cos(deltaAlphaRad),
+                                          Math.Cos(deltaRad) - x * Math.Sin(xiRad) * Math.Cos(hRad)));
 
-            delta_alpha = rad2deg(delta_alpha_rad);
+            deltaAlpha = Rad2Deg(deltaAlphaRad);
         }
 
-        public double topocentric_sun_right_ascension(double alpha_deg, double delta_alpha)
+        public double topocentric_sun_right_ascension(double alphaDeg, double deltaAlpha)
         {
-            return alpha_deg + delta_alpha;
+            return alphaDeg + deltaAlpha;
         }
 
-        public double topocentric_local_hour_angle(double h, double delta_alpha)
+        public double topocentric_local_hour_angle(double h, double deltaAlpha)
         {
-            return h - delta_alpha;
+            return h - deltaAlpha;
         }
 
-        private double topocentric_elevation_angle(double latitude, double delta_prime, double h_prime)
+        private double topocentric_elevation_angle(double latitude, double deltaPrime, double hPrime)
         {
-            double lat_rad = deg2rad(latitude);
-            double delta_prime_rad = deg2rad(delta_prime);
+            double latRad = Deg2Rad(latitude);
+            double deltaPrimeRad = Deg2Rad(deltaPrime);
 
-            return rad2deg(Math.Asin(Math.Sin(lat_rad) * Math.Sin(delta_prime_rad) +
-                                Math.Cos(lat_rad) * Math.Cos(delta_prime_rad) * Math.Cos(deg2rad(h_prime))));
+            return Rad2Deg(Math.Asin(Math.Sin(latRad) * Math.Sin(deltaPrimeRad) +
+                                Math.Cos(latRad) * Math.Cos(deltaPrimeRad) * Math.Cos(Deg2Rad(hPrime))));
         }
 
         private double atmospheric_refraction_correction(double pressure, double temperature,
-                                                 double atmos_refract, double e0)
+                                                 double atmosRefract, double e0)
         {
-            double del_e = 0;
+            double delE = 0;
 
-            if (e0 >= -1 * (SUN_RADIUS + atmos_refract))
-                del_e = (pressure / 1010.0) * (283.0 / (273.0 + temperature)) *
-                         1.02 / (60.0 * Math.Tan(deg2rad(e0 + 10.3 / (e0 + 5.11))));
+            if (e0 >= -1 * (SunRadius + atmosRefract))
+                delE = (pressure / 1010.0) * (283.0 / (273.0 + temperature)) *
+                         1.02 / (60.0 * Math.Tan(Deg2Rad(e0 + 10.3 / (e0 + 5.11))));
 
-            return del_e;
+            return delE;
         }
 
-        private double topocentric_elevation_angle_corrected(double e0, double delta_e)
+        private double topocentric_elevation_angle_corrected(double e0, double deltaE)
         {
-            return e0 + delta_e;
+            return e0 + deltaE;
         }
 
         private double topocentric_zenith_angle(double e)
@@ -968,13 +968,13 @@ namespace SPA
             return 90.0 - e;
         }
 
-        private double topocentric_azimuth_angle_neg180_180(double h_prime, double latitude, double delta_prime)
+        private double topocentric_azimuth_angle_neg180_180(double hPrime, double latitude, double deltaPrime)
         {
-            double h_prime_rad = deg2rad(h_prime);
-            double lat_rad = deg2rad(latitude);
+            double hPrimeRad = Deg2Rad(hPrime);
+            double latRad = Deg2Rad(latitude);
 
-            return rad2deg(Math.Atan2(Math.Sin(h_prime_rad),
-                                 Math.Cos(h_prime_rad) * Math.Sin(lat_rad) - Math.Tan(deg2rad(delta_prime)) * Math.Cos(lat_rad)));
+            return Rad2Deg(Math.Atan2(Math.Sin(hPrimeRad),
+                                 Math.Cos(hPrimeRad) * Math.Sin(latRad) - Math.Tan(Deg2Rad(deltaPrime)) * Math.Cos(latRad)));
         }
 
         private double topocentric_azimuth_angle_zero_360(double azimuth180)
@@ -982,14 +982,14 @@ namespace SPA
             return azimuth180 + 180.0;
         }
 
-        private double surface_incidence_angle(double zenith, double azimuth180, double azm_rotation,
+        private double surface_incidence_angle(double zenith, double azimuth180, double azmRotation,
                                                                          double slope)
         {
-            double zenith_rad = deg2rad(zenith);
-            double slope_rad = deg2rad(slope);
+            double zenithRad = Deg2Rad(zenith);
+            double slopeRad = Deg2Rad(slope);
 
-            return rad2deg(Math.Acos(Math.Cos(zenith_rad) * Math.Cos(slope_rad) +
-                                Math.Sin(slope_rad) * Math.Sin(zenith_rad) * Math.Cos(deg2rad(azimuth180 - azm_rotation))));
+            return Rad2Deg(Math.Acos(Math.Cos(zenithRad) * Math.Cos(slopeRad) +
+                                Math.Sin(slopeRad) * Math.Sin(zenithRad) * Math.Cos(Deg2Rad(azimuth180 - azmRotation))));
         }
 
         private double sun_mean_longitude(double jme)
@@ -998,63 +998,63 @@ namespace SPA
                             jme * (1 / 49931.0 + jme * (-1 / 15300.0 + jme * (-1 / 2000000.0))))));
         }
 
-        private double eot(double m, double alpha, double del_psi, double epsilon)
+        private double Eot(double m, double alpha, double delPsi, double epsilon)
         {
-            return limit_minutes(4.0 * (m - 0.0057183 - alpha + del_psi * Math.Cos(deg2rad(epsilon))));
+            return limit_minutes(4.0 * (m - 0.0057183 - alpha + delPsi * Math.Cos(Deg2Rad(epsilon))));
         }
 
-        private double approx_sun_transit_time(double alpha_zero, double longitude, double nu)
+        private double approx_sun_transit_time(double alphaZero, double longitude, double nu)
         {
-            return (alpha_zero - longitude - nu) / 360.0;
+            return (alphaZero - longitude - nu) / 360.0;
         }
 
-        private double sun_hour_angle_at_rise_set(double latitude, double delta_zero, double h0_prime)
+        private double sun_hour_angle_at_rise_set(double latitude, double deltaZero, double h0Prime)
         {
             double h0 = -99999;
-            double latitude_rad = deg2rad(latitude);
-            double delta_zero_rad = deg2rad(delta_zero);
-            double argument = (Math.Sin(deg2rad(h0_prime)) - Math.Sin(latitude_rad) * Math.Sin(delta_zero_rad)) /
-                                                             (Math.Cos(latitude_rad) * Math.Cos(delta_zero_rad));
+            double latitudeRad = Deg2Rad(latitude);
+            double deltaZeroRad = Deg2Rad(deltaZero);
+            double argument = (Math.Sin(Deg2Rad(h0Prime)) - Math.Sin(latitudeRad) * Math.Sin(deltaZeroRad)) /
+                                                             (Math.Cos(latitudeRad) * Math.Cos(deltaZeroRad));
 
-            if (Math.Abs(argument) <= 1) h0 = limit_degrees180(rad2deg(Math.Acos(argument)));
+            if (Math.Abs(argument) <= 1) h0 = limit_degrees180(Rad2Deg(Math.Acos(argument)));
 
             return h0;
         }
 
-        private void approx_sun_rise_and_set(ref double[] m_rts, double h0)
+        private void approx_sun_rise_and_set(ref double[] mRts, double h0)
         {
-            double h0_dfrac = h0 / 360.0;
+            double h0Dfrac = h0 / 360.0;
 
-            m_rts[(int)SunTerm.SUN_RISE] = limit_zero2one(m_rts[(int)SunTerm.SUN_TRANSIT] - h0_dfrac);
-            m_rts[(int)SunTerm.SUN_SET] = limit_zero2one(m_rts[(int)SunTerm.SUN_TRANSIT] + h0_dfrac);
-            m_rts[(int)SunTerm.SUN_TRANSIT] = limit_zero2one(m_rts[(int)SunTerm.SUN_TRANSIT]);
+            mRts[(int)SunTerm.SunRise] = limit_zero2one(mRts[(int)SunTerm.SunTransit] - h0Dfrac);
+            mRts[(int)SunTerm.SunSet] = limit_zero2one(mRts[(int)SunTerm.SunTransit] + h0Dfrac);
+            mRts[(int)SunTerm.SunTransit] = limit_zero2one(mRts[(int)SunTerm.SunTransit]);
         }
 
         private double rts_alpha_delta_prime(ref double[] ad, double n)
         {
-            double a = ad[(int)Julian.JD_ZERO] - ad[(int)Julian.JD_MINUS];
-            double b = ad[(int)Julian.JD_PLUS] - ad[(int)Julian.JD_ZERO];
+            double a = ad[(int)Julian.JdZero] - ad[(int)Julian.JdMinus];
+            double b = ad[(int)Julian.JdPlus] - ad[(int)Julian.JdZero];
 
             if (Math.Abs(a) >= 2.0) a = limit_zero2one(a);
             if (Math.Abs(b) >= 2.0) b = limit_zero2one(b);
 
-            return ad[(int)Julian.JD_ZERO] + n * (a + b + (b - a) * n) / 2.0;
+            return ad[(int)Julian.JdZero] + n * (a + b + (b - a) * n) / 2.0;
         }
 
-        private double rts_sun_altitude(double latitude, double delta_prime, double h_prime)
+        private double rts_sun_altitude(double latitude, double deltaPrime, double hPrime)
         {
-            double latitude_rad = deg2rad(latitude);
-            double delta_prime_rad = deg2rad(delta_prime);
+            double latitudeRad = Deg2Rad(latitude);
+            double deltaPrimeRad = Deg2Rad(deltaPrime);
 
-            return rad2deg(Math.Asin(Math.Sin(latitude_rad) * Math.Sin(delta_prime_rad) +
-                                Math.Cos(latitude_rad) * Math.Cos(delta_prime_rad) * Math.Cos(deg2rad(h_prime))));
+            return Rad2Deg(Math.Asin(Math.Sin(latitudeRad) * Math.Sin(deltaPrimeRad) +
+                                Math.Cos(latitudeRad) * Math.Cos(deltaPrimeRad) * Math.Cos(Deg2Rad(hPrime))));
         }
 
-        private double sun_rise_and_set(ref double[] m_rts, ref  double[] h_rts, ref  double[] delta_prime, double latitude,
-                                ref double[] h_prime, double h0_prime, int sun)
+        private double sun_rise_and_set(ref double[] mRts, ref  double[] hRts, ref  double[] deltaPrime, double latitude,
+                                ref double[] hPrime, double h0Prime, int sun)
         {
-            return m_rts[sun] + (h_rts[sun] - h0_prime) /
-                  (360.0 * Math.Cos(deg2rad(delta_prime[sun])) * Math.Cos(deg2rad(latitude)) * Math.Sin(deg2rad(h_prime[sun])));
+            return mRts[sun] + (hRts[sun] - h0Prime) /
+                  (360.0 * Math.Cos(Deg2Rad(deltaPrime[sun])) * Math.Cos(Deg2Rad(latitude)) * Math.Sin(Deg2Rad(hPrime[sun])));
         }
 
         #endregion Methods
@@ -1066,41 +1066,41 @@ namespace SPA
 
         #region SPA
 
-        public void calculate_geocentric_sun_right_ascension_and_declination(ref Spa_Data spa)
+        public void calculate_geocentric_sun_right_ascension_and_declination(ref SpaData spa)
         {
-            double[] x = new double[(int)TERM_X.TERM_X_COUNT];
+            double[] x = new double[(int)TermX.TermXCount];
 
             spa.Jc = julian_century(spa.Jd);
 
-            spa.Jde = julian_ephemeris_day(spa.Jd, spa.Delta_t);
+            spa.Jde = julian_ephemeris_day(spa.Jd, spa.DeltaT);
             spa.Jce = julian_ephemeris_century(spa.Jde);
-            spa.jme = julian_ephemeris_millennium(spa.Jce);
+            spa.Jme = julian_ephemeris_millennium(spa.Jce);
 
-            spa.L = earth_heliocentric_longitude(spa.jme);
-            spa.B = earth_heliocentric_latitude(spa.jme);
-            spa.R = earth_radius_vector(spa.jme);
+            spa.L = earth_heliocentric_longitude(spa.Jme);
+            spa.B = earth_heliocentric_latitude(spa.Jme);
+            spa.R = earth_radius_vector(spa.Jme);
 
             spa.Theta = geocentric_longitude(spa.L);
             spa.Beta = geocentric_latitude(spa.B);
 
-            x[(int)TERM_X.TERM_X0] = spa.X0 = mean_elongation_moon_sun(spa.Jce);
-            x[(int)TERM_X.TERM_X1] = spa.X1 = mean_anomaly_sun(spa.Jce);
-            x[(int)TERM_X.TERM_X2] = spa.X2 = mean_anomaly_moon(spa.Jce);
-            x[(int)TERM_X.TERM_X3] = spa.X3 = argument_latitude_moon(spa.Jce);
-            x[(int)TERM_X.TERM_X4] = spa.X4 = ascending_longitude_moon(spa.Jce);
+            x[(int)TermX.TermX0] = spa.X0 = mean_elongation_moon_sun(spa.Jce);
+            x[(int)TermX.TermX1] = spa.X1 = mean_anomaly_sun(spa.Jce);
+            x[(int)TermX.TermX2] = spa.X2 = mean_anomaly_moon(spa.Jce);
+            x[(int)TermX.TermX3] = spa.X3 = argument_latitude_moon(spa.Jce);
+            x[(int)TermX.TermX4] = spa.X4 = ascending_longitude_moon(spa.Jce);
 
-            nutation_longitude_and_obliquity(spa.Jce, x, ref spa.del_psi, ref spa.del_epsilon);
+            nutation_longitude_and_obliquity(spa.Jce, x, ref spa.DelPsi, ref spa.DelEpsilon);
 
-            spa.epsilon0 = ecliptic_mean_obliquity(spa.jme);
-            spa.epsilon = ecliptic_true_obliquity(spa.del_epsilon, spa.epsilon0);
+            spa.Epsilon0 = ecliptic_mean_obliquity(spa.Jme);
+            spa.Epsilon = ecliptic_true_obliquity(spa.DelEpsilon, spa.Epsilon0);
 
-            spa.del_tau = aberration_correction(spa.R);
-            spa.lamda = apparent_sun_longitude(spa.Theta, spa.del_psi, spa.del_tau);
-            spa.nu0 = greenwich_mean_sidereal_time(spa.Jd, spa.Jc);
-            spa.nu = greenwich_sidereal_time(spa.nu0, spa.del_psi, spa.epsilon);
+            spa.DelTau = aberration_correction(spa.R);
+            spa.Lamda = apparent_sun_longitude(spa.Theta, spa.DelPsi, spa.DelTau);
+            spa.Nu0 = greenwich_mean_sidereal_time(spa.Jd, spa.Jc);
+            spa.Nu = greenwich_sidereal_time(spa.Nu0, spa.DelPsi, spa.Epsilon);
 
-            spa.alpha = geocentric_sun_right_ascension(spa.lamda, spa.epsilon, spa.Beta);
-            spa.delta = geocentric_sun_declination(spa.Beta, spa.epsilon, spa.lamda);
+            spa.Alpha = geocentric_sun_right_ascension(spa.Lamda, spa.Epsilon, spa.Beta);
+            spa.Delta = geocentric_sun_declination(spa.Beta, spa.Epsilon, spa.Lamda);
         }
 
         #endregion SPA
@@ -1111,78 +1111,78 @@ namespace SPA
 
         #region Calculate Equation of Time (EOT) and Sun Rise, Transit, & Set (RTS)
 
-        private void calculate_eot_and_sun_rise_transit_set(ref Spa_Data spa)
+        private void calculate_eot_and_sun_rise_transit_set(ref SpaData spa)
         {
-            Spa_Data sun_rts;
+            SpaData sunRts;
             double nu, m, h0, n;
-            double[] alpha = new double[(int)Julian.JD_COUNT];
-            double[] delta = new double[(int)Julian.JD_COUNT];
-            double[] m_rts = new double[(int)SunTerm.SUN_COUNT];
-            double[] nu_rts = new double[(int)SunTerm.SUN_COUNT];
-            double[] h_rts = new double[(int)SunTerm.SUN_COUNT];
-            double[] alpha_prime = new double[(int)SunTerm.SUN_COUNT];
-            double[] delta_prime = new double[(int)SunTerm.SUN_COUNT];
-            double[] h_prime = new double[(int)SunTerm.SUN_COUNT];
-            double h0_prime = -1 * (SUN_RADIUS + spa.Atmos_refract);
+            double[] alpha = new double[(int)Julian.JdCount];
+            double[] delta = new double[(int)Julian.JdCount];
+            double[] mRts = new double[(int)SunTerm.SunCount];
+            double[] nuRts = new double[(int)SunTerm.SunCount];
+            double[] hRts = new double[(int)SunTerm.SunCount];
+            double[] alphaPrime = new double[(int)SunTerm.SunCount];
+            double[] deltaPrime = new double[(int)SunTerm.SunCount];
+            double[] hPrime = new double[(int)SunTerm.SunCount];
+            double h0Prime = -1 * (SunRadius + spa.AtmosRefract);
             int i;
 
-            sun_rts = spa;
-            m = sun_mean_longitude(spa.jme);
-            spa.eot = eot(m, spa.alpha, spa.del_psi, spa.epsilon);
+            sunRts = spa;
+            m = sun_mean_longitude(spa.Jme);
+            spa.Eot = Eot(m, spa.Alpha, spa.DelPsi, spa.Epsilon);
 
-            sun_rts.Hour = sun_rts.Minute = sun_rts.Second = 0;
-            sun_rts.Timezone = 0.0;
+            sunRts.Hour = sunRts.Minute = sunRts.Second = 0;
+            sunRts.Timezone = 0.0;
 
-            sun_rts.Jd = julian_day(sun_rts.Year, sun_rts.Month, sun_rts.Day,
-                                     sun_rts.Hour, sun_rts.Minute, sun_rts.Second, sun_rts.Timezone);
+            sunRts.Jd = julian_day(sunRts.Year, sunRts.Month, sunRts.Day,
+                                     sunRts.Hour, sunRts.Minute, sunRts.Second, sunRts.Timezone);
 
-            calculate_geocentric_sun_right_ascension_and_declination(ref sun_rts);
-            nu = sun_rts.nu;
+            calculate_geocentric_sun_right_ascension_and_declination(ref sunRts);
+            nu = sunRts.Nu;
 
-            sun_rts.Delta_t = 0;
-            sun_rts.Jd--;
-            for (i = 0; i < (int)Julian.JD_COUNT; i++)
+            sunRts.DeltaT = 0;
+            sunRts.Jd--;
+            for (i = 0; i < (int)Julian.JdCount; i++)
             {
-                calculate_geocentric_sun_right_ascension_and_declination(ref sun_rts);
-                alpha[i] = sun_rts.alpha;
-                delta[i] = sun_rts.delta;
-                sun_rts.Jd++;
+                calculate_geocentric_sun_right_ascension_and_declination(ref sunRts);
+                alpha[i] = sunRts.Alpha;
+                delta[i] = sunRts.Delta;
+                sunRts.Jd++;
             }
 
-            m_rts[(int)SunTerm.SUN_TRANSIT] = approx_sun_transit_time(alpha[(int)Julian.JD_ZERO], spa.Longitude, nu);
-            h0 = sun_hour_angle_at_rise_set(spa.Latitude, delta[(int)Julian.JD_ZERO], h0_prime);
+            mRts[(int)SunTerm.SunTransit] = approx_sun_transit_time(alpha[(int)Julian.JdZero], spa.Longitude, nu);
+            h0 = sun_hour_angle_at_rise_set(spa.Latitude, delta[(int)Julian.JdZero], h0Prime);
 
             if (h0 >= 0)
             {
-                approx_sun_rise_and_set(ref m_rts, h0);
+                approx_sun_rise_and_set(ref mRts, h0);
 
-                for (i = 0; i < (int)SunTerm.SUN_COUNT; i++)
+                for (i = 0; i < (int)SunTerm.SunCount; i++)
                 {
-                    nu_rts[i] = nu + 360.985647 * m_rts[i];
+                    nuRts[i] = nu + 360.985647 * mRts[i];
 
-                    n = m_rts[i] + spa.Delta_t / 86400.0;
-                    alpha_prime[i] = rts_alpha_delta_prime(ref alpha, n);
-                    delta_prime[i] = rts_alpha_delta_prime(ref delta, n);
+                    n = mRts[i] + spa.DeltaT / 86400.0;
+                    alphaPrime[i] = rts_alpha_delta_prime(ref alpha, n);
+                    deltaPrime[i] = rts_alpha_delta_prime(ref delta, n);
 
-                    h_prime[i] = limit_degrees180pm(nu_rts[i] + spa.Longitude - alpha_prime[i]);
+                    hPrime[i] = limit_degrees180pm(nuRts[i] + spa.Longitude - alphaPrime[i]);
 
-                    h_rts[i] = rts_sun_altitude(spa.Latitude, delta_prime[i], h_prime[i]);
+                    hRts[i] = rts_sun_altitude(spa.Latitude, deltaPrime[i], hPrime[i]);
                 }
 
-                spa.srha = h_prime[(int)SunTerm.SUN_RISE];
-                spa.ssha = h_prime[(int)SunTerm.SUN_SET];
-                spa.sta = h_rts[(int)SunTerm.SUN_TRANSIT];
+                spa.Srha = hPrime[(int)SunTerm.SunRise];
+                spa.Ssha = hPrime[(int)SunTerm.SunSet];
+                spa.Sta = hRts[(int)SunTerm.SunTransit];
 
-                spa.Suntransit = dayfrac_to_local_hr(m_rts[(int)SunTerm.SUN_TRANSIT] - h_prime[(int)SunTerm.SUN_TRANSIT] / 360.0,
+                spa.Suntransit = dayfrac_to_local_hr(mRts[(int)SunTerm.SunTransit] - hPrime[(int)SunTerm.SunTransit] / 360.0,
                                                       spa.Timezone);
 
-                spa.Sunrise = dayfrac_to_local_hr(sun_rise_and_set(ref m_rts, ref h_rts, ref delta_prime,
-                                  spa.Latitude, ref h_prime, h0_prime, (int)SunTerm.SUN_RISE), spa.Timezone);
+                spa.Sunrise = dayfrac_to_local_hr(sun_rise_and_set(ref mRts, ref hRts, ref deltaPrime,
+                                  spa.Latitude, ref hPrime, h0Prime, (int)SunTerm.SunRise), spa.Timezone);
 
-                spa.Sunset = dayfrac_to_local_hr(sun_rise_and_set(ref m_rts, ref h_rts, ref delta_prime,
-                                  spa.Latitude, ref h_prime, h0_prime, (int)SunTerm.SUN_SET), spa.Timezone);
+                spa.Sunset = dayfrac_to_local_hr(sun_rise_and_set(ref mRts, ref hRts, ref deltaPrime,
+                                  spa.Latitude, ref hPrime, h0Prime, (int)SunTerm.SunSet), spa.Timezone);
             }
-            else spa.srha = spa.ssha = spa.sta = spa.Suntransit = spa.Sunrise = spa.Sunset = -99999;
+            else spa.Srha = spa.Ssha = spa.Sta = spa.Suntransit = spa.Sunrise = spa.Sunset = -99999;
         }
 
         #endregion Calculate Equation of Time (EOT) and Sun Rise, Transit, & Set (RTS)
@@ -1194,7 +1194,7 @@ namespace SPA
 
         #region Calculate all SPA parameters and put into structure
 
-        public int spa_calculate(ref Spa_Data spa)
+        public int spa_calculate(ref SpaData spa)
         {
             int result;
 
@@ -1207,30 +1207,30 @@ namespace SPA
 
                 calculate_geocentric_sun_right_ascension_and_declination(ref spa);
 
-                spa.h = observer_hour_angle(spa.nu, spa.Longitude, spa.alpha);
-                spa.xi = sun_equatorial_horizontal_parallax(spa.R);
+                spa.H = observer_hour_angle(spa.Nu, spa.Longitude, spa.Alpha);
+                spa.Xi = sun_equatorial_horizontal_parallax(spa.R);
 
-                sun_right_ascension_parallax_and_topocentric_dec(spa.Latitude, spa.Elevation, spa.xi,
-                                            spa.h, spa.delta, ref spa.del_alpha, ref spa.delta_prime);
+                sun_right_ascension_parallax_and_topocentric_dec(spa.Latitude, spa.Elevation, spa.Xi,
+                                            spa.H, spa.Delta, ref spa.DelAlpha, ref spa.DeltaPrime);
 
-                spa.alpha_prime = topocentric_sun_right_ascension(spa.alpha, spa.del_alpha);
-                spa.h_prime = topocentric_local_hour_angle(spa.h, spa.del_alpha);
+                spa.AlphaPrime = topocentric_sun_right_ascension(spa.Alpha, spa.DelAlpha);
+                spa.HPrime = topocentric_local_hour_angle(spa.H, spa.DelAlpha);
 
-                spa.e0 = topocentric_elevation_angle(spa.Latitude, spa.delta_prime, spa.h_prime);
-                spa.del_e = atmospheric_refraction_correction(spa.Pressure, spa.Temperature,
-                                                                 spa.Atmos_refract, spa.e0);
-                spa.e = topocentric_elevation_angle_corrected(spa.e0, spa.del_e);
+                spa.E0 = topocentric_elevation_angle(spa.Latitude, spa.DeltaPrime, spa.HPrime);
+                spa.DelE = atmospheric_refraction_correction(spa.Pressure, spa.Temperature,
+                                                                 spa.AtmosRefract, spa.E0);
+                spa.E = topocentric_elevation_angle_corrected(spa.E0, spa.DelE);
 
-                spa.Zenith = topocentric_zenith_angle(spa.e);
-                spa.Azimuth180 = topocentric_azimuth_angle_neg180_180(spa.h_prime, spa.Latitude,
-                                                                                     spa.delta_prime);
+                spa.Zenith = topocentric_zenith_angle(spa.E);
+                spa.Azimuth180 = topocentric_azimuth_angle_neg180_180(spa.HPrime, spa.Latitude,
+                                                                                     spa.DeltaPrime);
                 spa.Azimuth = topocentric_azimuth_angle_zero_360(spa.Azimuth180);
 
-                if ((spa.Function == (int)SpaSelect.SPA_ZA_INC) || (spa.Function == (int)SpaSelect.SPA_ALL))
+                if ((spa.Function == (int)SpaSelect.SpaZaInc) || (spa.Function == (int)SpaSelect.SpaAll))
                     spa.Incidence = surface_incidence_angle(spa.Zenith, spa.Azimuth180,
-                                                              spa.Azm_rotation, spa.Slope);
+                                                              spa.AzmRotation, spa.Slope);
 
-                if ((spa.Function == (int)SpaSelect.SPA_ZA_RTS) || (spa.Function == (int)SpaSelect.SPA_ALL))
+                if ((spa.Function == (int)SpaSelect.SpaZaRts) || (spa.Function == (int)SpaSelect.SpaAll))
                     calculate_eot_and_sun_rise_transit_set(ref spa);
             }
 

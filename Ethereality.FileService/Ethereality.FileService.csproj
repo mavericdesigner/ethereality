@@ -107,7 +107,6 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="FileHandling.cs" />
     <Compile Include="GpxFileParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

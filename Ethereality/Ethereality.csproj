@@ -106,9 +106,6 @@
     <Compile Include="Model\DataService.cs" />
     <Compile Include="Model\IDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SecondPage.xaml.cs">
-      <DependentUpon>SecondPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
   </ItemGroup>
@@ -137,10 +134,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="SecondPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
@@ -148,9 +141,9 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ethereality.Charting\Ethereality.Charting.csproj">
-      <Project>{6f91183c-8922-4489-b7fb-f7a53783d7ff}</Project>
-      <Name>Ethereality.Charting</Name>
+    <ProjectReference Include="..\Ethereality.CustomControls\Ethereality.CustomControls.csproj">
+      <Project>{fbc62de3-eae3-4958-b222-e9a00594d2c1}</Project>
+      <Name>Ethereality.CustomControls</Name>
     </ProjectReference>
     <ProjectReference Include="..\Ethereality.DataManagement\Ethereality.DataManagement.csproj">
       <Project>{0e73e64c-a0f9-451f-9898-f7dad288b707}</Project>
@@ -171,10 +164,6 @@
     <ProjectReference Include="..\Ethereality.UDP\Ethereality.UDP.csproj">
       <Project>{3fe78c1e-4ad9-4ed8-b6cf-847bd8d377d0}</Project>
       <Name>Ethereality.UDP</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ethreality.Luminescence\Ethereality.Strategy.csproj">
-      <Project>{1fb44f87-1df0-48c1-858d-a0f6d572cc17}</Project>
-      <Name>Ethereality.Strategy</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

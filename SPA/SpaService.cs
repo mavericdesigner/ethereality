@@ -5,7 +5,7 @@
     public class SpaService
     {
 
-        private Spa_Data SpaValues;
+        public SpaData SpaValues;
     
         public int SpaErrorCode { get; set; }
   
@@ -14,14 +14,14 @@
 
         public SpaService()
         {
-            SpaValues= new Spa_Data();
+            SpaValues= new SpaData();
         }
 
         #endregion Constructors
 
         #region Methods
 
-        public int SpaDataCalculate(Spa_Data SpaValues)
+        public int SpaDataCalculate(SpaData spaValues)
         {
             //declare the SPA structure
             int result;
@@ -50,7 +50,7 @@
             //_spaValues.Function = _spaDataLink.SpaDataProp.Function;
             //call the _spaValues calculate function and pass the _spaValues structure*/
             Spa spawork = new Spa();
-            result = spawork.spa_calculate(ref SpaValues);
+            result = spawork.spa_calculate(ref spaValues);
 
             if (result == 0)  //check for SPA errors
             {
@@ -67,11 +67,11 @@
                 //Console.WriteLine("Azimuth:       {0} degrees", _spaValues.azimuth);
                 //Console.WriteLine("Incidence:     {0} degrees", _spaValues.incidence);
 
-                min = 60.0 * (SpaValues.Sunrise - (int)(SpaValues.Sunrise));
+                min = 60.0 * (spaValues.Sunrise - (int)(spaValues.Sunrise));
                 sec = 60.0 * (min - (int)min);
                 //Console.Write("Sunrise:       {0}:{1}:{2} Local Time\n", (int)(_spaValues.sunrise), (int)min, (int)sec);
 
-                min = 60.0 * (SpaValues.Sunset - (int)(SpaValues.Sunset));
+                min = 60.0 * (spaValues.Sunset - (int)(spaValues.Sunset));
                 sec = 60.0 * (min - (int)min);
                 //Console.Write("Sunset:        {0}:{1}:{2} Local Time\n", (int)(_spaValues.sunset), (int)min, (int)sec);
                 //_spaDataLink.SpaDataProp = _spaValues;

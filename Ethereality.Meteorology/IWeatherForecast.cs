@@ -9,7 +9,7 @@ namespace Ethereality.Meteorology
     {
         Task<Forecast> GetWeatherHistoryService(double latitude, double longitude, DateTimeOffset date);
         Task<Forecast> GetWeatherService(double latitude, double longitude);
-        Task<List<Forecast>> GetWeatherServiceCollection(ICollection<WeatherForecast.LatLongTime> LatLongTimeCollection);
-        Task<List<Forecast>> GetWeatherServiceCollection(ICollection<WeatherForecast.LatLong> LatLongCollection);
+        Task<List<Forecast>> GetWeatherServiceCollection(ICollection<WeatherForecast.LatLongTime> latLongTimeCollection);
+        Task<List<Forecast>> GetWeatherServiceCollection(ICollection<WeatherForecast.LatLong> latLongCollection);
     }
 }

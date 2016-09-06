@@ -1,18 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{840a3d1f-4544-43b0-a5cf-dac1dc284b20}</ProjectGuid>
+    <ProjectGuid>{770D3B71-21BD-4045-A5FE-484569AD4225}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Ethereality.Strategy</RootNamespace>
     <AssemblyName>Ethereality.Strategy</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
+    <DefaultLanguage>en-ZA</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -108,8 +108,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="IsisElectricModel.cs" />
+    <Compile Include="IsisMechanicsModel.cs" />
+    <Compile Include="LongtermStrategy.cs" />
+    <Compile Include="OptimalDrivingStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Ethereality.Strategy.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ethereality.DataTypes\Ethereality.CustomTypes.csproj">
+      <Project>{11998f3d-09d3-44ca-8552-b757c1e9365c}</Project>
+      <Name>Ethereality.CustomTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Etheriality.Constants\Etheriality.Constants.csproj">
+      <Project>{9d41e1c3-63b2-47f0-86d7-4b7a054df3a2}</Project>
+      <Name>Etheriality.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SPA\SPA.csproj">
+      <Project>{5da1e88d-24d6-47f0-9b60-08c3da5cef7f}</Project>
+      <Name>SPA</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="alglibnet2">
+      <HintPath>..\..\..\Users\stephanschoeman\OneDrive\CSharpPackages\csharp\alglibnet2.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

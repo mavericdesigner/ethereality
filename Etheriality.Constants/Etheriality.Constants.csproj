@@ -107,8 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Constants.cs" />
+    <Compile Include="ConstantValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Etheriality.Constants.rd.xml" />
   </ItemGroup>

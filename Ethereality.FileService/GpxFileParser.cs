@@ -58,7 +58,7 @@ namespace Ethereality.FileService
         /// the file (for test)</returns>
         /// <remarks>Normally, this would be used to populate the
         /// appropriate object model</remarks>
-        private string LoadGPXWaypoints(string sFile)
+        private string LoadGpxWaypoints(string sFile)
         {
             XDocument gpxDoc = GetGpxDoc(sFile);
             XNamespace gpx = GetGpxNameSpace();
@@ -97,7 +97,7 @@ namespace Ethereality.FileService
         /// <param name="sFile">Fully qualified file name (local)</param>
         /// <returns>string containing line delimited waypoints from the
         /// file (for test)</returns>
-        private async Task LoadGPXTracks(string sFile)
+        private async Task LoadGpxTracks(string sFile)
         {
             XDocument gpxDoc = GetGpxDoc(sFile);
             XNamespace gpx = GetGpxNameSpace();
@@ -125,14 +125,14 @@ namespace Ethereality.FileService
                 foreach (var trk in tracks)
                 {
                     // Populate _track data objects.
-                    Waypoint RouteCoordinatePoint = new Waypoint();
+                    Waypoint routeCoordinatePoint = new Waypoint();
                     foreach (var trkSeg in trk.Segs)
                     {
-                        RouteCoordinatePoint.Latitude = Convert.ToDouble((string)trkSeg.Latitude);
-                        RouteCoordinatePoint.Longitude = Convert.ToDouble((string)trkSeg.Longitude);
-                        RouteCoordinatePoint.Elevation = Convert.ToDouble((string)trkSeg.Elevation);
-                        ++RouteCoordinatePoint.index;
-                        RouteCoordinatePoints.Add(RouteCoordinatePoint);
+                        routeCoordinatePoint.Latitude = Convert.ToDouble((string)trkSeg.Latitude);
+                        routeCoordinatePoint.Longitude = Convert.ToDouble((string)trkSeg.Longitude);
+                        routeCoordinatePoint.Elevation = Convert.ToDouble((string)trkSeg.Elevation);
+                        ++routeCoordinatePoint.Index;
+                        RouteCoordinatePoints.Add(routeCoordinatePoint);
 
                         // Populate detailed _track segments
                         // in the object model here.
@@ -153,7 +153,7 @@ namespace Ethereality.FileService
         public async Task<List<Waypoint>> GetGpxCoordinateData()
         {
             SelectFile();
-            await LoadGPXTracks(GpxFilename);
+            await LoadGpxTracks(GpxFilename);
             string json = JsonConvert.SerializeObject(RouteCoordinatePoints, Formatting.Indented);
             return RouteCoordinatePoints;
         }
