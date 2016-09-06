@@ -107,7 +107,6 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="IsisElectricModel.cs" />
     <Compile Include="IsisMechanicsModel.cs" />
     <Compile Include="LongtermStrategy.cs" />
