@@ -107,6 +107,12 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CellLevelBar.xaml.cs">
+      <DependentUpon>CellLevelBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CMUUserControl.xaml.cs">
+      <DependentUpon>CMUUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MiniDigitDisplayUwp.xaml.cs">
       <DependentUpon>MiniDigitDisplayUwp.xaml</DependentUpon>
     </Compile>
@@ -114,6 +120,14 @@
     <EmbeddedResource Include="Properties\Ethereality.CustomControls.rd.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="CellLevelBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CMUUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MiniDigitDisplayUwp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

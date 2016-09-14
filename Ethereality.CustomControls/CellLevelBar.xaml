@@ -1,0 +1,25 @@
+﻿<UserControl
+    x:Class="Ethereality.CustomControls.CellLevelBar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ethereality.CustomControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Height="20.25" Width="134.875">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid>
+            <ProgressBar x:Name="CellBar"
+				Width="70"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Stretch"
+				Foreground="Red"
+                         Value="34"/>
+            <TextBlock x:Name="CellVolt"
+				Margin="0,0,20,1"
+				TextAlignment="Center"
+				TextWrapping="Wrap" HorizontalAlignment="Right" Text="0000" Width="40" />
+            <TextBlock Text="mV" VerticalAlignment="Top" Margin="0,4,1,0" HorizontalAlignment="Right" Width="19" FontSize="11" Height="15" />
+        </Grid>
+    </Grid>
+</UserControl>

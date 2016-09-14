@@ -1,7 +1,7 @@
 ﻿{
   "dependencies": {
     "ForecastIOPortable": "2.6.0",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2"
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0"
   },
   "frameworks": {
     "uap10.0": {}
