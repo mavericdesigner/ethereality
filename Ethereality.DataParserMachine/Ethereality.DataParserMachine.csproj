@@ -111,6 +111,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Ethereality.DataParserMachine.rd.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ethereality.DataModels\Ethereality.DataModels.csproj">
+      <Project>{3b9d8ae9-4aab-4f27-9775-b0edb47452c8}</Project>
+      <Name>Ethereality.DataModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ethereality.FileService\Ethereality.FileService.csproj">
+      <Project>{fb0c3f63-e329-4c42-9d50-4247d140ee53}</Project>
+      <Name>Ethereality.FileService</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

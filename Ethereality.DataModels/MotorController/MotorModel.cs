@@ -4,12 +4,60 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Windows.UI.Core;
 
-namespace Isis.Model.Vehicle.DriveSystem
+namespace Ethereality.DataModels.DriveSystem
 {
+    [Flags]
+    public enum ErrorFlags : byte
+    {
+        NoError = 0x00,
+        HardWareOverCurrent = 0x01,
+        SoftwareOverCurrent = 0x02,
+        DcBusOverVoltage = 0x04,
+        BadMotorPostionHallSequence = 0x08,
+        WatchDogCausedLastReset = 0x10,
+        ConfigReadError = 0x20,
+        UnderVolt15vRailLockOut = 0x40,
+        DesaturationFault = 0x80,
+    }
+
+    [Flags]
+    public enum LimitFlags : byte
+    {
+        NoError = 0x00,
+        OutputVoltagePwm = 0x01,
+        MotorCurrent = 0x02,
+        Velocity = 0x04,
+        BusCurrent = 0x08,
+        BusVoltageUpperLimit = 0x10,
+        BusVoltageLowerLimit = 0x20,
+        IpmTemperatureOrMotorTemperature = 0x40
+    }
+
+    public enum MCPacketID : UInt16
+    {
+        ID = 0x420,
+        StatusInfo = 0x421,
+        BusMeasure = 0x422,
+        VelocityMeasure = 0x423,
+        PhaseCurrentMeasure = 0x424,
+        VoltageVectorMeasure = 0x425,
+        CurrentVectorMeasure = 0x426,
+        BackEMFMeasure = 0x427,
+        Rail15VMeasure = 0x428,
+        Rail3V2And1V9Measure = 0x429,
+        Reserved = 0x42A,
+        IPMPhaseCMotorTempMeasure = 0x42B,
+        IPMPhaseBDspTempMeasure = 0x42C,
+        IPMPhaseATempMeasure = 0x42D,
+        OdometerBusAmpHMeasure = 0x42E,
+        SlipSpeedMeasure = 0x437
+    }
+
     public class MotorModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public static MotorModel CurrentMotorModel;
         private async void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             if (PropertyChanged != null)
@@ -22,6 +70,7 @@ namespace Isis.Model.Vehicle.DriveSystem
 
         public MotorModel()
         {
+            CurrentMotorModel = this;
             _mcTimeStamp = 0.00;
             _busCurrent = 0.00F;
             _busVoltage = 0.00F;

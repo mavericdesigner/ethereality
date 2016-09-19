@@ -2,7 +2,9 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
+using Ethereality.ViewModel;
 using Microsoft.Practices.ServiceLocation;
+using Ethereality.ViewModels;
 
 namespace Ethereality.ViewModel
 {
@@ -30,11 +32,24 @@ namespace Ethereality.ViewModel
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<BatteryViewModel>();
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
             "CA1822:MarkMembersAsStatic",
             Justification = "This non-static member is needed for data binding purposes.")]
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
+
+
+
+        /// <summary>
+        /// Gets the ViewModelPropertyName property.
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
+            "CA1822:MarkMembersAsStatic",
+            Justification = "This non-static member is needed for data binding purposes.")]
+
+        public BatteryViewModel BatteryView => ServiceLocator.Current.GetInstance<BatteryViewModel>();
+        
     }
 }

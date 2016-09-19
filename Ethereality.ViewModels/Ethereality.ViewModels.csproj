@@ -4,15 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FBC62DE3-EAE3-4958-B222-E9A00594D2C1}</ProjectGuid>
+    <ProjectGuid>{1C8C2AC6-7A1A-4408-B70F-00528FBCA16B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ethereality.CustomControls</RootNamespace>
-    <AssemblyName>Ethereality.CustomControls</AssemblyName>
+    <RootNamespace>Ethereality.ViewModels</RootNamespace>
+    <AssemblyName>Ethereality.ViewModels</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -107,38 +107,18 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CellLevelBar.xaml.cs">
-      <DependentUpon>CellLevelBar.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CMUUserControl.xaml.cs">
-      <DependentUpon>CMUUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MiniDigitDisplayUwp.xaml.cs">
-      <DependentUpon>MiniDigitDisplayUwp.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PackUserControl.xaml.cs">
-      <DependentUpon>PackUserControl.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="BatteryViewModel.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="MotorViewModel.cs" />
+    <Compile Include="MpptViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\Ethereality.CustomControls.rd.xml" />
+    <EmbeddedResource Include="Properties\Ethereality.ViewModels.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="CellLevelBar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CMUUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MiniDigitDisplayUwp.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PackUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <ProjectReference Include="..\Ethereality\Ethereality.csproj">
+      <Project>{D46225E9-874E-4B79-AB3A-46327423CADA}</Project>
+      <Name>Ethereality</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

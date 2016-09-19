@@ -5,9 +5,9 @@
     xmlns:local="using:Ethereality.CustomControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Height="305.848" Width="159.649">
+    mc:Ignorable="d" Height="330" Width="180">
 
-    <Grid>
+    <Grid >
         <TextBlock x:Name="NameCMU"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"

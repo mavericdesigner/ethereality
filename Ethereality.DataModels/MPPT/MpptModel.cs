@@ -12,21 +12,28 @@ namespace Ethereality.DataModels.MPPT
         BatteryVolt = 0x04,
         MpptTemp = 0x06
     }
-
+    public struct MpptMsgStruct
+    {
+        public DateTime TimeStamp { get; set; }
+        public int Voltage { get; set; }
+        public int Current { get; set; }
+        public int Battery { get; set; }
+        public int Temperature { get; set; }
+    }
     public enum PanelNum
     {
-        Mppt1Num = 0x00,
-        Mppt2Num = 0x01,
-        Mppt3Num = 0x02,
-        Mppt4Num = 0x03,
-        Mppt5Num = 0x04,
-        Mppt6Num = 0x05
+        Mppt1Num = 0x771,
+        Mppt2Num = 0x772,
+        Mppt3Num = 0x773,
+        Mppt4Num = 0x774,
+        Mppt5Num = 0x775,
+        Mppt6Num = 0x776
     }
 
     public class MpptModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
+        public static MpptModel CurrentMpptModel;
         #region MpptMsg0
 
         /// <summary>
@@ -205,6 +212,7 @@ namespace Ethereality.DataModels.MPPT
 
         public MpptModel()
         {
+            CurrentMpptModel = this;
             _mpptMsg0 = new MpptMsgStruct();
             _mpptMsg1 = new MpptMsgStruct();
             _mpptMsg2 = new MpptMsgStruct();

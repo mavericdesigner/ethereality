@@ -2,6 +2,7 @@
 using Windows.UI.Core;
 using Windows.UI.Xaml.Navigation;
 
+
 namespace Ethereality
 {
     public sealed partial class MainPage
@@ -11,7 +12,7 @@ namespace Ethereality
         public MainPage()
         {
             InitializeComponent();
-
+           
             SystemNavigationManager.GetForCurrentView().BackRequested += SystemNavigationManagerBackRequested;
 
             Loaded += (s, e) =>

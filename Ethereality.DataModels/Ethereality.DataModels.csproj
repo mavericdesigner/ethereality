@@ -107,13 +107,10 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Battery\BatteryModel.cs" />
     <Compile Include="Battery\BmuModel.cs" />
-    <Compile Include="Battery\CmuModel.cs" />
     <Compile Include="DataModels.cs" />
     <Compile Include="MotorController\MotorModel.cs" />
     <Compile Include="MPPT\MpptModel.cs" />
-    <Compile Include="MPPT\MpptStructures.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Ethereality.DataModels.rd.xml" />
   </ItemGroup>

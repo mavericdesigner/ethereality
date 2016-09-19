@@ -108,8 +108,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataManager.cs" />
+    <Compile Include="IDataManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Ethereality.DataManagement.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ethereality.DataParserMachine\Ethereality.DataParserMachine.csproj">
+      <Project>{841c1f99-5a7a-47b5-9ede-715eb2cd8853}</Project>
+      <Name>Ethereality.DataParserMachine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SerialCommunicationUWP\SerialCommunicationUWP.csproj">
+      <Project>{3B81751D-B5AA-4B60-99FE-8B5A547268CB}</Project>
+      <Name>SerialCommunicationUWP</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

@@ -106,7 +106,10 @@
     <Compile Include="Model\DataService.cs" />
     <Compile Include="Model\IDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\BatteryViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\MotorViewModel.cs" />
+    <Compile Include="ViewModel\MpptViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -145,25 +148,9 @@
       <Project>{fbc62de3-eae3-4958-b222-e9a00594d2c1}</Project>
       <Name>Ethereality.CustomControls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Ethereality.DataManagement\Ethereality.DataManagement.csproj">
-      <Project>{0e73e64c-a0f9-451f-9898-f7dad288b707}</Project>
-      <Name>Ethereality.DataManagement</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ethereality.Meteorology\Ethereality.Meteorology.csproj">
-      <Project>{7cc7f97d-1620-480c-89e6-0d7126bb66ce}</Project>
-      <Name>Ethereality.Meteorology</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ethereality.Navigation\Ethereality.Navigation.csproj">
-      <Project>{55ffb72e-6504-442a-a136-027c70e05980}</Project>
-      <Name>Ethereality.Navigation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ethereality.Status\Ethereality.Status.csproj">
-      <Project>{1fa71d68-47a8-4c70-924a-cb8e425adef4}</Project>
-      <Name>Ethereality.Status</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ethereality.UDP\Ethereality.UDP.csproj">
-      <Project>{3fe78c1e-4ad9-4ed8-b6cf-847bd8d377d0}</Project>
-      <Name>Ethereality.UDP</Name>
+    <ProjectReference Include="..\Ethereality.DataModels\Ethereality.DataModels.csproj">
+      <Project>{3B9D8AE9-4AAB-4F27-9775-B0EDB47452C8}</Project>
+      <Name>Ethereality.DataModels</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
