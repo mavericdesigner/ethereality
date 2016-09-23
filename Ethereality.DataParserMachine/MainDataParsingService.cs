@@ -1,64 +1,52 @@
-﻿
+﻿using Ethereality.DataModels.Battery;
+using Ethereality.DataModels.DriveSystem;
+using Ethereality.DataModels.MPPT;
+using GalaSoft.MvvmLight.Threading;
 using System;
+using System.Collections;
+using System.Collections.Concurrent;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using Windows.UI.Core;
-using Ethereality.DataModels.Battery;
-using Ethereality.DataModels.MPPT;
-using Ethereality.DataModels.DriveSystem;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using GalaSoft.MvvmLight.Threading;
-using System.Collections.Concurrent;
-using System.Linq;
 
 namespace Ethereality.DataParserMachine
 {
-   public struct CanFrameModel
+    public struct CanFrameModel
     {
         public UInt16 CANID;
+        public byte CANCOUNT;
         public byte[] CANDATA;
-        public  CanFrameModel(UInt16 canID,byte[] canDATA)
+
+        public CanFrameModel(UInt16 canID,byte canCount, byte[] canDATA)
         {
             CANID = canID;
+            CANCOUNT = canCount;
             CANDATA = canDATA;
         }
     }
-   public enum CanBytePosition
-    {
-        Sync=0x00,
-        ByteID0=0x01,
-        ByteID1=0x02,
-        ByteData0=0x03,
-        ByteData1 = 0x04,
-        ByteData2 = 0x05,
-        ByteData3 = 0x06,
-        ByteData4 = 0x07,
-        ByteData5 = 0x08,
-        ByteData6 = 0x09,
-        ByteData7 = 0x0A,
 
+    public enum CanBytePosition
+    {
+        Sync = 0x00,
+        ByteID0 = 0x01,
+        ByteID1 = 0x02,
+        ByteCnt=0x03,
+        ByteData0 = 0x04,
+        ByteData1 = 0x05,
+        ByteData2 = 0x06,
+        ByteData3 = 0x07,
+        ByteData4 = 0x08,
+        ByteData5 = 0x09,
+        ByteData6 = 0x0A,
+        ByteData7 = 0x0B,
     }
-   public class MainDataParsingService:INotifyPropertyChanged  
-    {
-        public static MainDataParsingService CurrentMainDataParsingService;
-        private bool ParseEnable;
-        private Queue<MpptModel> mpptQueue;
 
-        public Queue<MpptModel> MpptQueue
-        {
-            get { return mpptQueue; }
-            set
-            {
-                if (mpptQueue.Equals(value))
-                {
-                    return;
-                }
-                mpptQueue = value;
-                NotifyPropertyChanged("MpptQueue");
-            }
-        }
+    public class MainDataParsingService : INotifyPropertyChanged
+    {
+        public static MainDataParsingService ParsingService;
+
+        private bool ParseEnable;
 
         private MpptModel mpptWord;
 
@@ -110,11 +98,16 @@ namespace Ethereality.DataParserMachine
 
         public MainDataParsingService()
         {
-            CurrentMainDataParsingService = this;
-            MpptQueue = new Queue<MpptModel>(50);
-            CanFrame = new CanFrameModel(0, new byte[8]);
+            motorWord = new MotorModel();
+            batteryWord = new BmuModel();
+            mpptWord = new MpptModel();
+            ParsingService = this;
+
+            CanFrame = new CanFrameModel(0, 0,new byte[8]);
         }
+
         public event PropertyChangedEventHandler PropertyChanged;
+
         private CanFrameModel canFrame;
 
         public CanFrameModel CanFrame
@@ -130,119 +123,117 @@ namespace Ethereality.DataParserMachine
                 NotifyPropertyChanged("CanFrame");
             }
         }
-        public async Task StartParser(ConcurrentQueue<byte> ByteQueue)
-        {
-            Task t =Task.Run(() =>
-            {
-                    try
-                    { 
-                        DispatcherHelper.CheckBeginInvokeOnUI(async () =>
-                        {
-                           await BytesToCanFrameConversion(ByteQueue);
-                        });
 
-                    
-                    }
-                    catch (Exception ex)
-                    {
-                        throw ex;
-                    }
-              
-            });
-            await t.AsAsyncAction();
+        public void StartParser(ConcurrentQueue<byte> ByteQueue)
+        {
+            try
+            {
+                DispatcherHelper.CheckBeginInvokeOnUI(() =>
+               {
+                   BytesToCanFrameConversion(ByteQueue);
+               });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public  void StopParser()
+        public void StopParser()
         {
             ParseEnable = false;
         }
 
-        public async Task BytesToCanFrameConversion(ConcurrentQueue<byte> ByteQueue)
+        public void BytesToCanFrameConversion(ConcurrentQueue<byte> ByteQueue)
         {
-            byte tmp = 0;
-            bool IsAvailable = false;
-            byte[] tempArray = new byte[11];
-            ByteQueue.TryPeek(out tmp);
-            if ((tmp == 0xFF) && (ByteQueue.Count >= 11))
+            while ((ByteQueue.Count >= 12))
             {
-                IsAvailable = ByteQueue.TryDequeue(out tmp);
-                if (IsAvailable)
-                    tempArray[(int)CanBytePosition.Sync] = tmp;
-                IsAvailable = ByteQueue.TryDequeue(out tmp);
-                if (IsAvailable)
-                    tempArray[(int)CanBytePosition.ByteID0] = tmp;
-                IsAvailable = ByteQueue.TryDequeue(out tmp);
-                if (IsAvailable)
-                    tempArray[(int)CanBytePosition.ByteID1] = tmp;
-                IsAvailable = ByteQueue.TryDequeue(out tmp);
-                if (IsAvailable)
-                    tempArray[(int)CanBytePosition.ByteData0] = tmp;
-                IsAvailable = ByteQueue.TryDequeue(out tmp);
-                if (IsAvailable)
-                    tempArray[(int)CanBytePosition.ByteData1] = tmp;
-                IsAvailable = ByteQueue.TryDequeue(out tmp);
-                if (IsAvailable)
-                    tempArray[(int)CanBytePosition.ByteData2] = tmp;
-                IsAvailable = ByteQueue.TryDequeue(out tmp);
-                if (IsAvailable)
-                    tempArray[(int)CanBytePosition.ByteData3] = tmp;
-                IsAvailable = ByteQueue.TryDequeue(out tmp);
-                if (IsAvailable)
-                    tempArray[(int)CanBytePosition.ByteData4] = tmp;
-                IsAvailable = ByteQueue.TryDequeue(out tmp);
-                if (IsAvailable)
-                    tempArray[(int)CanBytePosition.ByteData5] = tmp;
-                IsAvailable = ByteQueue.TryDequeue(out tmp);
-                if (IsAvailable)
-                    tempArray[(int)CanBytePosition.ByteData6] = tmp;
-                IsAvailable = ByteQueue.TryDequeue(out tmp);
-                if (IsAvailable)
-                    tempArray[(int)CanBytePosition.ByteData7] = tmp;
+                byte tmp = 0;
+                bool IsAvailable = false;
+                byte[] tempArray = new byte[12];
+                ByteQueue.TryPeek(out tmp);
 
-                CanFrame = new CanFrameModel()
+                if ((tmp == 0xFF) )
                 {
-                    CANID = BitConverter.ToUInt16(tempArray, (int)CanBytePosition.ByteID0),
-                    CANDATA = tempArray.Skip((int)CanBytePosition.ByteID1).ToArray(),
-                };
+                    IsAvailable = ByteQueue.TryDequeue(out tmp);
+                    if (IsAvailable)
+                        tempArray[(int)CanBytePosition.Sync] = tmp;
+                    IsAvailable = ByteQueue.TryDequeue(out tmp);
+                    if (IsAvailable)
+                        tempArray[(int)CanBytePosition.ByteID0] = tmp;
+                    IsAvailable = ByteQueue.TryDequeue(out tmp);
+                    if (IsAvailable)
+                        tempArray[(int)CanBytePosition.ByteID1] = tmp;
+                    IsAvailable = ByteQueue.TryDequeue(out tmp);
+                    if (IsAvailable)
+                        tempArray[(int)CanBytePosition.ByteCnt] = tmp;
+                    IsAvailable = ByteQueue.TryDequeue(out tmp);
+                    if (IsAvailable)
+                        tempArray[(int)CanBytePosition.ByteData0] = tmp;
+                    IsAvailable = ByteQueue.TryDequeue(out tmp);
+                    if (IsAvailable)
+                        tempArray[(int)CanBytePosition.ByteData1] = tmp;
+                    IsAvailable = ByteQueue.TryDequeue(out tmp);
+                    if (IsAvailable)
+                        tempArray[(int)CanBytePosition.ByteData2] = tmp;
+                    IsAvailable = ByteQueue.TryDequeue(out tmp);
+                    if (IsAvailable)
+                        tempArray[(int)CanBytePosition.ByteData3] = tmp;
+                    IsAvailable = ByteQueue.TryDequeue(out tmp);
+                    if (IsAvailable)
+                        tempArray[(int)CanBytePosition.ByteData4] = tmp;
+                    IsAvailable = ByteQueue.TryDequeue(out tmp);
+                    if (IsAvailable)
+                        tempArray[(int)CanBytePosition.ByteData5] = tmp;
+                    IsAvailable = ByteQueue.TryDequeue(out tmp);
+                    if (IsAvailable)
+                        tempArray[(int)CanBytePosition.ByteData6] = tmp;
+                    IsAvailable = ByteQueue.TryDequeue(out tmp);
+                    if (IsAvailable)
+                        tempArray[(int)CanBytePosition.ByteData7] = tmp;
 
-                await ParseCanFrame();
+                    CanFrame = new CanFrameModel()
+                    {
+                        CANID = BitConverter.ToUInt16(tempArray, (int)CanBytePosition.ByteID0),
+                        CANCOUNT = tempArray[(int)CanBytePosition.ByteCnt],
+                        CANDATA = tempArray.Skip((int)CanBytePosition.ByteCnt+1).ToArray(),
+                    };
+
+                    ParseCanFrame();
 
 
+                }
+                else
+                {
+                    byte result;
+                    ByteQueue.TryDequeue(out result);
+                }
             }
+            
         }
-        public async Task ParseCanFrame()
-        {
-            if ((CanFrame.CANID>0x400)&&(CanFrame.CANID<0x438))
-            {
-                Task motorParseTask=Task.Run(()=>
-                ParseMotorCan());
-                motorParseTask.Start();
-                await motorParseTask;
-            }
-            else if ((CanFrame.CANID>=0x600)&&(CanFrame.CANID<=0x6FD))
-            {
-                Task batteryParseTask=Task.Run(()=>
-                ParseBatteryCan());
-                await batteryParseTask;
-             
-            }
-            else if ((CanFrame.CANID>=0x771)&&(CanFrame.CANID<=0x776))
-            {
-                Task mpptParseTask=Task.Run(()=>
-                ParseMpptCan());
-                await mpptParseTask;
-            }
 
-           
+        public void ParseCanFrame()
+        {
+            if ((CanFrame.CANID > 0x400) && (CanFrame.CANID < 0x438))
+            {
+                ParseMotorCan();
+            }
+            else if ((CanFrame.CANID >= 0x600) && (CanFrame.CANID <= 0x6FD))
+            {
+                ParseBatteryCan();
+            }
+            else if ((CanFrame.CANID >= 0x771) && (CanFrame.CANID <= 0x776))
+            {
+                ParseMpptCan();
+            }
         }
 
         private void PanelMovingAverage(MpptModel NewValue)
         {
-
         }
+
         private void ParseMpptCan()
         {
-            
             switch ((PanelNum)canFrame.CANID)
             {
                 case PanelNum.Mppt1Num:
@@ -262,7 +253,7 @@ namespace Ethereality.DataParserMachine
                         TimeStamp = DateTime.Now,
                         Voltage = BitConverter.ToInt16(CanFrame.CANDATA, (byte)MpptMsgNum.ArrayVolt),
                         Current = BitConverter.ToInt16(CanFrame.CANDATA, (byte)MpptMsgNum.ArrayCurrent),
-                        Battery= BitConverter.ToInt16(CanFrame.CANDATA, (byte)MpptMsgNum.BatteryVolt),
+                        Battery = BitConverter.ToInt16(CanFrame.CANDATA, (byte)MpptMsgNum.BatteryVolt),
                         Temperature = BitConverter.ToInt16(CanFrame.CANDATA, (byte)MpptMsgNum.MpptTemp)
                     };
 
@@ -310,7 +301,6 @@ namespace Ethereality.DataParserMachine
                         Temperature = BitConverter.ToInt16(CanFrame.CANDATA, (byte)MpptMsgNum.MpptTemp)
                     };
                     break;
-            
             }
         }
 
@@ -568,10 +558,12 @@ namespace Ethereality.DataParserMachine
                         BmuModelID = CanFrame.CANDATA[5]
                     };
                     break;
+
                 default:
                     break;
             }
         }
+
         public void ErrorMessages(UInt16 ErrorFlags, UInt16 LimitFlags)
         {
             byte[] errorFlagBits = BitConverter.GetBytes(ErrorFlags);
@@ -584,6 +576,7 @@ namespace Ethereality.DataParserMachine
 
             return;
         }
+
         private void ParseMotorCan()
         {
             switch ((MCPacketID)canFrame.CANID)
@@ -692,7 +685,6 @@ namespace Ethereality.DataParserMachine
                 default:
                     break;
             }
-
         }
 
         private async void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
@@ -705,6 +697,4 @@ namespace Ethereality.DataParserMachine
             }
         }
     }
-
-
 }

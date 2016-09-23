@@ -1,13 +1,22 @@
-﻿<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Page  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:CustomControls="using:Ethereality.CustomControls"
+      xmlns:Motor="using:Ethereality.View.Motor"
       x:Class="Ethereality.MainPage"
       mc:Ignorable="d"
       DataContext="{Binding Main, Source={StaticResource Locator}}" BorderThickness="2,2,2,0">
 
     <Grid>
-       
+        <Button x:Name="CheckSerial" Content="Button" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Command="{Binding ReadDevice}" />
+        <Button x:Name="ButtonConnect" Content="Connect" HorizontalAlignment="Left" Margin="80,55,0,0" VerticalAlignment="Top" Command="{Binding ConnectDevice}" />
+        <Button x:Name="ButtonDisconnect" Content="Disconnect" HorizontalAlignment="Left" Margin="160,55,0,0" VerticalAlignment="Top" Command="{Binding DisconnectDevice}" />
+        <ListView x:Name="ListSerialDevices" HorizontalAlignment="Left" Height="390" Margin="10,113,0,0" VerticalAlignment="Top" Width="283" ItemsSource="{Binding SerialDevice.ConnectDisconnectHandle.DeviceListSourceSource}" DisplayMemberPath="DeviceInformation.Name" SelectedItem="{Binding SerialDevice.ConnectDisconnectHandle.ConnectDevicesSelectedItems, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedIndex="{Binding SerialDevice.ConnectDisconnectHandle.ConnectDevicesSelectedIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" d:LayoutOverrides="VerticalAlignment" />
+
+        <Motor:MotorUserControl Margin="60,0,134,213" VerticalAlignment="Bottom" d:LayoutOverrides="Height"/>
 
     </Grid>
 </Page>

@@ -1,10 +1,10 @@
-﻿using Ethereality.Model;
+﻿using Ethereality.DataManagement;
+using Ethereality.Model;
+using Ethereality.ViewModels;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
-using Ethereality.ViewModel;
 using Microsoft.Practices.ServiceLocation;
-using Ethereality.ViewModels;
 
 namespace Ethereality.ViewModel
 {
@@ -29,10 +29,13 @@ namespace Ethereality.ViewModel
             else
             {
                 SimpleIoc.Default.Register<IDataService, DataService>();
+                SimpleIoc.Default.Register<IDataManager, DataManager>();
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<BatteryViewModel>();
+            SimpleIoc.Default.Register<MpptViewModel>();
+            SimpleIoc.Default.Register<MotorViewModel>();
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
@@ -40,7 +43,13 @@ namespace Ethereality.ViewModel
             Justification = "This non-static member is needed for data binding purposes.")]
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
 
-
+        /// <summary>
+        /// Gets the ViewModelPropertyName property.
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
+            "CA1822:MarkMembersAsStatic",
+            Justification = "This non-static member is needed for data binding purposes.")]
+        public BatteryViewModel BatteryView => ServiceLocator.Current.GetInstance<BatteryViewModel>();
 
         /// <summary>
         /// Gets the ViewModelPropertyName property.
@@ -48,8 +57,11 @@ namespace Ethereality.ViewModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
             "CA1822:MarkMembersAsStatic",
             Justification = "This non-static member is needed for data binding purposes.")]
+        public MotorViewModel MotorView => ServiceLocator.Current.GetInstance<MotorViewModel>();
 
-        public BatteryViewModel BatteryView => ServiceLocator.Current.GetInstance<BatteryViewModel>();
-        
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
+           "CA1822:MarkMembersAsStatic",
+           Justification = "This non-static member is needed for data binding purposes.")]
+        public MpptViewModel MpptView => ServiceLocator.Current.GetInstance<MpptViewModel>();
     }
 }

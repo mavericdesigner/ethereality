@@ -16,7 +16,7 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>44E9E938674A98C03FA49E7F67257D3B44ED1F185BEB39C726F7570E605CF535</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>EA4C4822FF033164B6F79C420F3826027420B1710CDCF044971312248D660BAF</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>7537042d-d906-47cc-9a83-75964115135f_1.0.0.0_x64__rgjcz2b8bs3dm</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>7537042d-d906-47cc-9a83-75964115135f_rgjcz2b8bs3dm!App</RegisteredUserModeAppID>
     <RegisteredPackageID>7537042d-d906-47cc-9a83-75964115135f</RegisteredPackageID>
@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-09-06T15:42:46.999</Modified>
+      <Modified>2016-09-22T18:27:21.950</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\Ethereality.exe">
       <PackagePath>entrypoint\Ethereality.exe</PackagePath>
-      <Modified>2016-09-06T15:42:44.178</Modified>
+      <Modified>2016-09-22T18:27:21.193</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\BehaviorsXamlSDKManaged\12.0\References\CommonConfiguration\Neutral\Microsoft.Xaml.Interactions.dll">
       <PackagePath>Microsoft.Xaml.Interactions.dll</PackagePath>
@@ -48,29 +48,9 @@
       <PackagePath>Microsoft.Practices.ServiceLocation.dll</PackagePath>
       <Modified>2014-05-05T09:25:44.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\stephanschoeman\.nuget\packages\ForecastIOPortable\2.4.0\lib\portable45-net45+win8+wp8+wpa81\ForecastPCL.dll">
-      <PackagePath>ForecastPCL.dll</PackagePath>
-      <Modified>2016-06-01T19:19:00.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\stephanschoeman\.nuget\packages\Microsoft.Bcl.Async\1.0.168\lib\win8\Microsoft.Threading.Tasks.Extensions.dll">
-      <PackagePath>Microsoft.Threading.Tasks.Extensions.dll</PackagePath>
-      <Modified>2014-04-07T10:26:14.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\stephanschoeman\.nuget\packages\Microsoft.Bcl.Async\1.0.168\lib\win8\Microsoft.Threading.Tasks.dll">
-      <PackagePath>Microsoft.Threading.Tasks.dll</PackagePath>
-      <Modified>2014-04-07T10:26:14.000</Modified>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\stephanschoeman\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
       <Modified>2015-07-22T21:06:34.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\stephanschoeman\.nuget\packages\Microsoft.Net.Http\2.2.29\lib\win8\System.Net.Http.Extensions.dll">
-      <PackagePath>System.Net.Http.Extensions.dll</PackagePath>
-      <Modified>2015-02-19T18:10:46.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\stephanschoeman\.nuget\packages\Microsoft.Net.Http\2.2.29\lib\win8\System.Net.Http.Primitives.dll">
-      <PackagePath>System.Net.Http.Primitives.dll</PackagePath>
-      <Modified>2015-02-19T18:10:46.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\stephanschoeman\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.0\lib\netcore50\System.ComponentModel.DataAnnotations.dll">
       <PackagePath>System.ComponentModel.DataAnnotations.dll</PackagePath>
@@ -140,9 +120,9 @@
       <PackagePath>GalaSoft.MvvmLight.dll</PackagePath>
       <Modified>2016-04-22T14:28:12.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\stephanschoeman\.nuget\packages\Newtonsoft.Json\8.0.3\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll">
+    <AppxPackagedFile Include="C:\Users\stephanschoeman\.nuget\packages\Newtonsoft.Json\9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
-      <Modified>2016-03-14T19:30:06.000</Modified>
+      <Modified>2016-06-13T21:06:14.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\stephanschoeman\.nuget\packages\runtime.any.System.Private.DataContractSerialization\4.1.0\lib\netcore50\System.Private.DataContractSerialization.dll">
       <PackagePath>System.Private.DataContractSerialization.dll</PackagePath>
@@ -498,55 +478,35 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethereality.CustomControls\bin\x64\Debug\Ethereality.CustomControls.dll">
       <PackagePath>Ethereality.CustomControls.dll</PackagePath>
-      <Modified>2016-09-06T15:42:40.176</Modified>
+      <Modified>2016-09-22T18:17:35.436</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethereality.DataManagement\bin\x64\Debug\Ethereality.DataManagement.dll">
       <PackagePath>Ethereality.DataManagement.dll</PackagePath>
-      <Modified>2016-09-06T15:42:39.008</Modified>
+      <Modified>2016-09-22T18:27:19.430</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethereality.Meteorology\bin\x64\Debug\Ethereality.Meteorology.dll">
-      <PackagePath>Ethereality.Meteorology.dll</PackagePath>
-      <Modified>2016-09-06T15:42:39.089</Modified>
+    <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethereality.DataModels\bin\x64\Debug\Ethereality.DataModels.dll">
+      <PackagePath>Ethereality.DataModels.dll</PackagePath>
+      <Modified>2016-09-22T18:17:33.639</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethereality.Navigation\bin\x64\Debug\Ethereality.Navigation.dll">
-      <PackagePath>Ethereality.Navigation.dll</PackagePath>
-      <Modified>2016-09-06T15:42:40.288</Modified>
+    <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethereality.DataParserMachine\bin\x64\Debug\Ethereality.DataParserMachine.dll">
+      <PackagePath>Ethereality.DataParserMachine.dll</PackagePath>
+      <Modified>2016-09-22T18:27:18.292</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethereality.Status\bin\x64\Debug\Ethereality.Status.dll">
-      <PackagePath>Ethereality.Status.dll</PackagePath>
-      <Modified>2016-09-06T15:42:39.007</Modified>
+    <AppxPackagedFile Include="C:\UJ Solar\Ethereality\SerialCommunicationUWP\bin\x64\Debug\SerialCommunicationUWP.dll">
+      <PackagePath>SerialCommunicationUWP.dll</PackagePath>
+      <Modified>2016-09-22T18:17:33.812</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethereality.UDP\bin\x64\Debug\Ethereality.UDP.dll">
-      <PackagePath>Ethereality.UDP.dll</PackagePath>
-      <Modified>2016-09-06T15:42:39.007</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethreality.Luminescence\bin\x64\Debug\Ethreality.Luminescence.dll">
-      <PackagePath>Ethreality.Luminescence.dll</PackagePath>
-      <Modified>2016-09-06T15:42:42.143</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethereality.Navigation\bin\x64\Debug\Ethereality.DataTypes.dll">
-      <PackagePath>Ethereality.DataTypes.dll</PackagePath>
-      <Modified>2016-09-06T15:42:39.008</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethereality.Navigation\bin\x64\Debug\Ethereality.FileService.dll">
+    <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethereality.FileService\bin\x64\Debug\Ethereality.FileService.dll">
       <PackagePath>Ethereality.FileService.dll</PackagePath>
-      <Modified>2016-09-06T15:42:39.803</Modified>
+      <Modified>2016-09-22T18:17:34.672</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethreality.Luminescence\bin\x64\Debug\SPA.dll">
-      <PackagePath>SPA.dll</PackagePath>
-      <Modified>2016-09-06T15:42:39.108</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethreality.Luminescence\bin\x64\Debug\alglibnet2.dll">
-      <PackagePath>alglibnet2.dll</PackagePath>
-      <Modified>2016-06-11T11:38:12.215</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Etheriality.Constants\bin\x64\Debug\Etheriality.Constants.dll">
-      <PackagePath>Etheriality.Constants.dll</PackagePath>
-      <Modified>2016-09-06T15:42:39.008</Modified>
+    <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethereality.FileService\bin\x64\Debug\Ethereality.DataTypes.dll">
+      <PackagePath>Ethereality.DataTypes.dll</PackagePath>
+      <Modified>2016-09-22T18:17:33.649</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethereality\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2016-06-03T20:22:02.948</Modified>
+      <Modified>2016-09-06T19:26:33.018</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethereality\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -584,23 +544,24 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\Ethereality.xr.xml">
       <PackagePath>Ethereality.xr.xml</PackagePath>
-      <Modified>2016-06-12T14:46:36.991</Modified>
+      <Modified>2016-09-22T18:02:15.106</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethereality.CustomControls\bin\x64\Debug\Ethereality.CustomControls.xr.xml">
       <PackagePath>Ethereality.CustomControls\Ethereality.CustomControls.xr.xml</PackagePath>
-      <Modified>2016-06-12T14:45:08.324</Modified>
+      <Modified>2016-09-22T11:55:14.620</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
-      <Modified>2016-08-11T09:45:44.765</Modified>
+      <Modified>2016-09-21T14:37:47.570</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-09-06T15:42:46.691</Modified>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2016-09-22T18:17:43.316</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\UJ Solar\Ethereality\Ethereality\bin\x64\Debug\Core\Ethereality.exe">
       <PackagePath>Ethereality.exe</PackagePath>
-      <Modified>2016-09-06T15:42:46.994</Modified>
+      <Modified>2016-09-22T18:27:21.940</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

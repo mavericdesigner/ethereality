@@ -14,7 +14,7 @@
 				HorizontalAlignment="Left"
 				VerticalAlignment="Stretch"
 				Foreground="Red"
-                         Value="34"/>
+                         Value="34" />
             <TextBlock x:Name="CellVolt"
 				Margin="0,0,20,1"
 				TextAlignment="Center"

@@ -5,8 +5,7 @@
     xmlns:local="using:Ethereality.CustomControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    DataContext="{Binding BatteryView, Source={StaticResource Locator}}">
+    mc:Ignorable="d">
 
     <Grid Margin="10">
         <local:CMUUserControl
@@ -69,7 +68,5 @@
 				CellTemp="{Binding BatteryTelemetry.Cmu5Status.CellTemp}"
 				PCBTemp="{Binding BatteryTelemetry.Cmu5Status.PcbTemp}" CmuNumber="5"
 				CmuSerial="{Binding BatteryTelemetry.Cmu5Status.SerialNumber}" Margin="515,10,0,0" HorizontalAlignment="Left" Width="160" Height="305" VerticalAlignment="Top" />
-
-
     </Grid>
 </UserControl>

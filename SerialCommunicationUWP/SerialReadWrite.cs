@@ -135,6 +135,7 @@ namespace SerialCommunicationUWP
 
         public SerialReadWrite()
         {
+            ReadSerialQueue = new ConcurrentQueue<byte>();
         }
 
         public void Dispose()
@@ -373,7 +374,7 @@ namespace SerialCommunicationUWP
         {
             Task<UInt32> loadAsyncTask;
 
-            uint ReadBufferLength = 1024;
+            uint ReadBufferLength = 4096;
 
             // Don't start any IO if we canceled the task
             lock (ReadCancelLock)
@@ -386,6 +387,7 @@ namespace SerialCommunicationUWP
 
                 loadAsyncTask = DataReaderObject.LoadAsync(ReadBufferLength).AsTask(cancellationToken);
             }
+
             loadAsyncTask.Wait();
             UInt32 bytesRead = loadAsyncTask.GetAwaiter().GetResult();
 
@@ -394,8 +396,11 @@ namespace SerialCommunicationUWP
             {
                 byte[] temp = new byte[bytesRead];
                 DataReaderObject.ReadBytes(temp);
-
-                ReadSerialQueue = new ConcurrentQueue<byte>(temp);
+                foreach (var item in temp)
+                {
+                    ReadSerialQueue.Enqueue(item);
+                }
+                
                 NotifyPropertyChanged("ReadSerialQueue");
             }
 

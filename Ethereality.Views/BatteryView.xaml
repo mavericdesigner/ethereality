@@ -10,11 +10,10 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <CustomControls:CMUUserControl HorizontalAlignment="Left" VerticalAlignment="Top" Margin="426,470,0,0"/>
-        <CustomControls:CMUUserControl HorizontalAlignment="Left" VerticalAlignment="Top" Margin="601,470,0,0"/>
-        <CustomControls:CMUUserControl HorizontalAlignment="Left" VerticalAlignment="Top" Margin="776,470,0,0" Width="180"/>
-        <CustomControls:CMUUserControl VerticalAlignment="Top" Margin="951,470,789,0" d:LayoutOverrides="LeftPosition, RightPosition"/>
-        <CustomControls:CMUUserControl HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,470,614,0" Width="180"/>
-
+        <CustomControls:CMUUserControl HorizontalAlignment="Left" VerticalAlignment="Top" Margin="426,470,0,0" />
+        <CustomControls:CMUUserControl HorizontalAlignment="Left" VerticalAlignment="Top" Margin="601,470,0,0" />
+        <CustomControls:CMUUserControl HorizontalAlignment="Left" VerticalAlignment="Top" Margin="776,470,0,0" Width="180" />
+        <CustomControls:CMUUserControl VerticalAlignment="Top" Margin="951,470,789,0" d:LayoutOverrides="LeftPosition, RightPosition" />
+        <CustomControls:CMUUserControl HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,470,614,0" Width="180" />
     </Grid>
 </Page>

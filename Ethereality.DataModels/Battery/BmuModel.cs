@@ -6,7 +6,6 @@ using Windows.UI.Core;
 
 namespace Ethereality.DataModels.Battery
 {
-    
     public struct CmuStatus
     {
         public UInt32 SerialNumber { get; set; }
@@ -37,14 +36,12 @@ namespace Ethereality.DataModels.Battery
 
         public Int16 Cell7 { get; set; }
     }
+
     public struct BmuHeartBeatSerialNumber
     {
         public UInt32 BmuHeartbeat { get; set; }
 
         public UInt32 BmuSerialNumber { get; set; }
-
-        
-
     }
 
     //pack state of charge in Ah and %SOC
@@ -286,7 +283,9 @@ namespace Ethereality.DataModels.Battery
     public class BmuModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
         public static BmuModel CurrentBmu;
+
         #region Cmu1Status
 
         /// <summary>

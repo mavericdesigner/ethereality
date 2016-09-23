@@ -58,6 +58,7 @@ namespace Ethereality.DataModels.DriveSystem
         public event PropertyChangedEventHandler PropertyChanged;
 
         public static MotorModel CurrentMotorModel;
+
         private async void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             if (PropertyChanged != null)

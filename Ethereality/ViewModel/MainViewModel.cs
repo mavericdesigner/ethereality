@@ -1,10 +1,13 @@
-﻿using Ethereality.Model;
+﻿using Ethereality.DataManagement;
+using Ethereality.DataParserMachine;
+using Ethereality.Model;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Threading;
 using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
+using SerialCommunicationUWP;
 using System;
 using System.Threading.Tasks;
 
@@ -16,6 +19,7 @@ namespace Ethereality.ViewModel
         public const string WelcomeTitlePropertyName = "WelcomeTitle";
 
         private readonly IDataService _dataService;
+        private readonly IDataManager _dataManager;
         private readonly INavigationService _navigationService;
         private string _clock = "Starting...";
         private int _counter;
@@ -26,6 +30,99 @@ namespace Ethereality.ViewModel
         private RelayCommand _sendMessageCommand;
         private RelayCommand _showDialogCommand;
         private string _welcomeTitle = string.Empty;
+        private bool init = false;
+
+        /// <summary>
+        /// The <see cref="SerialDevice" /> property's name.
+        /// </summary>
+        public const string SerialDevicePropertyName = "SerialDevice";
+
+        private SerialDeviceItem _serialDevice;
+
+        /// <summary>
+        /// Sets and gets the SerialDevice property.
+        /// Changes to that property's value raise the PropertyChanged event.
+        /// </summary>
+        public SerialDeviceItem SerialDevice
+        {
+            get
+            {
+                return _serialDevice;
+            }
+
+            set
+            {
+                if (_serialDevice == value)
+                {
+                    return;
+                }
+
+                _serialDevice = value;
+                RaisePropertyChanged(() => SerialDevice);
+            }
+        }
+
+        private RelayCommand _readDevice;
+
+        /// <summary>
+        /// Gets the ReadDevice.
+        /// </summary>
+        public RelayCommand ReadDevice
+        {
+            get
+            {
+                return _readDevice
+                    ?? (_readDevice = new RelayCommand(
+                    async () =>
+                    {
+                        if (!init)
+                        {
+                            SerialDevice.ReadWriteHandle.Initialize();
+                            init = true;
+                        }
+                        await _dataManager.SerialPolling();
+                    },
+                    () => true));
+            }
+        }
+
+        private RelayCommand _connectDevice;
+
+        /// <summary>
+        /// Gets the ConnectDevice.
+        /// </summary>
+        public RelayCommand ConnectDevice
+        {
+            get
+            {
+                return _connectDevice
+                    ?? (_connectDevice = new RelayCommand(
+                    () =>
+                    {
+                        SerialDevice.ConnectDisconnectHandle.ConnectToDevice_Click();
+                    },
+                    () => true));
+            }
+        }
+
+        private RelayCommand _disconnectDevice;
+
+        /// <summary>
+        /// Gets the DisconnectDevice.
+        /// </summary>
+        public RelayCommand DisconnectDevice
+        {
+            get
+            {
+                return _disconnectDevice
+                    ?? (_disconnectDevice = new RelayCommand(
+                    () =>
+                    {
+                        SerialDevice.ConnectDisconnectHandle.DisconnectFromDevice_Click();
+                    },
+                    () => true));
+            }
+        }
 
         public string Clock
         {
@@ -96,6 +193,36 @@ namespace Ethereality.ViewModel
             }
         }
 
+        /// <summary>
+        /// The <see cref="DataParserMachine" /> property's name.
+        /// </summary>
+        public const string DataParserMachinePropertyName = "DataParserMachine";
+
+        private MainDataParsingService _dataParserMachine;
+
+        /// <summary>
+        /// Sets and gets the DataParserMachine property.
+        /// Changes to that property's value raise the PropertyChanged event.
+        /// </summary>
+        public MainDataParsingService DataParserMachine
+        {
+            get
+            {
+                return _dataParserMachine;
+            }
+
+            set
+            {
+                if (_dataParserMachine == value)
+                {
+                    return;
+                }
+
+                _dataParserMachine = value;
+                RaisePropertyChanged(() => DataParserMachine);
+            }
+        }
+
         public string WelcomeTitle
         {
             get
@@ -111,8 +238,10 @@ namespace Ethereality.ViewModel
 
         public MainViewModel(
             IDataService dataService,
-            INavigationService navigationService)
+            INavigationService navigationService, IDataManager
+             dataManager)
         {
+            _dataManager = dataManager;
             _dataService = dataService;
             _navigationService = navigationService;
             Initialize().Wait();
@@ -151,9 +280,11 @@ namespace Ethereality.ViewModel
         {
             try
             {
-                var item = await _dataService.GetData();
-                _originalTitle = item.Title;
-                WelcomeTitle = item.Title;
+                //  var item = await _dataService.GetData();
+                SerialDevice = await _dataManager.GetSerial();
+                DataParserMachine = await _dataManager.GetTelemetryData();
+                //     _originalTitle = item.Title;
+                //  WelcomeTitle = item.Title;
             }
             catch (Exception ex)
             {

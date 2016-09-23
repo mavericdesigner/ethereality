@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="Isis.CustomControls.Time.TimeUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             DataContext="{Binding Time, Source={StaticResource Locator}}"
+             d:DesignHeight="40" d:DesignWidth="320">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding RealTime.RealClock}" VerticalAlignment="Top" Height="40" Width="320" />
+    </Grid>
+</UserControl>

@@ -287,13 +287,13 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "MvvmLight/5.2.0": {
+      "MvvmLight/5.3.0": {
         "type": "package",
         "dependencies": {
-          "MvvmLightLibs": "5.2.0"
+          "MvvmLightLibs": "5.3.0"
         }
       },
-      "MvvmLightLibs/5.2.0": {
+      "MvvmLightLibs/5.3.0": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "1.3.0"
@@ -308,6 +308,15 @@
           "lib/windows81/GalaSoft.MvvmLight.Platform.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.dll": {}
         }
+      },
+      "Network/3.0.0.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "System.Data",
+          "System.Data.DataSetExtensions"
+        ]
       },
       "System.AppContext/4.0.0": {
         "type": "package",
@@ -2144,13 +2153,13 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "MvvmLight/5.2.0": {
+      "MvvmLight/5.3.0": {
         "type": "package",
         "dependencies": {
-          "MvvmLightLibs": "5.2.0"
+          "MvvmLightLibs": "5.3.0"
         }
       },
-      "MvvmLightLibs/5.2.0": {
+      "MvvmLightLibs/5.3.0": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "1.3.0"
@@ -2165,6 +2174,15 @@
           "lib/windows81/GalaSoft.MvvmLight.Platform.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.dll": {}
         }
+      },
+      "Network/3.0.0.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "System.Data",
+          "System.Data.DataSetExtensions"
+        ]
       },
       "runtime.any.System.Private.DataContractSerialization/4.1.0": {
         "type": "package",
@@ -3916,13 +3934,13 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "MvvmLight/5.2.0": {
+      "MvvmLight/5.3.0": {
         "type": "package",
         "dependencies": {
-          "MvvmLightLibs": "5.2.0"
+          "MvvmLightLibs": "5.3.0"
         }
       },
-      "MvvmLightLibs/5.2.0": {
+      "MvvmLightLibs/5.3.0": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "1.3.0"
@@ -3937,6 +3955,15 @@
           "lib/windows81/GalaSoft.MvvmLight.Platform.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.dll": {}
         }
+      },
+      "Network/3.0.0.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "System.Data",
+          "System.Data.DataSetExtensions"
+        ]
       },
       "runtime.aot.System.Private.DataContractSerialization/4.1.0": {
         "type": "package",
@@ -5655,13 +5682,13 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "MvvmLight/5.2.0": {
+      "MvvmLight/5.3.0": {
         "type": "package",
         "dependencies": {
-          "MvvmLightLibs": "5.2.0"
+          "MvvmLightLibs": "5.3.0"
         }
       },
-      "MvvmLightLibs/5.2.0": {
+      "MvvmLightLibs/5.3.0": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "1.3.0"
@@ -5676,6 +5703,15 @@
           "lib/windows81/GalaSoft.MvvmLight.Platform.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.dll": {}
         }
+      },
+      "Network/3.0.0.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "System.Data",
+          "System.Data.DataSetExtensions"
+        ]
       },
       "runtime.any.System.Private.DataContractSerialization/4.1.0": {
         "type": "package",
@@ -7430,13 +7466,13 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "MvvmLight/5.2.0": {
+      "MvvmLight/5.3.0": {
         "type": "package",
         "dependencies": {
-          "MvvmLightLibs": "5.2.0"
+          "MvvmLightLibs": "5.3.0"
         }
       },
-      "MvvmLightLibs/5.2.0": {
+      "MvvmLightLibs/5.3.0": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "1.3.0"
@@ -7451,6 +7487,15 @@
           "lib/windows81/GalaSoft.MvvmLight.Platform.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.dll": {}
         }
+      },
+      "Network/3.0.0.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "System.Data",
+          "System.Data.DataSetExtensions"
+        ]
       },
       "runtime.aot.System.Private.DataContractSerialization/4.1.0": {
         "type": "package",
@@ -9169,13 +9214,13 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "MvvmLight/5.2.0": {
+      "MvvmLight/5.3.0": {
         "type": "package",
         "dependencies": {
-          "MvvmLightLibs": "5.2.0"
+          "MvvmLightLibs": "5.3.0"
         }
       },
-      "MvvmLightLibs/5.2.0": {
+      "MvvmLightLibs/5.3.0": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "1.3.0"
@@ -9190,6 +9235,15 @@
           "lib/windows81/GalaSoft.MvvmLight.Platform.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.dll": {}
         }
+      },
+      "Network/3.0.0.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "System.Data",
+          "System.Data.DataSetExtensions"
+        ]
       },
       "runtime.any.System.Private.DataContractSerialization/4.1.0": {
         "type": "package",
@@ -10944,13 +10998,13 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "MvvmLight/5.2.0": {
+      "MvvmLight/5.3.0": {
         "type": "package",
         "dependencies": {
-          "MvvmLightLibs": "5.2.0"
+          "MvvmLightLibs": "5.3.0"
         }
       },
-      "MvvmLightLibs/5.2.0": {
+      "MvvmLightLibs/5.3.0": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "1.3.0"
@@ -10965,6 +11019,15 @@
           "lib/windows81/GalaSoft.MvvmLight.Platform.dll": {},
           "lib/windows81/GalaSoft.MvvmLight.dll": {}
         }
+      },
+      "Network/3.0.0.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System",
+          "System.Core",
+          "System.Data",
+          "System.Data.DataSetExtensions"
+        ]
       },
       "runtime.aot.System.Private.DataContractSerialization/4.1.0": {
         "type": "package",
@@ -13040,31 +13103,23 @@
         "ref/xamarinmac20/_._"
       ]
     },
-    "MvvmLight/5.2.0": {
-      "sha512": "MZbIMIFEjPMWx8hFnlcbMbwjyrCboXqmVKHZ265XYKK4/XtYfEVVJ3ptqmD5LRQOOhl4P+RzXXTr8Exzarr5TQ==",
+    "MvvmLight/5.3.0": {
+      "sha512": "LIUnWtoAhJFe+WlZkGimSb0pGVPoCuXWk3ERL1KC1tUon2VVZ8kwvGIH1u7fsEnQpiQhh5iha46SI8ymhsBfvQ==",
       "type": "package",
       "files": [
         "Content/ViewModel/MainViewModel.cs.pp",
         "Content/ViewModel/ViewModelLocator.cs.pp",
-        "MvvmLight.5.2.0.nupkg.sha512",
+        "MvvmLight.5.3.0.nupkg.sha512",
         "MvvmLight.nuspec",
         "tools/install.ps1"
       ]
     },
-    "MvvmLightLibs/5.2.0": {
-      "sha512": "F16xSNXK0nE5os3lrY+G2NkFdAXPJV7Ux8A9WUxZlyLZShUdCkoe14tov9KxGmgfCuQA/IKM/NWEyN0Dac1Mog==",
+    "MvvmLightLibs/5.3.0": {
+      "sha512": "h0/CPmYeYabbUfPdXGCJWdeiWGtTP7IVNz3GU6R3Jn3TFWkikCDOSYt/L9bmrroQnZFyosTWP2Gs0LDdTl311Q==",
       "type": "package",
       "files": [
-        "MvvmLightLibs.5.2.0.nupkg.sha512",
+        "MvvmLightLibs.5.3.0.nupkg.sha512",
         "MvvmLightLibs.nuspec",
-        "lib/SL4/GalaSoft.MvvmLight.Extras.dll",
-        "lib/SL4/GalaSoft.MvvmLight.Extras.pdb",
-        "lib/SL4/GalaSoft.MvvmLight.Extras.xml",
-        "lib/SL4/GalaSoft.MvvmLight.dll",
-        "lib/SL4/GalaSoft.MvvmLight.pdb",
-        "lib/SL4/GalaSoft.MvvmLight.xml",
-        "lib/SL4/System.Windows.Interactivity.dll",
-        "lib/SL4/System.Windows.Interactivity.xml",
         "lib/SL5/GalaSoft.MvvmLight.Extras.dll",
         "lib/SL5/GalaSoft.MvvmLight.Extras.pdb",
         "lib/SL5/GalaSoft.MvvmLight.Extras.xml",
@@ -13113,26 +13168,6 @@
         "lib/portable-net45+wp8+wpa81+netcore45+monoandroid1+xamarin.ios10/GalaSoft.MvvmLight.XML",
         "lib/portable-net45+wp8+wpa81+netcore45+monoandroid1+xamarin.ios10/GalaSoft.MvvmLight.dll",
         "lib/portable-net45+wp8+wpa81+netcore45+monoandroid1+xamarin.ios10/GalaSoft.MvvmLight.pdb",
-        "lib/sl4-wp71/GalaSoft.MvvmLight.Extras.dll",
-        "lib/sl4-wp71/GalaSoft.MvvmLight.Extras.pdb",
-        "lib/sl4-wp71/GalaSoft.MvvmLight.Extras.xml",
-        "lib/sl4-wp71/GalaSoft.MvvmLight.dll",
-        "lib/sl4-wp71/GalaSoft.MvvmLight.pdb",
-        "lib/sl4-wp71/GalaSoft.MvvmLight.xml",
-        "lib/sl4-wp71/Microsoft.Practices.ServiceLocation.dll",
-        "lib/sl4-wp71/Microsoft.Practices.ServiceLocation.xml",
-        "lib/sl4-wp71/System.Windows.Interactivity.dll",
-        "lib/sl4-wp71/System.Windows.Interactivity.xml",
-        "lib/windows8/GalaSoft.MvvmLight.Extras.dll",
-        "lib/windows8/GalaSoft.MvvmLight.Extras.pdb",
-        "lib/windows8/GalaSoft.MvvmLight.Extras.xml",
-        "lib/windows8/GalaSoft.MvvmLight.Platform.dll",
-        "lib/windows8/GalaSoft.MvvmLight.Platform.pdb",
-        "lib/windows8/GalaSoft.MvvmLight.Platform.pri",
-        "lib/windows8/GalaSoft.MvvmLight.Platform.xml",
-        "lib/windows8/GalaSoft.MvvmLight.dll",
-        "lib/windows8/GalaSoft.MvvmLight.pdb",
-        "lib/windows8/GalaSoft.MvvmLight.xml",
         "lib/windows81/GalaSoft.MvvmLight.Extras.dll",
         "lib/windows81/GalaSoft.MvvmLight.Extras.pdb",
         "lib/windows81/GalaSoft.MvvmLight.Extras.xml",
@@ -13181,6 +13216,16 @@
         "lib/xamarin.ios10/GalaSoft.MvvmLight.XML",
         "lib/xamarin.ios10/GalaSoft.MvvmLight.dll",
         "lib/xamarin.ios10/GalaSoft.MvvmLight.pdb"
+      ]
+    },
+    "Network/3.0.0.1": {
+      "sha512": "ehpjHEAIg4m7opbaOe4po6fYxj+coWcnnL1X/6F8BKyaflEycN7IZatafWm0D1zRGewwKQBzEEnmmK0V0mJ6tA==",
+      "type": "package",
+      "files": [
+        "Network.3.0.0.1.nupkg.sha512",
+        "Network.nuspec",
+        "lib/InTheHand.Net.Personal.dll",
+        "lib/Network.dll"
       ]
     },
     "runtime.any.System.Private.DataContractSerialization/4.1.0": {
@@ -15869,7 +15914,8 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.1.0",
-      "MvvmLight >= 5.2.0"
+      "MvvmLight >= 5.3.0",
+      "Network >= 3.0.0.1"
     ],
     "UAP,Version=v10.0": []
   }

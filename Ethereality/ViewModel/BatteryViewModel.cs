@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GalaSoft.MvvmLight;
+﻿using Ethereality.DataModels.Battery;
 using Ethereality.Model;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Views;
-using Ethereality.DataModels.Battery;
+using System;
+using System.Threading.Tasks;
 
 namespace Ethereality.ViewModels
 {
@@ -24,7 +21,7 @@ namespace Ethereality.ViewModels
 
         /// <summary>
         /// Sets and gets the BatteryTelemetry property.
-        /// Changes to that property's value raise the PropertyChanged event. 
+        /// Changes to that property's value raise the PropertyChanged event.
         /// </summary>
         public BmuModel BatteryTelemetry
         {
@@ -44,7 +41,8 @@ namespace Ethereality.ViewModels
                 RaisePropertyChanged(() => BatteryTelemetry);
             }
         }
-        public BatteryViewModel(IDataService dataService,INavigationService navigationService)
+
+        public BatteryViewModel(IDataService dataService, INavigationService navigationService)
         {
             _dataService = dataService;
             _navigationService = navigationService;
@@ -55,15 +53,12 @@ namespace Ethereality.ViewModels
         {
             try
             {
-                var item = await _dataService.GetData();   
+                var item = await _dataService.GetData();
             }
             catch (Exception ex)
             {
                 // Report error here
-              
             }
         }
     }
-       
-        
 }

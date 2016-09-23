@@ -1,32 +1,56 @@
-﻿using SerialCommunicationUWP;
-using Ethereality.DataParserMachine;
-using System.Threading.Tasks;
+﻿using Ethereality.DataParserMachine;
 using GalaSoft.MvvmLight.Threading;
+using SerialCommunicationUWP;
 using System;
-using Windows.UI.Core;
-using System.Collections.Concurrent;
+using System.Threading.Tasks;
 
 namespace Ethereality.DataManagement
 {
-    public class DataManager:IDataManager
+    public class DataManager : IDataManager
     {
-        private SerialDeviceItem serialDeviceItem;
-        private MainDataParsingService dataParsingService;
+        private static SerialDeviceItem serialDeviceItem;
+        private static MainDataParsingService dataParsingService;
+
         public async Task<SerialDeviceItem> GetSerial()
         {
             serialDeviceItem = new SerialDeviceItem();
             serialDeviceItem.ConfigDevice.ShortConfig();
             return await Task.FromResult<SerialDeviceItem>(serialDeviceItem);
-            
         }
+
         public async Task<MainDataParsingService> GetTelemetryData()
         {
             dataParsingService = new MainDataParsingService();
             return await Task.FromResult<MainDataParsingService>(dataParsingService);
         }
-        public void SerialPolling(SerialDeviceItem serialDevice)
+
+        public async Task SerialPolling()
         {
-            Task.Run(async () =>
+            Task t1 = Task.Run(async () =>
+               {
+                   while (EventHandlerForDevice.Current.IsDeviceConnected)
+                   {
+                       try
+                       {
+                           DispatcherHelper.CheckBeginInvokeOnUI(() =>
+                           {
+                               serialDeviceItem.ReadWriteHandle.ReadButton_Click();
+
+                               
+                               });
+                         
+                               await Task.Delay(50);
+                         
+                          
+                       }
+                       catch (Exception ex)
+                       {
+                           throw ex;
+                       }
+                   }
+               });
+
+            Task t2 = Task.Run(async () =>
             {
                 while (EventHandlerForDevice.Current.IsDeviceConnected)
                 {
@@ -34,11 +58,14 @@ namespace Ethereality.DataManagement
                     {
                         DispatcherHelper.CheckBeginInvokeOnUI(() =>
                         {
-                            serialDevice.ReadWriteHandle.ReadButton_Click();
-                            ReadTelemetry(serialDevice.ReadWriteHandle.ReadSerialQueue);                            
+                         
+
+                            dataParsingService.StartParser(serialDeviceItem.ReadWriteHandle.ReadSerialQueue);
                         });
 
                         await Task.Delay(50);
+
+
                     }
                     catch (Exception ex)
                     {
@@ -46,17 +73,8 @@ namespace Ethereality.DataManagement
                     }
                 }
             });
+            await t1;
+            await t2;
         }
-
-        private async void ReadTelemetry(ConcurrentQueue<byte> DataQueue)
-        {
-            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
-                CoreDispatcherPriority.Normal,
-                new DispatchedHandler(async () =>
-                {
-                   await dataParsingService.StartParser(DataQueue);
-                }));
-        }
-        
     }
 }
