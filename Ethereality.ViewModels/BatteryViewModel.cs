@@ -1,5 +1,6 @@
 ﻿using Ethereality.DataModels.Battery;
-using Ethereality.Model;
+
+using Ethereality.ViewModels.Models;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Views;
 using System;

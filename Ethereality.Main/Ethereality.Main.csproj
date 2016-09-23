@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{D46225E9-874E-4B79-AB3A-46327423CADA}</ProjectGuid>
+    <ProjectGuid>{335BA2CA-1E75-4E33-B27C-0DE2B0AFCA45}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ethereality</RootNamespace>
-    <AssemblyName>Ethereality</AssemblyName>
+    <RootNamespace>Ethereality.Main</RootNamespace>
+    <AssemblyName>Ethereality.Main</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
@@ -17,8 +17,7 @@
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>Ethereality_TemporaryKey.pfx</PackageCertificateKeyFile>
-    <PackageCertificateThumbprint>16BF7B471AE7EE499D1CE9CA10B04E696D457342</PackageCertificateThumbprint>
+    <PackageCertificateKeyFile>Win10_TemporaryKey.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -91,7 +90,6 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <None Include="Ethereality_TemporaryKey.pfx" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +100,12 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecondPage.xaml.cs">
+      <DependentUpon>SecondPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Motor\MotorUserControl.xaml.cs">
+      <DependentUpon>MotorUserControl.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -128,6 +132,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="SecondPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Motor\MotorUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
@@ -139,27 +151,13 @@
       <Project>{fbc62de3-eae3-4958-b222-e9a00594d2c1}</Project>
       <Name>Ethereality.CustomControls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Ethereality.DataManagement\Ethereality.DataManagement.csproj">
-      <Project>{0e73e64c-a0f9-451f-9898-f7dad288b707}</Project>
-      <Name>Ethereality.DataManagement</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ethereality.DataModels\Ethereality.DataModels.csproj">
-      <Project>{3B9D8AE9-4AAB-4F27-9775-B0EDB47452C8}</Project>
-      <Name>Ethereality.DataModels</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ethereality.DataParserMachine\Ethereality.DataParserMachine.csproj">
-      <Project>{841c1f99-5a7a-47b5-9ede-715eb2cd8853}</Project>
-      <Name>Ethereality.DataParserMachine</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SerialCommunicationUWP\SerialCommunicationUWP.csproj">
-      <Project>{3b81751d-b5aa-4b60-99fe-8b5a547268cb}</Project>
-      <Name>SerialCommunicationUWP</Name>
+    <ProjectReference Include="..\Ethereality.ViewModels\Ethereality.ViewModels.csproj">
+      <Project>{748b59d2-6d54-422a-84e0-36c0945ce146}</Project>
+      <Name>Ethereality.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
     <Folder Include="ViewModel\" />
-    <Folder Include="View\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

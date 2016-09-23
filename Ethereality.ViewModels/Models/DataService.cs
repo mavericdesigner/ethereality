@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Ethereality.Model
+namespace Ethereality.ViewModels.Models
 {
     public class DataService : IDataService
     {

@@ -1,11 +1,12 @@
 ﻿using Ethereality.DataModels.MPPT;
-using Ethereality.Model;
+
+using Ethereality.ViewModels.Models;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Views;
 using System;
 using System.Threading.Tasks;
 
-namespace Ethereality.ViewModel
+namespace Ethereality.ViewModels
 {
     public class MpptViewModel : ViewModelBase
     {

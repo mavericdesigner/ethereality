@@ -1,8 +1,15 @@
 using System;
 using Windows.UI.Xaml;
+using GalaSoft.MvvmLight.Messaging;
+using GalaSoft.MvvmLight.Threading;
 using System.Threading.Tasks;
 using EtherealityMain.Services.SettingsServices;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.Activation;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 using Template10.Mvvm;
 using Template10.Common;
 using System.Linq;

@@ -1,4 +1,4 @@
-﻿namespace Ethereality.Model
+﻿namespace Ethereality.ViewModels.Models
 {
     public class DataItem
     {

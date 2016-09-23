@@ -1,12 +1,12 @@
 ﻿using Ethereality.DataManagement;
-using Ethereality.Model;
-using Ethereality.ViewModels;
+
+using Ethereality.ViewModels.Models;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
 
-namespace Ethereality.ViewModel
+namespace Ethereality.ViewModels
 {
     public class ViewModelLocator
     {

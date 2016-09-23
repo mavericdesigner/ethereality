@@ -1,6 +1,6 @@
 ﻿using Ethereality.DataManagement;
 using Ethereality.DataParserMachine;
-using Ethereality.Model;
+using Ethereality.ViewModels.Models;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
@@ -11,7 +11,7 @@ using SerialCommunicationUWP;
 using System;
 using System.Threading.Tasks;
 
-namespace Ethereality.ViewModel
+namespace Ethereality.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {

@@ -1,8 +1,8 @@
-﻿using Ethereality.ViewModels;
-using Windows.UI.Core;
+﻿using Windows.UI.Core;
 using Windows.UI.Xaml.Navigation;
+using Ethereality.ViewModels;
 
-namespace Ethereality
+namespace Ethereality.Main
 {
     public sealed partial class MainPage
     {

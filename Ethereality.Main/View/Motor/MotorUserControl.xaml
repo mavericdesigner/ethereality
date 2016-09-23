@@ -1,11 +1,11 @@
 ﻿<UserControl
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Ethereality.View.Motor"
+    xmlns:local="using:Ethereality.Main.View.Motor"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:CustomControls="using:Ethereality.CustomControls"
-    x:Class="Ethereality.View.Motor.MotorUserControl"
+    x:Class="Ethereality.Main.View.Motor.MotorUserControl"
     mc:Ignorable="d"
 
     DataContext="{Binding MotorView, Source={StaticResource ResourceKey=Locator}}" Height="270" Width="1726">

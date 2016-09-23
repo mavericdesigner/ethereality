@@ -1,4 +1,4 @@
-﻿<Application x:Class="Ethereality.App"
+﻿<Application x:Class="Ethereality.Main.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:vm="using:Ethereality.ViewModels"
@@ -7,10 +7,11 @@
 			 xmlns:ignore="http://www.galasoft.ch/ignore"
              mc:Ignorable="d ignore"
              RequestedTheme="Light">
-
+    
     <Application.Resources>
         <!--Global View Model Locator-->
         <vm:ViewModelLocator x:Key="Locator"
                              d:IsDataSource="True" />
     </Application.Resources>
+    
 </Application>

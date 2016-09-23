@@ -1,7 +1,7 @@
-﻿using Ethereality.Model;
+﻿using Ethereality.ViewModels.Models;
 using System.Threading.Tasks;
 
-namespace Ethereality.Design
+namespace Ethereality.ViewModels.Design
 {
     public class DesignDataService : IDataService
     {
