@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="Ethereality.Main.MotorControllerControls._15VRailMeasurement"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 mc:Ignorable="d" Height="80" Width="160"
+			 DataContext="{Binding DriveView,Source={StaticResource Locator}}">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="15V Rail" VerticalAlignment="Top" Width="55" />
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="6.533,15.193,0,0" Height="50" Width="100.46" Text="{Binding MotorTelemetry.Rail15V}" FontSize="36" TextAlignment="Center" />
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="V" VerticalAlignment="Top" Margin="111.993,15.193,0,0" FontSize="36" />
+    </Grid>
+</UserControl>

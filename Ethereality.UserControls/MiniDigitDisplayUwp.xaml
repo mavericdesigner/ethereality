@@ -1,0 +1,17 @@
+﻿<UserControl 
+    x:Class="Ethereality.UserControls.MiniDigitDisplayUwp"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ethereality.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Height="40"
+    Width="280">
+
+    <Grid>
+        <TextBlock x:Name="TextBlockDisplayValue" HorizontalAlignment="Left" Margin="123,10,0,0" TextWrapping="Wrap" Text="XXXXX.XXXXX" VerticalAlignment="Top" Foreground="{ThemeResource ApplicationForegroundThemeBrush}" />
+        <TextBlock x:Name="TextBlockDisplayUnit" HorizontalAlignment="Left" Margin="220,10,0,0" TextWrapping="Wrap" Text="XXXXX" VerticalAlignment="Top" Width="56" Foreground="{ThemeResource AppBarItemForegroundThemeBrush}" />
+        <TextBlock x:Name="TextBlockDisplayName" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="XXXXXXXXXX" VerticalAlignment="Top" Foreground="{ThemeResource ApplicationForegroundThemeBrush}" />
+    </Grid>
+</UserControl>

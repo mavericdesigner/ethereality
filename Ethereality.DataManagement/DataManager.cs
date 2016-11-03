@@ -35,13 +35,9 @@ namespace Ethereality.DataManagement
                            DispatcherHelper.CheckBeginInvokeOnUI(() =>
                            {
                                serialDeviceItem.ReadWriteHandle.ReadButton_Click();
+                           });
 
-                               
-                               });
-                         
-                               await Task.Delay(50);
-                         
-                          
+                           await Task.Delay(50);
                        }
                        catch (Exception ex)
                        {
@@ -58,14 +54,10 @@ namespace Ethereality.DataManagement
                     {
                         DispatcherHelper.CheckBeginInvokeOnUI(() =>
                         {
-                         
-
                             dataParsingService.StartParser(serialDeviceItem.ReadWriteHandle.ReadSerialQueue);
                         });
 
                         await Task.Delay(50);
-
-
                     }
                     catch (Exception ex)
                     {

@@ -400,7 +400,7 @@ namespace SerialCommunicationUWP
                 {
                     ReadSerialQueue.Enqueue(item);
                 }
-                
+
                 NotifyPropertyChanged("ReadSerialQueue");
             }
 

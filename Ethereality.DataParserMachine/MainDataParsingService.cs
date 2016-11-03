@@ -18,7 +18,7 @@ namespace Ethereality.DataParserMachine
         public byte CANCOUNT;
         public byte[] CANDATA;
 
-        public CanFrameModel(UInt16 canID,byte canCount, byte[] canDATA)
+        public CanFrameModel(UInt16 canID, byte canCount, byte[] canDATA)
         {
             CANID = canID;
             CANCOUNT = canCount;
@@ -31,7 +31,7 @@ namespace Ethereality.DataParserMachine
         Sync = 0x00,
         ByteID0 = 0x01,
         ByteID1 = 0x02,
-        ByteCnt=0x03,
+        ByteCnt = 0x03,
         ByteData0 = 0x04,
         ByteData1 = 0x05,
         ByteData2 = 0x06,
@@ -103,7 +103,7 @@ namespace Ethereality.DataParserMachine
             mpptWord = new MpptModel();
             ParsingService = this;
 
-            CanFrame = new CanFrameModel(0, 0,new byte[8]);
+            CanFrame = new CanFrameModel(0, 0, new byte[8]);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -153,7 +153,7 @@ namespace Ethereality.DataParserMachine
                 byte[] tempArray = new byte[12];
                 ByteQueue.TryPeek(out tmp);
 
-                if ((tmp == 0xFF) )
+                if ((tmp == 0xFF))
                 {
                     IsAvailable = ByteQueue.TryDequeue(out tmp);
                     if (IsAvailable)
@@ -196,12 +196,10 @@ namespace Ethereality.DataParserMachine
                     {
                         CANID = BitConverter.ToUInt16(tempArray, (int)CanBytePosition.ByteID0),
                         CANCOUNT = tempArray[(int)CanBytePosition.ByteCnt],
-                        CANDATA = tempArray.Skip((int)CanBytePosition.ByteCnt+1).ToArray(),
+                        CANDATA = tempArray.Skip((int)CanBytePosition.ByteCnt + 1).ToArray(),
                     };
 
                     ParseCanFrame();
-
-
                 }
                 else
                 {
@@ -209,7 +207,6 @@ namespace Ethereality.DataParserMachine
                     ByteQueue.TryDequeue(out result);
                 }
             }
-            
         }
 
         public void ParseCanFrame()

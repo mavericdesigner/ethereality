@@ -15,7 +15,7 @@
                               Offset="1" />
             </LinearGradientBrush>
         </Grid.Background>
-        
+
         <StackPanel HorizontalAlignment="Center"
                     VerticalAlignment="Center">
             <Button x:Name="GoBackButton"
@@ -26,7 +26,7 @@
                     FontSize="32"
                     Width="150"
                     Height="60" />
-        
+
             <TextBlock x:Name="DisplayText"
                        TextWrapping="Wrap"
                        FontFamily="Segoe UI"

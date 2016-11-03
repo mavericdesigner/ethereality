@@ -96,16 +96,65 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BatteryPage.xaml.cs">
+      <DependentUpon>BatteryPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MotorControllerControls\15VRailMeasurement.xaml.cs">
+      <DependentUpon>15VRailMeasurement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MotorControllerControls\3v3and1v9RailMeasurement.xaml.cs">
+      <DependentUpon>3v3and1v9RailMeasurement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MotorControllerControls\BusMeasurement.xaml.cs">
+      <DependentUpon>BusMeasurement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MotorControllerControls\IdentificationInformation.xaml.cs">
+      <DependentUpon>IdentificationInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MotorControllerControls\IpmPhaseATemperatureMeasure.xaml.cs">
+      <DependentUpon>IpmPhaseATemperatureMeasure.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MotorControllerControls\IpmPhaseBDspBoardTemperature.xaml.cs">
+      <DependentUpon>IpmPhaseBDspBoardTemperature.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MotorControllerControls\IPMPhaseCandMotorTemperatureMeasure.xaml.cs">
+      <DependentUpon>IPMPhaseCandMotorTemperatureMeasure.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MotorControllerControls\MotorBackEMFMeasurement.xaml.cs">
+      <DependentUpon>MotorBackEMFMeasurement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MotorControllerControls\MotorCurrentVectorMeasurement.xaml.cs">
+      <DependentUpon>MotorCurrentVectorMeasurement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MotorControllerControls\MotorVoltageVectorMeasurement.xaml.cs">
+      <DependentUpon>MotorVoltageVectorMeasurement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MotorControllerControls\OdometerAndBusAmphourMeasurement.xaml.cs">
+      <DependentUpon>OdometerAndBusAmphourMeasurement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MotorControllerControls\PhaseCurrentMeasurement.xaml.cs">
+      <DependentUpon>PhaseCurrentMeasurement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MotorControllerControls\SlipSpeedMeasurement.xaml.cs">
+      <DependentUpon>SlipSpeedMeasurement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MotorControllerControls\StatusInformation.xaml.cs">
+      <DependentUpon>StatusInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MotorControllerControls\VelocityMeasurement.xaml.cs">
+      <DependentUpon>VelocityMeasurement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MotorPage.xaml.cs">
+      <DependentUpon>MotorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecondPage.xaml.cs">
       <DependentUpon>SecondPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Motor\MotorUserControl.xaml.cs">
-      <DependentUpon>MotorUserControl.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModelLocator.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -128,15 +177,79 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="BatteryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="SecondPage.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="MotorControllerControls\15VRailMeasurement.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Motor\MotorUserControl.xaml">
+    <Page Include="MotorControllerControls\3v3and1v9RailMeasurement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MotorControllerControls\BusMeasurement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MotorControllerControls\IdentificationInformation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MotorControllerControls\IpmPhaseATemperatureMeasure.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MotorControllerControls\IpmPhaseBDspBoardTemperature.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MotorControllerControls\IPMPhaseCandMotorTemperatureMeasure.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MotorControllerControls\MotorBackEMFMeasurement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MotorControllerControls\MotorCurrentVectorMeasurement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MotorControllerControls\MotorVoltageVectorMeasurement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MotorControllerControls\OdometerAndBusAmphourMeasurement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MotorControllerControls\PhaseCurrentMeasurement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MotorControllerControls\SlipSpeedMeasurement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MotorControllerControls\StatusInformation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MotorControllerControls\VelocityMeasurement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MotorPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SecondPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -145,11 +258,18 @@
     <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
       <Name>BehaviorsXamlSDKManaged</Name>
     </SDKReference>
+    <SDKReference Include="Syncfusion Controls for UWP XAML, Version=14.2.0.28">
+      <Name>Syncfusion Controls for UWP XAML</Name>
+    </SDKReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ethereality.CustomControls\Ethereality.CustomControls.csproj">
-      <Project>{fbc62de3-eae3-4958-b222-e9a00594d2c1}</Project>
-      <Name>Ethereality.CustomControls</Name>
+    <ProjectReference Include="..\Ethereality.DataManagement\Ethereality.DataManagement.csproj">
+      <Project>{0E73E64C-A0F9-451F-9898-F7DAD288B707}</Project>
+      <Name>Ethereality.DataManagement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ethereality.UserControls\Ethereality.UserControls.csproj">
+      <Project>{dc315f13-7b9a-4aca-bdde-01746a736ac3}</Project>
+      <Name>Ethereality.UserControls</Name>
     </ProjectReference>
     <ProjectReference Include="..\Ethereality.ViewModels\Ethereality.ViewModels.csproj">
       <Project>{748b59d2-6d54-422a-84e0-36c0945ce146}</Project>

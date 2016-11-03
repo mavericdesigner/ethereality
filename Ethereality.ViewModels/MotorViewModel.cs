@@ -17,7 +17,7 @@ namespace Ethereality.ViewModels
         /// </summary>
         public const string MotorTelemetryPropertyName = "MotorTelemetry";
 
-        private MotorModel _motorTelemetry = new MotorModel();
+        private MotorModel _motorTelemetry;
 
         /// <summary>
         /// Sets and gets the MotorTelemetry property.
@@ -60,7 +60,7 @@ namespace Ethereality.ViewModels
             {
                 var item = await _dataService.GetData();
                 var telemetry = await _dataManager.GetTelemetryData();
-                MotorTelemetry = (MotorModel)telemetry.MotorWord;
+                MotorTelemetry =telemetry.MotorWord;
             }
             catch (Exception ex)
             {

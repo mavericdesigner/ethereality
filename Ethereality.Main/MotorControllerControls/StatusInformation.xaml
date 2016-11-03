@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="Ethereality.Main.MotorControllerControls.StatusInformation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:usercontrol="using:Ethereality.UserControls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            
+             d:DesignHeight="115"
+             d:DesignWidth="880"
+             mc:Ignorable="d"
+              DataContext="{Binding MotorView, Source={StaticResource Locator}}">
+
+    <Grid>
+        <VariableSizedWrapGrid  >
+            <TextBlock FontSize="20"
+					FontWeight="Bold"
+					Text="Error Flags"
+					TextWrapping="Wrap" />
+            <usercontrol:StatusLampControl Width="Auto"
+					Height="Auto"
+					ErrorMessage="Hardware Over Current"
+					 />
+            <usercontrol:StatusLampControl Width="Auto"
+					Height="Auto"
+					ErrorMessage="Software Over Current"
+					/>
+            <usercontrol:StatusLampControl Width="Auto"
+					Height="Auto"
+					ErrorMessage="DC Bus Over Voltage"
+				/>
+            <usercontrol:StatusLampControl Width="Auto"
+					Height="Auto"
+					ErrorMessage="Bad Motor Position Hall Sequence"
+				 />
+            <usercontrol:StatusLampControl Width="Auto"
+					Height="Auto"
+					ErrorMessage="Watch Dog Caused Last Reset"
+					 />
+            <usercontrol:StatusLampControl Width="Auto"
+					Height="Auto"
+					ErrorMessage="Configuration Read Error"
+				/>
+            <usercontrol:StatusLampControl Width="Auto"
+					Height="Auto"
+					ErrorMessage="15V Rail Under Voltage Lock Out"
+				/>
+            <usercontrol:StatusLampControl Width="Auto"
+					Height="Auto"
+					ErrorMessage="Desaturation Fault"
+					/>
+            <TextBlock FontSize="20"
+					FontWeight="Bold"
+					Text="Limit Flags"
+					TextWrapping="Wrap" />
+            <usercontrol:StatusLampControl Width="Auto"
+					Height="Auto"
+					ErrorMessage="Output Voltage Pwm"
+				/>
+            <usercontrol:StatusLampControl Width="Auto"
+					Height="Auto"
+					ErrorMessage="Motor Current"
+				 />
+            <usercontrol:StatusLampControl Width="Auto"
+					Height="Auto"
+					ErrorMessage="Velocity"
+					/>
+            <usercontrol:StatusLampControl Width="Auto"
+					Height="Auto"
+					ErrorMessage="Bus Current"
+					/>
+            <usercontrol:StatusLampControl Width="Auto"
+					Height="Auto"
+					ErrorMessage="Bus Voltage Upper Limit"
+				 />
+            <usercontrol:StatusLampControl Width="Auto"
+					Height="Auto"
+					ErrorMessage="Bus Voltage Lower Limit"
+					 />
+            <usercontrol:StatusLampControl Width="Auto"
+					Height="Auto"
+					ErrorMessage="IPM Temperrature or Motor Temperature"
+				 />
+            <usercontrol:StatusLampControl Width="Auto"
+					Height="Auto"
+					ErrorMessage="Reserved" />
+        </VariableSizedWrapGrid>
+    </Grid>
+</UserControl>

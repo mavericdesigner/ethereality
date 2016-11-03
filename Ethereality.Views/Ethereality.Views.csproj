@@ -4,15 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{934C445A-A0E4-4B86-A3DB-D5568A5D3013}</ProjectGuid>
+    <ProjectGuid>{F9C8BE6E-C85C-48FC-B8DC-884288F9BE9F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Ethereality.Views</RootNamespace>
     <AssemblyName>Ethereality.Views</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -107,29 +107,24 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Ethereality.Views.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <SDKReference Include="Syncfusion Controls for UWP XAML, Version=14.1.0.41">
-      <Name>Syncfusion Controls for UWP XAML</Name>
-    </SDKReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Ethereality.CustomControls\Ethereality.CustomControls.csproj">
-      <Project>{fbc62de3-eae3-4958-b222-e9a00594d2c1}</Project>
-      <Name>Ethereality.CustomControls</Name>
+    <ProjectReference Include="..\Ethereality.DataManagement\Ethereality.DataManagement.csproj">
+      <Project>{0e73e64c-a0f9-451f-9898-f7dad288b707}</Project>
+      <Name>Ethereality.DataManagement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ethereality.ViewModels\Ethereality.ViewModels.csproj">
+      <Project>{748b59d2-6d54-422a-84e0-36c0945ce146}</Project>
+      <Name>Ethereality.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="BatteryView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="SolarArrayView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <SDKReference Include="Syncfusion Controls for UWP XAML, Version=14.2.0.28">
+      <Name>Syncfusion Controls for UWP XAML</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

@@ -1,0 +1,56 @@
+﻿<UserControl
+    x:Class="Ethereality.UserControls.CMUUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ethereality.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Height="330" Width="180">
+
+    <Grid>
+        <TextBlock x:Name="NameCMU"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Text="CMU"
+                   FontSize="16" Margin="10,10,0,0" />
+        <TextBlock Margin="10,262,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Text="PCB Temp" />
+        <TextBlock Margin="10,283,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Text="Cell Temp" />
+        <TextBlock x:Name="UICellTemp"
+                       Margin="90,283,0,6"
+                       Text="23.0"
+                       TextAlignment="Right"
+                       TextWrapping="Wrap" HorizontalAlignment="Left" Width="28" />
+        <TextBlock x:Name="UIPCBTemp"
+                       Margin="90,262,0,27"
+                       Text="23.0"
+                       TextAlignment="Right"
+                       TextWrapping="Wrap" HorizontalAlignment="Left" Width="28" />
+        <TextBlock Margin="137,283,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Text="℃" />
+        <TextBlock Margin="137,262,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Text="℃" />
+        <local:CellLevelBar x:Name="CellBar0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,62,0,0" />
+        <local:CellLevelBar x:Name="CellBar1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,87,0,0" />
+        <local:CellLevelBar x:Name="CellBar2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,112,0,0" />
+        <local:CellLevelBar x:Name="CellBar3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,137,0,0" />
+        <local:CellLevelBar x:Name="CellBar4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,162,0,0" />
+        <local:CellLevelBar x:Name="CellBar5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,187,0,0" />
+        <local:CellLevelBar x:Name="CellBar6" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,212,0,0" />
+        <local:CellLevelBar x:Name="CellBar7" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,237,0,0" />
+        <TextBlock x:Name="CmuSerialNumber"
+            	HorizontalAlignment="Left"
+            	VerticalAlignment="Top"
+            	Text="CmuSerial"
+            	FontSize="16" Margin="10,36,0,0" />
+    </Grid>
+</UserControl>

@@ -25,6 +25,8 @@ namespace Ethereality.ViewModels
         private int _counter;
         private RelayCommand _incrementCommand;
         private RelayCommand<string> _navigateCommand;
+        private RelayCommand<string> _navigateToMotorCommand;
+        private RelayCommand<string> _navigateToBatteryCommand;
         private string _originalTitle;
         private bool _runClock;
         private RelayCommand _sendMessageCommand;
@@ -155,7 +157,28 @@ namespace Ethereality.ViewModels
             {
                 return _navigateCommand
                        ?? (_navigateCommand = new RelayCommand<string>(
-                           p => _navigationService.NavigateTo(ViewModelLocator.SecondPageKey, p),
+                           p => _navigationService.NavigateTo("SecondPage", p),
+                           p => !string.IsNullOrEmpty(p)));
+            }
+        }
+
+        public RelayCommand<string> NavigateToMotorCommand
+        {
+            get
+            {
+                return _navigateToMotorCommand
+                       ?? (_navigateToMotorCommand = new RelayCommand<string>(
+                           p => _navigationService.NavigateTo("MotorPage", p),
+                           p => !string.IsNullOrEmpty(p)));
+            }
+        }
+        public RelayCommand<string> NavigateToBatteryCommand
+        {
+            get
+            {
+                return _navigateCommand
+                       ?? (_navigateCommand = new RelayCommand<string>(
+                           p => _navigationService.NavigateTo("BatteryPage", p),
                            p => !string.IsNullOrEmpty(p)));
             }
         }
