@@ -317,13 +317,7 @@
         }
       },
       "Network/3.0.0.1": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System",
-          "System.Core",
-          "System.Data",
-          "System.Data.DataSetExtensions"
-        ]
+        "type": "package"
       },
       "runtime.native.System.IO.Compression/4.1.0": {
         "type": "package",
@@ -2445,13 +2439,7 @@
         }
       },
       "Network/3.0.0.1": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System",
-          "System.Core",
-          "System.Data",
-          "System.Data.DataSetExtensions"
-        ]
+        "type": "package"
       },
       "runtime.any.System.Collections/4.0.11": {
         "type": "package",
@@ -4734,13 +4722,7 @@
         }
       },
       "Network/3.0.0.1": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System",
-          "System.Core",
-          "System.Data",
-          "System.Data.DataSetExtensions"
-        ]
+        "type": "package"
       },
       "runtime.aot.System.Collections/4.0.10": {
         "type": "package",
@@ -7063,13 +7045,7 @@
         }
       },
       "Network/3.0.0.1": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System",
-          "System.Core",
-          "System.Data",
-          "System.Data.DataSetExtensions"
-        ]
+        "type": "package"
       },
       "runtime.any.System.Collections/4.0.11": {
         "type": "package",
@@ -9361,13 +9337,7 @@
         }
       },
       "Network/3.0.0.1": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System",
-          "System.Core",
-          "System.Data",
-          "System.Data.DataSetExtensions"
-        ]
+        "type": "package"
       },
       "runtime.aot.System.Collections/4.0.10": {
         "type": "package",
@@ -11696,13 +11666,7 @@
         }
       },
       "Network/3.0.0.1": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System",
-          "System.Core",
-          "System.Data",
-          "System.Data.DataSetExtensions"
-        ]
+        "type": "package"
       },
       "runtime.any.System.Collections/4.0.11": {
         "type": "package",
@@ -13994,13 +13958,7 @@
         }
       },
       "Network/3.0.0.1": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System",
-          "System.Core",
-          "System.Data",
-          "System.Data.DataSetExtensions"
-        ]
+        "type": "package"
       },
       "runtime.aot.System.Collections/4.0.10": {
         "type": "package",
@@ -22213,5 +22171,7 @@
       "Network >= 3.0.0.1"
     ],
     "UAP,Version=v10.0": []
-  }
+  },
+  "tools": {},
+  "projectFileToolGroups": {}
 }
